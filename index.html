@@ -1,4 +1,5 @@
-<!-- build:1774427289-v7fix4 -->
+<!-- build:1774443747-v8 -->
+<!-- ob4:1774427289-v7fix4 -->
 <!-- ob3:1774427207-v7fix3 -->
 <!-- ob2:1774427198-v7fix2 -->
 <!-- ob:1774427187-v7fix -->
@@ -995,11 +996,28 @@ function saveSubs(){localStorage.setItem(SUBS_KEY,document.getElementById('subs-
 
 function renderModels(){
   var models=getModels();
-  var el=document.getElementById('models-list');
-  if(!models.length){el.innerHTML='<div style="color:#333;font-size:14px;">Aucun modele — ajoutes-en un</div>';return;}
+  var el=document.getElementById("models-list");
+  if(!models.length){el.innerHTML="<div style=\"color:#333;font-size:14px;\">Aucun modele</div>";return;}
+  var analyses=getAnalyses();
+  var latest=analyses.length?analyses[0]:null;
+  var lRev=latest?extractRevFromAnalysis(latest.result):0;
+  var lUnlock=latest?extractUnlockFromAnalysis(latest.result):0;
+  var lCVR=latest?extractCVRFromAnalysis(latest.result):0;
+  var lIA=latest?extractIARevFromAnalysis(latest.result):0;
+  var lDate=latest?latest.date:"—";
   el.innerHTML=models.map(function(m,i){
-    return '<div class="model-card"><div class="model-header"><span class="model-name">'+m.name+'</span><div style="display:flex;gap:8px;align-items:center;"><span class="model-badge">'+(m.active?'Actif':'Inactif')+'</span><button onclick="delModel('+i+')" style="background:none;border:none;color:#333;cursor:pointer;font-size:14px;">✕</button></div></div><div class="model-stats"><div class="model-stat"><div class="model-stat-val" style="color:#1D9E75;">$'+parseFloat(m.rev||0).toFixed(0)+'</div><div class="model-stat-label">Revenus/mois</div></div><div class="model-stat"><div class="model-stat-val" style="color:#EF9F27;">'+parseFloat(m.unlock||0).toFixed(1)+'%</div><div class="model-stat-label">Unlock rate</div></div><div class="model-stat"><div class="model-stat-val" style="color:#7c6ff7;">—</div><div class="model-stat-label">CVR</div></div><div class="model-stat"><div class="model-stat-val">—</div><div class="model-stat-label">Abonnes</div></div></div><div class="model-best">Meilleur script : '+( m.script||'—')+'</div></div>';
-  }).join('');
+    var rev=lRev||parseFloat(m.rev||0);
+    var unlock=lUnlock||parseFloat(m.unlock||0);
+    var cvr=lCVR;
+    var ia=lIA;
+    var iaPct=rev>0?((ia/rev)*100).toFixed(1):0;
+    return "<div class=\"model-card\"><div class=\"model-header\"><div><span class=\"model-name\">"+m.name+"</span><div style=\"font-size:11px;color:#444;margin-top:3px;\">Analyse : "+lDate+"</div></div><div style=\"display:flex;gap:8px;\"><span class=\"model-badge\">"+(m.active?"Actif":"Inactif")+"</span><button onclick=\"delModel("+i+")\" style=\"background:none;border:none;color:#333;cursor:pointer;\">x</button></div></div>"
+    +"<div class=\"model-stats\"><div class=\"model-stat\"><div class=\"model-stat-val\" style=\"color:#1D9E75;\">$"+rev.toFixed(0)+"</div><div class=\"model-stat-label\">Revenus</div></div>"
+    +"<div class=\"model-stat\"><div class=\"model-stat-val\" style=\"color:#EF9F27;\">"+unlock.toFixed(1)+"%</div><div class=\"model-stat-label\">Unlock rate</div></div>"
+    +"<div class=\"model-stat\"><div class=\"model-stat-val\" style=\"color:#7c6ff7;\">"+cvr.toFixed(1)+"%</div><div class=\"model-stat-label\">CVR</div></div>"
+    +"<div class=\"model-stat\"><div class=\"model-stat-val\" style=\"color:#1D9E75;\">$"+ia.toFixed(0)+"</div><div class=\"model-stat-label\">Rev IA</div></div></div>"
+    +"<div class=\"model-best\">Meilleur script : <span style=\"color:#EF9F27;\">"+(m.script||"—")+"</span> &nbsp;|&nbsp; IA : <span style=\"color:#7c6ff7;\">"+iaPct+"% des revenus</span></div></div>";
+  }).join("");
 }
 function addModel(){
   var name=document.getElementById('m-name').value.trim();
@@ -1128,28 +1146,29 @@ async function analyseAll(){
 
 function importActionsToTasks(){
   if(!lastAnalysisActions)return;
-  var actionsText=typeof lastAnalysisActions==='string'?lastAnalysisActions:JSON.stringify(lastAnalysisActions);
-  var lines=actionsText.split('\n').filter(function(l){return l.trim().length>8;});
   var todos=getTodos();
-  var date=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
+  var date=new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"short"});
   var added=0;
-  lines.forEach(function(line){
-    var clean=line.replace(/^[\-\•\*\d\.\)\[\]]\s*/,'').trim();
-    clean=clean.replace(/^["']/,'').replace(/["']$/,'');
-    if(clean.length>8&&clean.length<300){
-      var short=clean.length>60?clean.substring(0,57)+'...':clean;
-      todos.push({text:short,note:clean.length>60?clean:'',done:false,p:'ai',source:'IA '+date});
+  var actionsText=typeof lastAnalysisActions==="string"?lastAnalysisActions:JSON.stringify(lastAnalysisActions);
+  var items=[];
+  try{var parsed=JSON.parse(actionsText);if(Array.isArray(parsed))items=parsed;}catch(e){}
+  if(!items.length){
+    items=actionsText.replace(/\n/g,"|||").split("|||").map(function(l){
+      return l.replace(/^[^a-zA-Z0-9$]+/,"").replace(/[",\]\[]+$/,"").trim();
+    }).filter(function(l){return l.length>8;});
+  }
+  items.forEach(function(item){
+    var clean=String(item).replace(/^[^a-zA-Z0-9$]+/,"").replace(/[",\]\[]+$/,"").trim();
+    if(clean.length>8&&clean.length<400){
+      var short=clean.length>65?clean.substring(0,62)+"...":clean;
+      todos.push({text:short,note:clean.length>65?clean:"",done:false,p:"ai",source:"IA "+date});
       added++;
     }
   });
-  if(added===0){
-    var fallback=actionsText.substring(0,80);
-    todos.push({text:fallback,note:actionsText,done:false,p:'ai',source:'IA '+date});
-    added=1;
-  }
+  if(!added){todos.push({text:actionsText.substring(0,65),note:actionsText,done:false,p:"ai",source:"IA "+date});added=1;}
   localStorage.setItem(TODOS_KEY,JSON.stringify(todos));
   renderTodos();
-  alert(added+' taches importees !');
+  alert(added+" taches importees !");
 }
 
 
