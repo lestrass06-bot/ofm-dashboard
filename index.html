@@ -1,4 +1,4 @@
-<!-- build:1774425000-ultimate -->
+<!-- build:1774425506-v5fix -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -790,7 +790,8 @@ function renderObjectifs(){
     var pct=Math.min(100,Math.round((o.current/o.target)*100));
     var status=pct>=100?'achieved':pct>=70?'on-track':'behind';
     var statusLabel={achieved:'Atteint!','on-track':'On track','behind':'En retard'};
-    return '<div class="objectif-card"><div class="objectif-header"><span class="objectif-title">'+o.title+'</span><div style="display:flex;gap:8px;align-items:center;"><span class="objectif-status status-'+status+'">'+statusLabel[status]+'</span><button onclick="delObjectif('+i+')" style="background:none;border:none;color:#333;cursor:pointer;">✕</button></div></div><div class="progress-label"><span>'+o.current+' / '+o.target+'</span><span>'+pct+'%</span></div><div class="progress-bg" style="margin-bottom:10px;"><div class="progress-fill" style="width:'+pct+'%;background:'+(pct>=100?'rgba(239,159,39,0.7)':pct>=70?'rgba(29,158,117,0.7)':'rgba(60,130,255,0.7)');+'"></div></div><div style="font-size:12px;color:#444;">Deadline : '+o.deadline+'</div></div>';
+    var bg=pct>=100?'rgba(239,159,39,0.7)':pct>=70?'rgba(29,158,117,0.7)':'rgba(60,130,255,0.7)';
+    return '<div class="objectif-card"><div class="objectif-header"><span class="objectif-title">'+o.title+'</span><div style="display:flex;gap:8px;align-items:center;"><span class="objectif-status status-'+status+'">'+statusLabel[status]+'</span><button onclick="delObjectif('+i+')" style="background:none;border:none;color:#333;cursor:pointer;">x</button></div></div><div class="progress-label"><span>'+o.current+' / '+o.target+'</span><span>'+pct+'%</span></div><div class="progress-bg" style="margin-bottom:10px;"><div class="progress-fill" style="width:'+pct+'%;background:'+bg+'"></div></div><div style="font-size:12px;color:#444;">Deadline : '+o.deadline+'</div></div>';
   }).join('');
 }
 function addObjectif(){
@@ -888,6 +889,7 @@ async function analyseAll(){
     ['score','revenus','chatting','ia','actions'].forEach(function(s){document.getElementById('section-'+s).style.display=result[s]?'block':'none';});
     document.getElementById('analyse-sections').style.display='block';
     saveAnalyse(result);renderHistory();
+    updateStatsFromAnalysis(result);
   }catch(e){
     document.getElementById('content-actions').textContent='Erreur: '+e.message+'\nVerifie ta cle API dans Parametres.';
     document.getElementById('section-actions').style.display='block';
@@ -909,6 +911,38 @@ function importActionsToTasks(){
   localStorage.setItem(TODOS_KEY,JSON.stringify(todos));
   renderTodos();
   alert(lines.length+' taches importees !');
+}
+
+
+function updateStatsFromAnalysis(result){
+  if(!result)return;
+  var text=(result.revenus||'')+(result.chatting||'');
+  // Extract total revenue
+  var revMatch=text.match(/\\$([0-9][0-9,]+(?:\.[0-9]+)?)/g);
+  if(revMatch&&revMatch.length>0){
+    var amounts=revMatch.map(function(m){return parseFloat(m.replace(/[\$,]/g,''));}).filter(function(v){return v>100&&v<50000;});
+    if(amounts.length>0){
+      var maxRev=Math.max.apply(null,amounts);
+      // Update model revenue
+      var models=getModels();
+      if(models.length>0){
+        models[0].rev=maxRev;
+        localStorage.setItem(MODELS_KEY,JSON.stringify(models));
+      }
+    }
+  }
+  // Extract unlock rate
+  var unlockMatch=text.match(/([0-9]+(?:\.[0-9]+)?)\s*%.*?unlock/i)||text.match(/unlock.*?([0-9]+(?:\.[0-9]+)?)\s*%/i);
+  if(unlockMatch){
+    var models2=getModels();
+    if(models2.length>0){models2[0].unlock=parseFloat(unlockMatch[1]);localStorage.setItem(MODELS_KEY,JSON.stringify(models2));}
+  }
+  // Extract best script
+  var scriptMatch=(result.ia||'').match(/(?:meilleur|best).*?script.*?:?\s*([A-Z][A-Z\s]+)/i);
+  if(scriptMatch){
+    var models3=getModels();
+    if(models3.length>0){models3[0].script=scriptMatch[1].trim();localStorage.setItem(MODELS_KEY,JSON.stringify(models3));}
+  }
 }
 
 function saveAnalyse(result){
