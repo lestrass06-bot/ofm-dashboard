@@ -1,4 +1,6 @@
-<!-- build:1774425506-v5fix -->
+<!-- build:1774426078 -->
+<!-- oldbuild2:1774426057-v5fix2 -->
+<!-- oldbuild:1774425506-v5fix -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -634,7 +636,8 @@ function goTo(page){
 function renderAll(){renderTodos();renderHome();renderHistory();}
 
 function pad(n){return String(n).padStart(2,'0');}
-function startClocks(){tickClocks();setInterval(tickClocks,1000);}
+var clockInterval=null;
+function startClocks(){if(clockInterval)clearInterval(clockInterval);tickClocks();clockInterval=setInterval(tickClocks,1000);}
 function tickClocks(){
   var days=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
   var months=['jan','fev','mar','avr','mai','jun','jul','aou','sep','oct','nov','dec'];
@@ -685,7 +688,7 @@ function renderHome(){
   document.getElementById('countdown-remain').textContent='$'+remain.toFixed(0);
   document.getElementById('countdown-daily').textContent='~$'+dailyNeeded.toFixed(0)+'/jour';
   document.getElementById('chart-period-label').textContent=labels[currentPeriod];
-  setTimeout(function(){initChart();},100);
+  setTimeout(function(){try{initChart();}catch(e){console.log("chart err",e);}},100);
 }
 
 function initChart(){
@@ -901,7 +904,8 @@ async function analyseAll(){
 
 function importActionsToTasks(){
   if(!lastAnalysisActions)return;
-  var lines=lastAnalysisActions.split('\n').filter(function(l){return l.trim().length>10;});
+  var actionsText=typeof lastAnalysisActions==='string'?lastAnalysisActions:JSON.stringify(lastAnalysisActions);
+  var lines=actionsText.split('\n').filter(function(l){return l.trim().length>10;});
   var todos=getTodos();
   var date=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
   lines.forEach(function(line){
@@ -958,7 +962,8 @@ function renderHistory(){
   if(!el)return;
   if(!analyses.length){el.innerHTML='<div style="color:#333;font-size:13px;">Aucune analyse</div>';return;}
   el.innerHTML=analyses.map(function(a,i){
-    return '<div class="week-item" onclick="showAnalyse('+i+')"><div class="week-item-header"><span class="week-item-date">'+a.date+'</span><span class="week-item-score">'+(a.result&&a.result.score?a.result.score+'/10':'—')+'</span></div><div class="week-item-preview">'+(a.result&&a.result.actions?a.result.actions.substring(0,80):'')+'...</div></div>';
+    var preview=a.result&&a.result.actions?(typeof a.result.actions==='string'?a.result.actions:JSON.stringify(a.result.actions)):'';
+    return '<div class="week-item" onclick="showAnalyse('+i+')"><div class="week-item-header"><span class="week-item-date">'+a.date+'</span><span class="week-item-score">'+(a.result&&a.result.score?a.result.score+'/10':'—')+'</span></div><div class="week-item-preview">'+preview.substring(0,80)+'...</div></div>';
   }).join('');
 }
 function showAnalyse(i){
