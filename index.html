@@ -1,4 +1,5 @@
-<!-- build:1774443747-v8 -->
+<!-- build:1774467041-v9 -->
+<!-- ob5:1774443747-v8 -->
 <!-- ob4:1774427289-v7fix4 -->
 <!-- ob3:1774427207-v7fix3 -->
 <!-- ob2:1774427198-v7fix2 -->
@@ -854,7 +855,7 @@ function initChart(){
   chartInstance=new Chart(ctx,{
     type:'line',
     data:{labels:days,datasets:[{label:'Revenus',data:amounts,borderColor:'rgba(60,130,255,0.7)',backgroundColor:function(ctx2){var g=ctx2.chart.ctx.createLinearGradient(0,0,0,180);g.addColorStop(0,'rgba(60,130,255,0.12)');g.addColorStop(1,'rgba(60,130,255,0)');return g;},borderWidth:1.5,pointRadius:0,pointHoverRadius:4,tension:0.4,fill:true}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(8,11,16,0.95)',borderColor:'rgba(60,130,255,0.3)',borderWidth:1,titleColor:'#555',bodyColor:'#fff',callbacks:{label:function(ctx3){return '$'+ctx3.parsed.y.toFixed(2);}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10},maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10},callback:function(v){return '$'+v;}}}}}
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{enabled:true,mode:'index',intersect:false,backgroundColor:'rgba(8,11,16,0.95)',borderColor:'rgba(60,130,255,0.5)',borderWidth:1,titleColor:'rgba(120,180,255,0.9)',titleFont:{size:12},bodyColor:'#fff',bodyFont:{size:13},padding:10,displayColors:false,callbacks:{title:function(items){return items[0].label;},label:function(ctx3){return '$'+ctx3.parsed.y.toFixed(2);}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10},maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10},callback:function(v){return '$'+v;}}}}}
   });
 }
 
