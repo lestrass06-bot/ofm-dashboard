@@ -1,4 +1,6 @@
-<!-- build:1774426078 -->
+<!-- build:1774426612-v6 -->
+<!-- oldbuild4:1774426406-v5fix3 -->
+<!-- oldbuild3:1774426078 -->
 <!-- oldbuild2:1774426057-v5fix2 -->
 <!-- oldbuild:1774425506-v5fix -->
 <!DOCTYPE html>
@@ -231,6 +233,21 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
 .modal-btns{display:flex;gap:8px;margin-top:4px;}
 .btn-cancel{flex:1;padding:9px;background:transparent;border:0.5px solid #333;border-radius:8px;color:#666;cursor:pointer;font-size:14px;}
 .btn-confirm{flex:1;padding:9px;background:rgba(60,130,255,0.2);border:var(--neon-border);border-radius:8px;color:#fff;cursor:pointer;font-size:14px;font-weight:500;}
+
+.api-key-row{display:flex;align-items:flex-start;justify-content:space-between;padding:16px 0;border-bottom:0.5px solid rgba(255,255,255,0.04);gap:20px;}
+.api-key-info{flex-shrink:0;width:160px;}
+.api-key-name{font-size:14px;color:#fff;font-weight:500;margin-bottom:3px;}
+.api-key-desc{font-size:12px;color:#444;}
+.api-key-inputs{flex:1;}
+.api-key-actions{display:flex;align-items:center;gap:10px;margin-top:8px;}
+.api-status{font-size:12px;}
+.api-status.ok{color:#1D9E75;}
+.api-status.error{color:#e24b4a;}
+.api-status-card{background:#060a10;border-radius:10px;padding:12px;border:var(--neon-border);display:flex;align-items:center;gap:10px;}
+.api-dot{width:8px;height:8px;border-radius:50%;background:#333;flex-shrink:0;}
+.api-dot.active{background:#1D9E75;box-shadow:0 0 6px rgba(29,158,117,0.5);}
+.api-sc-name{font-size:13px;color:#fff;font-weight:500;}
+.api-sc-info{font-size:11px;color:#444;margin-top:2px;}
 </style>
 </head>
 <body>
@@ -262,6 +279,7 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
         <div class="nav-item" id="nav-veille" onclick="goTo('veille')"><span class="nav-icon">📱</span><span class="nav-label">Veille Insta</span></div>
         <div class="nav-item" id="nav-agents" onclick="goTo('agents')"><span class="nav-icon">🤖</span><span class="nav-label">Agents IA</span></div>
         <div class="nav-item" id="nav-newsletter" onclick="goTo('newsletter')"><span class="nav-icon">📰</span><span class="nav-label">News IA & OFM</span></div>
+        <div class="nav-item" id="nav-apikeys" onclick="goTo('apikeys')"><span class="nav-icon">🔑</span><span class="nav-label">Cles API</span></div>
         <div class="nav-item" id="nav-parametres" onclick="goTo('parametres')"><span class="nav-icon">⚙️</span><span class="nav-label">Parametres</span></div>
       </div>
       <div class="sidebar-footer">
@@ -494,6 +512,80 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
         </div>
       </div>
 
+      <div class="page" id="page-apikeys">
+        <div class="page-title">Cles API</div>
+        <div class="card" style="margin-bottom:16px;">
+          <div class="section-title">Toutes tes cles API</div>
+          <p style="font-size:13px;color:#444;margin-bottom:16px;">Stockees localement dans ton navigateur. Jamais envoyees sur un serveur.</p>
+
+          <div class="api-key-row">
+            <div class="api-key-info">
+              <div class="api-key-name">Anthropic Claude</div>
+              <div class="api-key-desc">Agents IA, analyses, news</div>
+            </div>
+            <div class="api-key-inputs">
+              <input type="password" id="key-anthropic" class="param-input" placeholder="sk-ant-..." style="width:100%;"/>
+              <div class="api-key-actions">
+                <button onclick="saveApiKey('anthropic','key-anthropic')" class="save-btn" style="font-size:12px;padding:5px 12px;">Sauvegarder</button>
+                <span id="status-anthropic" class="api-status"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-key-row">
+            <div class="api-key-info">
+              <div class="api-key-name">OpenAI (backup)</div>
+              <div class="api-key-desc">Backup si quota Anthropic atteint</div>
+            </div>
+            <div class="api-key-inputs">
+              <input type="password" id="key-openai" class="param-input" placeholder="sk-..." style="width:100%;"/>
+              <div class="api-key-actions">
+                <button onclick="saveApiKey('openai','key-openai')" class="save-btn" style="font-size:12px;padding:5px 12px;">Sauvegarder</button>
+                <span id="status-openai" class="api-status"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-key-row">
+            <div class="api-key-info">
+              <div class="api-key-name">Telegram Bot</div>
+              <div class="api-key-desc">Rappels hebdo automatiques</div>
+            </div>
+            <div class="api-key-inputs">
+              <input type="password" id="key-telegram" class="param-input" placeholder="123456:ABC-DEF..." style="width:100%;"/>
+              <div class="api-key-actions">
+                <button onclick="saveApiKey('telegram','key-telegram')" class="save-btn" style="font-size:12px;padding:5px 12px;">Sauvegarder</button>
+                <span id="status-telegram" class="api-status"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-key-row" style="border-bottom:none;">
+            <div class="api-key-info">
+              <div class="api-key-name">Apify (veille IG)</div>
+              <div class="api-key-desc">Scraping Instagram automatique</div>
+            </div>
+            <div class="api-key-inputs">
+              <input type="password" id="key-apify" class="param-input" placeholder="apify_api_..." style="width:100%;"/>
+              <div class="api-key-actions">
+                <button onclick="saveApiKey('apify','key-apify')" class="save-btn" style="font-size:12px;padding:5px 12px;">Sauvegarder</button>
+                <span id="status-apify" class="api-status"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">Statut des connexions</div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;" id="api-status-grid">
+            <div class="api-status-card" id="sc-anthropic"><div class="api-dot" id="dot-anthropic"></div><div><div class="api-sc-name">Anthropic</div><div class="api-sc-info" id="info-anthropic">Non configure</div></div></div>
+            <div class="api-status-card" id="sc-openai"><div class="api-dot" id="dot-openai"></div><div><div class="api-sc-name">OpenAI</div><div class="api-sc-info" id="info-openai">Non configure</div></div></div>
+            <div class="api-status-card" id="sc-telegram"><div class="api-dot" id="dot-telegram"></div><div><div class="api-sc-name">Telegram</div><div class="api-sc-info" id="info-telegram">Non configure</div></div></div>
+            <div class="api-status-card" id="sc-apify"><div class="api-dot" id="dot-apify"></div><div><div class="api-sc-name">Apify</div><div class="api-sc-info" id="info-apify">Non configure</div></div></div>
+          </div>
+        </div>
+      </div>
+
       <!-- PARAMETRES -->
       <div class="page" id="page-parametres">
         <div class="page-title">Parametres</div>
@@ -580,7 +672,7 @@ var lastAnalysisActions=null;
 var chartInstance=null;
 
 function getPwd(){return localStorage.getItem(PWD_KEY)||'ofm2026';}
-function getApiKey(){return localStorage.getItem('ofm_api_key')||'';}
+function getApiKey(){return localStorage.getItem('ofm_api_key')||localStorage.getItem('ofm_api_anthropic')||'';}
 function getTodos(){try{return JSON.parse(localStorage.getItem(TODOS_KEY))||defTodos();}catch(e){return defTodos();}}
 function getRevs(){try{return JSON.parse(localStorage.getItem(REV_KEY))||[];}catch(e){return[];}}
 function getVeille(){try{return JSON.parse(localStorage.getItem(VEILLE_KEY))||[];}catch(e){return[];}}
@@ -629,6 +721,7 @@ function goTo(page){
   if(page==='revenus')renderRevs();
   if(page==='veille')renderVeille();
   if(page==='parametres')loadParams();
+  if(page==='apikeys')loadApiKeys();
   if(page==='modeles')renderModels();
   if(page==='objectifs')renderObjectifs();
 }
@@ -723,9 +816,18 @@ function renderTodos(){
   var todos=getTodos();
   var pl={high:'urgent',mid:'moyen',low:'low',ai:'IA'};
   var html=todos.length?todos.map(function(t,i){
-    return '<div class="todo-item"><div class="checkbox '+(t.done?'done':'')+'" onclick="toggleTodo('+i+')">'+(t.done?'✓':'')+'</div><span class="todo-text '+(t.done?'done':'')+'" onclick="toggleTodo('+i+')">'+t.text+'</span>'+(t.source?'<span class="todo-source">'+t.source+'</span>':'')+'<span class="priority p-'+(t.p||'mid')+'">'+pl[t.p||'mid']+'</span><button class="todo-del" onclick="delTodo('+i+')">✕</button></div>';
+    var expandBtn=t.note?'<button onclick="expandTodo('+i+')" style="background:none;border:0.5px solid rgba(60,130,255,0.3);color:rgba(60,130,255,0.7);cursor:pointer;font-size:10px;padding:1px 6px;border-radius:4px;flex-shrink:0;">+</button>':'';
+    var noteEl=t.note&&t.expanded?'<div style="font-size:12px;color:#555;padding:6px 0 4px 28px;line-height:1.6;">'+t.note+'</div>':'';
+    return '<div class="todo-item" style="flex-wrap:wrap;"><div class="checkbox '+(t.done?'done':'')+'" onclick="toggleTodo('+i+')">'+(t.done?'✓':'')+'</div><span class="todo-text '+(t.done?'done':'')+'" onclick="toggleTodo('+i+')" style="flex:1;">'+t.text+'</span>'+(t.source?'<span class="todo-source">'+t.source+'</span>':'')+expandBtn+'<span class="priority p-'+(t.p||'mid')+'">'+pl[t.p||'mid']+'</span><button class="todo-del" onclick="delTodo('+i+')">✕</button>'+noteEl+'</div>';
   }).join(''):'<div style="color:#333;font-size:14px;padding:8px 0;">Aucune tache</div>';
   document.getElementById('todos-list').innerHTML=html;
+}
+
+function expandTodo(i){
+  var t=getTodos();
+  t[i].expanded=!t[i].expanded;
+  localStorage.setItem(TODOS_KEY,JSON.stringify(t));
+  renderTodos();
 }
 
 function toggleTodo(i){var t=getTodos();t[i].done=!t[i].done;localStorage.setItem(TODOS_KEY,JSON.stringify(t));renderTodos();}
@@ -905,16 +1007,27 @@ async function analyseAll(){
 function importActionsToTasks(){
   if(!lastAnalysisActions)return;
   var actionsText=typeof lastAnalysisActions==='string'?lastAnalysisActions:JSON.stringify(lastAnalysisActions);
-  var lines=actionsText.split('\n').filter(function(l){return l.trim().length>10;});
+  var lines=actionsText.split('\n').filter(function(l){return l.trim().length>8;});
   var todos=getTodos();
   var date=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
+  var added=0;
   lines.forEach(function(line){
-    var clean=line.replace(/^[\-\•\*\d\.\)]\s*/,'').trim();
-    if(clean.length>5){todos.push({text:clean,done:false,p:'ai',source:'Analyse '+date});}
+    var clean=line.replace(/^[\-\•\*\d\.\)\[\]]\s*/,'').trim();
+    clean=clean.replace(/^["']/,'').replace(/["']$/,'');
+    if(clean.length>8&&clean.length<300){
+      var short=clean.length>60?clean.substring(0,57)+'...':clean;
+      todos.push({text:short,note:clean.length>60?clean:'',done:false,p:'ai',source:'IA '+date});
+      added++;
+    }
   });
+  if(added===0){
+    var fallback=actionsText.substring(0,80);
+    todos.push({text:fallback,note:actionsText,done:false,p:'ai',source:'IA '+date});
+    added=1;
+  }
   localStorage.setItem(TODOS_KEY,JSON.stringify(todos));
   renderTodos();
-  alert(lines.length+' taches importees !');
+  alert(added+' taches importees !');
 }
 
 
@@ -1010,6 +1123,42 @@ async function loadNews(){
     var dc={IA:'#7c6ff7',OFM:'#1D9E75',Instagram:'#EF9F27',Outil:'#7c6ff7'};
     el.innerHTML=news.map(function(n){return '<div class="news-item"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:2px;"><div class="news-dot" style="background:'+(dc[n.category]||'#7c6ff7')+';"></div><span class="news-cat '+(cc[n.category]||'cat-ia')+'">'+n.category+'</span></div><div><div class="news-title">'+n.title+'</div><div class="news-desc">'+n.summary+'</div><div class="news-date">'+(n.date||today)+'</div></div></div>';}).join('');
   }catch(e){el.innerHTML='<div style="color:#444;font-size:14px;">Erreur: '+e.message+'</div>';}
+}
+
+
+function loadApiKeys(){
+  var keys=['anthropic','openai','telegram','apify'];
+  keys.forEach(function(k){
+    var val=localStorage.getItem('ofm_api_'+k)||'';
+    var input=document.getElementById('key-'+k);
+    if(input)input.value=val?'••••••••••••':'';
+    updateApiStatus(k,!!val);
+  });
+  // Sync anthropic key
+  var ant=localStorage.getItem('ofm_api_key')||'';
+  if(ant&&!localStorage.getItem('ofm_api_anthropic')){
+    localStorage.setItem('ofm_api_anthropic',ant);
+    updateApiStatus('anthropic',true);
+  }
+}
+
+function saveApiKey(name,inputId){
+  var val=document.getElementById(inputId).value.trim();
+  if(!val)return;
+  if(val.startsWith('•'))return;
+  localStorage.setItem('ofm_api_'+name,val);
+  if(name==='anthropic')localStorage.setItem('ofm_api_key',val);
+  document.getElementById(inputId).value='••••••••••••';
+  var status=document.getElementById('status-'+name);
+  if(status){status.textContent='Sauvegarde !';status.className='api-status ok';setTimeout(function(){status.textContent='';},2000);}
+  updateApiStatus(name,true);
+}
+
+function updateApiStatus(name,active){
+  var dot=document.getElementById('dot-'+name);
+  var info=document.getElementById('info-'+name);
+  if(dot)dot.className='api-dot'+(active?' active':'');
+  if(info)info.textContent=active?'Configure':'Non configure';
 }
 
 function loadParams(){
