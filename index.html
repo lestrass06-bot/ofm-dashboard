@@ -1,4 +1,5 @@
-<!-- build:1774467041-v9 -->
+<!-- build:1774467366-v10 -->
+<!-- ob6:1774467041-v9 -->
 <!-- ob5:1774443747-v8 -->
 <!-- ob4:1774427289-v7fix4 -->
 <!-- ob3:1774427207-v7fix3 -->
@@ -257,6 +258,33 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
 .api-sc-info{font-size:11px;color:#444;margin-top:2px;}
 
 .growth-badge-red{font-size:11px;padding:2px 8px;border-radius:10px;background:rgba(226,75,74,0.1);color:#e24b4a;margin-left:6px;}
+
+.fab{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(60,130,255,0.2);border:var(--neon-border);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--neon-glow);transition:all 0.2s;z-index:100;}
+.fab:hover{background:rgba(60,130,255,0.35);transform:scale(1.1);}
+.note-panel{position:fixed;bottom:84px;right:24px;width:300px;background:rgba(5,12,22,0.98);border:var(--neon-border);border-radius:14px;padding:1.25rem;box-shadow:var(--neon-glow),0 20px 60px rgba(0,0,0,0.9);z-index:100;display:none;}
+.note-panel.show{display:block;}
+.note-panel textarea{width:100%;min-height:100px;background:#060a10;border:var(--neon-border);border-radius:8px;color:#fff;font-size:13px;padding:10px;outline:none;resize:none;line-height:1.6;}
+.note-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.note-panel-title{font-size:13px;font-weight:500;color:#fff;}
+.note-panel-close{background:none;border:none;color:#555;cursor:pointer;font-size:16px;}
+.note-panel-btns{display:flex;gap:8px;margin-top:8px;}
+.note-save{flex:1;padding:7px;background:rgba(60,130,255,0.15);border:var(--neon-border);border-radius:8px;color:#fff;font-size:12px;cursor:pointer;}
+.note-save:hover{background:rgba(60,130,255,0.25);}
+.notes-list{max-height:200px;overflow-y:auto;margin-top:10px;}
+.note-item{padding:8px;background:#060a10;border-radius:6px;border:0.5px solid rgba(255,255,255,0.04);margin-bottom:6px;font-size:12px;color:#888;line-height:1.5;position:relative;}
+.note-item-date{font-size:10px;color:#333;margin-top:4px;}
+.note-item-del{position:absolute;top:6px;right:6px;background:none;border:none;color:#2a2a2a;cursor:pointer;font-size:11px;}
+.note-item-del:hover{color:#e24b4a;}
+
+/* Theo vs Axel comparison */
+.chatter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:16px;}
+.chatter-card{background:rgba(60,130,255,0.03);border:var(--neon-border);border-radius:12px;padding:1.25rem;}
+.chatter-name{font-size:16px;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.chatter-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.chatter-stat{background:#060a10;border-radius:8px;padding:8px;text-align:center;}
+.chatter-stat-val{font-size:16px;font-weight:500;}
+.chatter-stat-label{font-size:10px;color:#555;margin-top:2px;}
+.winner-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(239,159,39,0.15);color:#EF9F27;}
 </style>
 </head>
 <body>
@@ -402,6 +430,28 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
             <div class="stat-label">Revenus IA</div>
             <div class="stat-value" id="rv-ia">$96</div>
             <div class="stat-sub" id="rv-ia-pct">3% du total</div>
+          </div>
+        </div>
+
+        <!-- THEO VS AXEL -->
+        <div class="chatter-grid" id="chatter-comparison">
+          <div class="chatter-card" id="chatter-theo">
+            <div class="chatter-name">Theo <span id="theo-badge"></span></div>
+            <div class="chatter-stats">
+              <div class="chatter-stat"><div class="chatter-stat-val" style="color:#1D9E75;" id="theo-rev">—</div><div class="chatter-stat-label">Revenus</div></div>
+              <div class="chatter-stat"><div class="chatter-stat-val" style="color:#EF9F27;" id="theo-unlock">—</div><div class="chatter-stat-label">Unlock rate</div></div>
+              <div class="chatter-stat"><div class="chatter-stat-val" style="color:#7c6ff7;" id="theo-ppv">—</div><div class="chatter-stat-label">PPV unlocked</div></div>
+              <div class="chatter-stat"><div class="chatter-stat-val" id="theo-cvr">—</div><div class="chatter-stat-label">CVR</div></div>
+            </div>
+          </div>
+          <div class="chatter-card" id="chatter-axel">
+            <div class="chatter-name">Axel <span id="axel-badge"></span></div>
+            <div class="chatter-stats">
+              <div class="chatter-stat"><div class="chatter-stat-val" style="color:#1D9E75;" id="axel-rev">—</div><div class="chatter-stat-label">Revenus</div></div>
+              <div class="chatter-stat"><div class="chatter-stat-val" style="color:#EF9F27;" id="axel-unlock">—</div><div class="chatter-stat-label">Unlock rate</div></div>
+              <div class="chatter-stat"><div class="chatter-stat-val" style="color:#7c6ff7;" id="axel-ppv">—</div><div class="chatter-stat-label">PPV unlocked</div></div>
+              <div class="chatter-stat"><div class="chatter-stat-val" id="axel-cvr">—</div><div class="chatter-stat-label">CVR</div></div>
+            </div>
           </div>
         </div>
 
@@ -670,6 +720,21 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
 
     </div>
   </div>
+
+  <button class="fab" onclick="toggleNotePanel()" title="Note rapide">✏️</button>
+  <div class="note-panel" id="note-panel">
+    <div class="note-panel-header">
+      <span class="note-panel-title">Note rapide</span>
+      <button class="note-panel-close" onclick="toggleNotePanel()">✕</button>
+    </div>
+    <textarea id="note-input" placeholder="Capture ton idee..."></textarea>
+    <div class="note-panel-btns">
+      <button class="note-save" onclick="saveNote()">Sauvegarder</button>
+      <button class="note-save" onclick="saveNoteAsTask()" style="background:rgba(29,158,117,0.1);border-color:rgba(29,158,117,0.3);">+ Tache</button>
+    </div>
+    <div class="notes-list" id="notes-list"></div>
+  </div>
+
 </div>
 
 <!-- MODALS -->
@@ -953,6 +1018,7 @@ function renderRevs(){
     var evoSign=evo>=0?'+':'';
     return '<tr><td>'+a.date+'</td><td class="amount-green">$'+rev.toFixed(2)+'</td><td style="color:#EF9F27;">'+unlock.toFixed(1)+'%</td><td style="color:#7c6ff7;">'+cvr.toFixed(1)+'%</td><td style="color:#1D9E75;">$'+ia.toFixed(2)+'</td><td><span class="'+(evo>=0?'growth-badge':'growth-badge-red')+'">'+evoSign+evo+'%</span></td></tr>';
   }).join('');
+  renderChatterComparison();
   document.getElementById('rv-history-body').innerHTML=rows||'<tr><td colspan="6" style="color:#333;padding:16px 0;text-align:center;">Aucune donnee</td></tr>';
 }
 
@@ -1134,7 +1200,7 @@ async function analyseAll(){
     document.getElementById('content-actions').textContent=result.actions||'';
     ['score','revenus','chatting','ia','actions'].forEach(function(s){document.getElementById('section-'+s).style.display=result[s]?'block':'none';});
     document.getElementById('analyse-sections').style.display='block';
-    saveAnalyse(result);renderHistory();
+    saveAnalyse(result);renderHistory();checkRevenueAlert();
     updateStatsFromAnalysis(result);
   }catch(e){
     document.getElementById('content-actions').textContent='Erreur: '+e.message+'\nVerifie ta cle API dans Parametres.';
@@ -1301,6 +1367,131 @@ function updateApiStatus(name,active){
   var info=document.getElementById('info-'+name);
   if(dot)dot.className='api-dot'+(active?' active':'');
   if(info)info.textContent=active?'Configure':'Non configure';
+}
+
+
+var NOTES_KEY='ofm_notes';
+function getNotes(){try{return JSON.parse(localStorage.getItem(NOTES_KEY))||[];}catch(e){return[];}}
+
+function toggleNotePanel(){
+  var panel=document.getElementById('note-panel');
+  panel.classList.toggle('show');
+  if(panel.classList.contains('show')){renderNotes();document.getElementById('note-input').focus();}
+}
+
+function saveNote(){
+  var text=document.getElementById('note-input').value.trim();
+  if(!text)return;
+  var notes=getNotes();
+  var date=new Date().toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+  notes.unshift({text:text,date:date});
+  if(notes.length>20)notes=notes.slice(0,20);
+  localStorage.setItem(NOTES_KEY,JSON.stringify(notes));
+  document.getElementById('note-input').value='';
+  renderNotes();
+}
+
+function saveNoteAsTask(){
+  var text=document.getElementById('note-input').value.trim();
+  if(!text)return;
+  var todos=getTodos();
+  todos.push({text:text.length>65?text.substring(0,62)+'...':text,note:text.length>65?text:'',done:false,p:'mid',source:'Note'});
+  localStorage.setItem(TODOS_KEY,JSON.stringify(todos));
+  document.getElementById('note-input').value='';
+  renderTodos();
+  toggleNotePanel();
+}
+
+function renderNotes(){
+  var notes=getNotes();
+  var el=document.getElementById('notes-list');
+  if(!el)return;
+  el.innerHTML=notes.length?notes.map(function(n,i){
+    return '<div class="note-item">'+n.text+'<div class="note-item-date">'+n.date+'</div><button class="note-item-del" onclick="delNote('+i+')">✕</button></div>';
+  }).join(''):'<div style="color:#333;font-size:12px;margin-top:8px;">Aucune note</div>';
+}
+
+function delNote(i){var notes=getNotes();notes.splice(i,1);localStorage.setItem(NOTES_KEY,JSON.stringify(notes));renderNotes();}
+
+// CHATTER COMPARISON - extract from latest analysis
+function renderChatterComparison(){
+  var analyses=getAnalyses();
+  if(!analyses.length)return;
+  var text=analyses[0].result?(analyses[0].result.chatting||''):'';
+  if(!text)return;
+
+  // Extract Theo stats
+  var theoRev=extractChatterRev(text,'theo');
+  var axelRev=extractChatterRev(text,'axel');
+  var theoUnlock=extractChatterUnlock(text,'theo');
+  var axelUnlock=extractChatterUnlock(text,'axel');
+  var theoPPV=extractChatterPPV(text,'theo');
+  var axelPPV=extractChatterPPV(text,'axel');
+  var theoCVR=extractChatterCVR(text,'theo');
+  var axelCVR=extractChatterCVR(text,'axel');
+
+  if(theoRev>0||axelRev>0){
+    document.getElementById('theo-rev').textContent=theoRev>0?'$'+theoRev.toFixed(0):'—';
+    document.getElementById('theo-unlock').textContent=theoUnlock>0?theoUnlock.toFixed(1)+'%':'—';
+    document.getElementById('theo-ppv').textContent=theoPPV>0?theoPPV:'—';
+    document.getElementById('theo-cvr').textContent=theoCVR>0?theoCVR.toFixed(1)+'%':'—';
+    document.getElementById('axel-rev').textContent=axelRev>0?'$'+axelRev.toFixed(0):'—';
+    document.getElementById('axel-unlock').textContent=axelUnlock>0?axelUnlock.toFixed(1)+'%':'—';
+    document.getElementById('axel-ppv').textContent=axelPPV>0?axelPPV:'—';
+    document.getElementById('axel-cvr').textContent=axelCVR>0?axelCVR.toFixed(1)+'%':'—';
+    // Badge winner
+    if(theoRev>0&&axelRev>0){
+      document.getElementById('theo-badge').innerHTML=theoRev>axelRev?'<span class="winner-badge">Top revenus</span>':'';
+      document.getElementById('axel-badge').innerHTML=axelRev>=theoRev?'<span class="winner-badge">Top revenus</span>':'';
+    }
+    if(axelUnlock>0&&theoUnlock>0){
+      if(axelUnlock>theoUnlock)document.getElementById('axel-badge').innerHTML+='<span class="winner-badge" style="margin-left:4px;">Top unlock</span>';
+      else document.getElementById('theo-badge').innerHTML+='<span class="winner-badge" style="margin-left:4px;">Top unlock</span>';
+    }
+  }
+}
+
+function extractChatterRev(text,name){
+  var re=new RegExp(name+'[^$]*[$]([0-9,]+(?:[.][0-9]+)?)','i');
+  var m=text.match(re);
+  return m?parseFloat(m[1].replace(',','')):0;
+}
+function extractChatterUnlock(text,name){
+  var re=new RegExp(name+'[^%0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%[^\n]*unlock','i');
+  var m=text.match(re)||text.match(new RegExp(name+'[^\n]*unlock[^0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%','i'));
+  return m?parseFloat(m[1]):0;
+}
+function extractChatterPPV(text,name){
+  var re=new RegExp(name+'[^\n]*ppv[^0-9]*([0-9]+)','i');
+  var m=text.match(re)||text.match(new RegExp(name+'[^0-9]*([0-9]+)[^\n]*ppv','i'));
+  return m?parseInt(m[1]):0;
+}
+function extractChatterCVR(text,name){
+  var re=new RegExp(name+'[^%0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%[^\n]*cvr','i');
+  var m=text.match(re)||text.match(new RegExp(name+'[^\n]*cvr[^0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%','i'));
+  return m?parseFloat(m[1]):0;
+}
+
+// TELEGRAM ALERT - check revenue drop
+async function checkRevenueAlert(){
+  var analyses=getAnalyses();
+  if(analyses.length<2)return;
+  var latest=extractRevFromAnalysis(analyses[0].result);
+  var prev=extractRevFromAnalysis(analyses[1].result);
+  if(prev>0&&latest<prev*0.85){
+    var drop=((prev-latest)/prev*100).toFixed(1);
+    var botToken=localStorage.getItem('ofm_api_telegram')||'';
+    var chatId='869009054';
+    if(!botToken)return;
+    var msg='ALERTE OFM - Baisse des revenus de '+drop+'% cette semaine ($'+latest.toFixed(0)+' vs $'+prev.toFixed(0)+' semaine precedente). Action requise !';
+    try{
+      await fetch('https://api.telegram.org/bot'+botToken+'/sendMessage',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({chat_id:chatId,text:msg})
+      });
+    }catch(e){console.log('Telegram alert error',e);}
+  }
 }
 
 function loadParams(){
