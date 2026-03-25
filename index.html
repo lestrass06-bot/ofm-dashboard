@@ -1,4 +1,9 @@
-<!-- build:1774426612-v6 -->
+<!-- build:1774427289-v7fix4 -->
+<!-- ob3:1774427207-v7fix3 -->
+<!-- ob2:1774427198-v7fix2 -->
+<!-- ob:1774427187-v7fix -->
+<!-- oldbuild6:1774427116-v7 -->
+<!-- oldbuild5:1774426612-v6 -->
 <!-- oldbuild4:1774426406-v5fix3 -->
 <!-- oldbuild3:1774426078 -->
 <!-- oldbuild2:1774426057-v5fix2 -->
@@ -248,6 +253,8 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
 .api-dot.active{background:#1D9E75;box-shadow:0 0 6px rgba(29,158,117,0.5);}
 .api-sc-name{font-size:13px;color:#fff;font-weight:500;}
 .api-sc-info{font-size:11px;color:#444;margin-top:2px;}
+
+.growth-badge-red{font-size:11px;padding:2px 8px;border-radius:10px;background:rgba(226,75,74,0.1);color:#e24b4a;margin-left:6px;}
 </style>
 </head>
 <body>
@@ -367,35 +374,73 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
 
       <!-- REVENUS -->
       <div class="page" id="page-revenus">
-        <div class="page-title">Revenus</div>
-        <div class="grid-3" style="margin-bottom:1.5rem;">
-          <div class="stat-card"><div class="stat-label">Aujourd hui</div><div class="stat-value" style="color:#1D9E75;" id="r-day">$0</div><div class="stat-sub">Entre manuellement</div></div>
-          <div class="stat-card"><div class="stat-label">Ce mois</div><div class="stat-value" style="color:#7c6ff7;" id="r-month">$0</div><div class="stat-sub" id="r-sub">—</div></div>
-          <div class="stat-card"><div class="stat-label">Abonnes actifs</div><div class="stat-value" style="color:#EF9F27;" id="r-subs">—</div><div class="stat-sub">Mis a jour manuellement</div></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:8px;">
+          <span class="page-title" style="margin-bottom:0;">Revenus</span>
+          <div style="font-size:12px;color:#444;">Mis a jour via Analyse Hebdo</div>
         </div>
-        <div class="grid-2">
-          <div>
-            <div class="card">
-              <div class="section-title">Ajouter une entree</div>
-              <input type="number" id="rev-amount" placeholder="Montant ($)" class="param-input" style="width:100%;margin-bottom:8px;"/>
-              <input type="text" id="rev-note" placeholder="Note (shift soir, tips...)" class="param-input" style="width:100%;margin-bottom:12px;"/>
-              <button class="save-btn" style="width:100%;" onclick="addRevenu()">Enregistrer</button>
-            </div>
-            <div class="card">
-              <div class="section-title">Abonnes</div>
-              <div style="display:flex;gap:8px;">
-                <input type="number" id="subs-input" placeholder="Nb abonnes" class="param-input" style="flex:1;"/>
-                <button class="save-btn" onclick="saveSubs()">OK</button>
-              </div>
-            </div>
+
+        <!-- STATS TOP -->
+        <div class="grid-4" style="margin-bottom:1.5rem;">
+          <div class="stat-card">
+            <div class="stat-label">Ce mois</div>
+            <div class="stat-value" style="color:#1D9E75;" id="rv-mois">$3,501.60</div>
+            <div class="stat-sub" id="rv-mois-evo"><span class="growth-badge">+125.9%</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Semaine en cours</div>
+            <div class="stat-value" style="color:#7c6ff7;" id="rv-semaine">$992.00</div>
+            <div class="stat-sub" id="rv-semaine-evo">vs semaine precedente</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Meilleur shift</div>
+            <div class="stat-value" style="color:#EF9F27;" id="rv-best-shift">$900</div>
+            <div class="stat-sub" id="rv-best-date">Mars 2026</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Revenus IA</div>
+            <div class="stat-value" id="rv-ia">$96</div>
+            <div class="stat-sub" id="rv-ia-pct">3% du total</div>
+          </div>
+        </div>
+
+        <!-- GRAPHIQUE SEMAINES -->
+        <div class="card" style="margin-bottom:16px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div class="live-badge" style="margin-bottom:0;"><span class="pulse-dot"></span>Revenus semaine par semaine</div>
+            <div style="font-size:11px;color:#444;" id="rv-last-update">—</div>
+          </div>
+          <div style="position:relative;height:200px;"><canvas id="weeklyChart"></canvas></div>
+        </div>
+
+        <!-- UNLOCK RATE & CVR -->
+        <div class="grid-2" style="margin-bottom:16px;">
+          <div class="card">
+            <div class="section-title">Evolution unlock rate</div>
+            <div style="position:relative;height:140px;"><canvas id="unlockChart"></canvas></div>
           </div>
           <div class="card">
-            <div class="section-title">Historique</div>
-            <table class="rev-table">
-              <thead><tr><th>Date</th><th>Note</th><th>Montant</th><th></th></tr></thead>
-              <tbody id="rev-body"></tbody>
-            </table>
+            <div class="section-title">Evolution CVR</div>
+            <div style="position:relative;height:140px;"><canvas id="cvrChart"></canvas></div>
           </div>
+        </div>
+
+        <!-- HISTORIQUE ANALYSES -->
+        <div class="card">
+          <div class="section-title">Historique par semaine</div>
+          <table class="rev-table">
+            <thead>
+              <tr>
+                <th>Semaine</th>
+                <th>Total</th>
+                <th>Unlock rate</th>
+                <th>CVR</th>
+                <th>IA rev</th>
+                <th>Evol.</th>
+              </tr>
+            </thead>
+            <tbody id="rv-history-body"></tbody>
+          </table>
+          <div style="font-size:12px;color:#333;margin-top:12px;text-align:center;">Les donnees sont extraites automatiquement depuis tes analyses hebdo</div>
         </div>
       </div>
 
@@ -841,21 +886,98 @@ function addTodo(){
   document.getElementById('todo-input').value='';
 }
 
+var weeklyChartInst=null, unlockChartInst=null, cvrChartInst=null;
+
 function renderRevs(){
-  var revs=getRevs();
-  var now=new Date();
-  var today=now.toISOString().split('T')[0];
-  var mois=revs.filter(function(r){var d=new Date(r.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();});
-  var todayTotal=revs.filter(function(r){return r.date===today;}).reduce(function(s,r){return s+r.amount;},0);
-  var moisTotal=mois.reduce(function(s,r){return s+r.amount;},0);
-  document.getElementById('r-day').textContent='$'+todayTotal.toFixed(2);
-  document.getElementById('r-month').textContent='$'+moisTotal.toFixed(2);
-  document.getElementById('r-sub').textContent=mois.length+' entree(s) ce mois';
-  document.getElementById('r-subs').textContent=getSubs()||'—';
-  var sorted=revs.slice().sort(function(a,b){return new Date(b.date)-new Date(a.date);});
-  document.getElementById('rev-body').innerHTML=sorted.slice(0,20).map(function(r,i){
-    return '<tr><td>'+r.date+'</td><td style="color:#444;">'+(r.note||'—')+'</td><td class="amount-green">$'+parseFloat(r.amount).toFixed(2)+'</td><td><button class="rev-del" onclick="delRev('+i+')">✕</button></td></tr>';
-  }).join('')||'<tr><td colspan="4" style="color:#333;padding:16px 0;">Aucune entree</td></tr>';
+  var analyses=getAnalyses();
+  if(!analyses.length){
+    document.getElementById('rv-history-body').innerHTML='<tr><td colspan="6" style="color:#333;padding:16px 0;text-align:center;">Aucune analyse — fais une Analyse Hebdo pour voir tes stats ici</td></tr>';
+    return;
+  }
+
+  var weeks=analyses.slice().reverse();
+  var labels=weeks.map(function(a){return a.date;});
+  var revAmounts=weeks.map(function(a){return extractRevFromAnalysis(a.result);});
+  var unlockRates=weeks.map(function(a){return extractUnlockFromAnalysis(a.result);});
+  var cvrRates=weeks.map(function(a){return extractCVRFromAnalysis(a.result);});
+  var iaRevs=weeks.map(function(a){return extractIARevFromAnalysis(a.result);});
+
+  // Update top stats from latest analysis
+  var latest=analyses[0];
+  if(latest&&latest.result){
+    var latestRev=extractRevFromAnalysis(latest.result);
+    var latestUnlock=extractUnlockFromAnalysis(latest.result);
+    var latestIA=extractIARevFromAnalysis(latest.result);
+    var prevRev=analyses.length>1?extractRevFromAnalysis(analyses[1].result):0;
+    var evo=prevRev>0?((latestRev-prevRev)/prevRev*100).toFixed(1):0;
+    var evoSign=evo>=0?'+':'';
+    document.getElementById('rv-semaine').textContent='$'+latestRev.toFixed(2);
+    document.getElementById('rv-semaine-evo').innerHTML='<span class="'+(evo>=0?'growth-badge':'growth-badge-red')+'">'+evoSign+evo+'%</span> vs semaine prec.';
+    document.getElementById('rv-ia').textContent='$'+latestIA.toFixed(2);
+    var iaPct=latestRev>0?((latestIA/latestRev)*100).toFixed(1):0;
+    document.getElementById('rv-ia-pct').textContent=iaPct+'% du total';
+    document.getElementById('rv-last-update').textContent='Derniere analyse : '+latest.date;
+  }
+
+  // Weekly revenue chart
+  if(weeklyChartInst){weeklyChartInst.destroy();}
+  var ctx1=document.getElementById('weeklyChart');
+  if(ctx1){
+    weeklyChartInst=new Chart(ctx1,{type:'bar',data:{labels:labels,datasets:[{label:'Revenus',data:revAmounts,backgroundColor:'rgba(60,130,255,0.3)',borderColor:'rgba(60,130,255,0.7)',borderWidth:1,borderRadius:4},{label:'IA',data:iaRevs,backgroundColor:'rgba(29,158,117,0.3)',borderColor:'rgba(29,158,117,0.7)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#555',font:{size:11}}},tooltip:{backgroundColor:'rgba(8,11,16,0.95)',borderColor:'rgba(60,130,255,0.3)',borderWidth:1,bodyColor:'#fff',callbacks:{label:function(c){return c.dataset.label+': $'+c.parsed.y.toFixed(2);}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10},callback:function(v){return '$'+v;}}}}}});
+  }
+
+  // Unlock rate chart
+  if(unlockChartInst){unlockChartInst.destroy();}
+  var ctx2=document.getElementById('unlockChart');
+  if(ctx2&&unlockRates.some(function(v){return v>0;})){
+    unlockChartInst=new Chart(ctx2,{type:'line',data:{labels:labels,datasets:[{data:unlockRates,borderColor:'rgba(239,159,39,0.7)',backgroundColor:'rgba(239,159,39,0.05)',borderWidth:1.5,pointRadius:3,pointBackgroundColor:'rgba(239,159,39,0.8)',tension:0.4,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(8,11,16,0.95)',borderColor:'rgba(239,159,39,0.3)',borderWidth:1,bodyColor:'#fff',callbacks:{label:function(c){return 'Unlock: '+c.parsed.y.toFixed(1)+'%';}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10},callback:function(v){return v+'%';}}}}}});
+  }
+
+  // CVR chart
+  if(cvrChartInst){cvrChartInst.destroy();}
+  var ctx3=document.getElementById('cvrChart');
+  if(ctx3&&cvrRates.some(function(v){return v>0;})){
+    cvrChartInst=new Chart(ctx3,{type:'line',data:{labels:labels,datasets:[{data:cvrRates,borderColor:'rgba(124,111,247,0.7)',backgroundColor:'rgba(124,111,247,0.05)',borderWidth:1.5,pointRadius:3,pointBackgroundColor:'rgba(124,111,247,0.8)',tension:0.4,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(8,11,16,0.95)',borderColor:'rgba(124,111,247,0.3)',borderWidth:1,bodyColor:'#fff',callbacks:{label:function(c){return 'CVR: '+c.parsed.y.toFixed(1)+'%';}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#333',font:{size:10},callback:function(v){return v+'%';}}}}}});
+  }
+
+  // History table
+  var rows=analyses.map(function(a,i){
+    var rev=extractRevFromAnalysis(a.result);
+    var unlock=extractUnlockFromAnalysis(a.result);
+    var cvr=extractCVRFromAnalysis(a.result);
+    var ia=extractIARevFromAnalysis(a.result);
+    var prev=i<analyses.length-1?extractRevFromAnalysis(analyses[i+1].result):0;
+    var evo=prev>0?((rev-prev)/prev*100).toFixed(1):0;
+    var evoSign=evo>=0?'+':'';
+    return '<tr><td>'+a.date+'</td><td class="amount-green">$'+rev.toFixed(2)+'</td><td style="color:#EF9F27;">'+unlock.toFixed(1)+'%</td><td style="color:#7c6ff7;">'+cvr.toFixed(1)+'%</td><td style="color:#1D9E75;">$'+ia.toFixed(2)+'</td><td><span class="'+(evo>=0?'growth-badge':'growth-badge-red')+'">'+evoSign+evo+'%</span></td></tr>';
+  }).join('');
+  document.getElementById('rv-history-body').innerHTML=rows||'<tr><td colspan="6" style="color:#333;padding:16px 0;text-align:center;">Aucune donnee</td></tr>';
+}
+
+function extractRevFromAnalysis(result){
+  if(!result)return 0;
+  var text=(result.revenus||'')+(result.chatting||'');
+  var matches=text.match(/[$][0-9][0-9,]*(?:[.][0-9]+)?/g)||[];
+  var amounts=matches.map(function(m){return parseFloat(m.replace(/[$,]/g,'').trim());}).filter(function(v){return v>200&&v<50000;});
+  return amounts.length?Math.max.apply(null,amounts):0;
+}
+function extractUnlockFromAnalysis(result){
+  if(!result)return 0;
+  var text=(result.revenus||'')+(result.chatting||'');
+  var m=text.match(/unlock[^0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%/i)||text.match(/([0-9]+(?:[.][0-9]+)?)[^%]*%[^a-z]*unlock/i);
+  return m?parseFloat(m[1]):0;
+}
+function extractCVRFromAnalysis(result){
+  if(!result)return 0;
+  var text=(result.chatting||'');
+  var m=text.match(/cvr[^0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%/i)||text.match(/conversion[^0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%/i);
+  return m?parseFloat(m[1]):0;
+}
+function extractIARevFromAnalysis(result){
+  if(!result)return 0;
+  var text=(result.ia||'');
+  var m=text.match(/[$]([0-9][0-9,]*(?:[.][0-9]+)?)/);
+  return m?parseFloat(m[1].replace(',','')):0;
 }
 
 function addRevenu(){
@@ -1035,9 +1157,9 @@ function updateStatsFromAnalysis(result){
   if(!result)return;
   var text=(result.revenus||'')+(result.chatting||'');
   // Extract total revenue
-  var revMatch=text.match(/\\$([0-9][0-9,]+(?:\.[0-9]+)?)/g);
+  var revMatch=text.match(/[$]([0-9][0-9,]+(?:[.][0-9]+)?)/g)
   if(revMatch&&revMatch.length>0){
-    var amounts=revMatch.map(function(m){return parseFloat(m.replace(/[\$,]/g,''));}).filter(function(v){return v>100&&v<50000;});
+    var amounts=revMatch.map(function(m){return parseFloat(m.replace(/[$,]/g,''));}).filter(function(v){return v>100&&v<50000;});
     if(amounts.length>0){
       var maxRev=Math.max.apply(null,amounts);
       // Update model revenue
