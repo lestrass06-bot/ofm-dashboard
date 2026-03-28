@@ -1134,7 +1134,7 @@ function renderVeille(){
     return '<div class="veille-card"><button class="veille-del" onclick="delVeille('+i+')">✕</button><span class="veille-tag '+tc[v.tag]+'">'+tl[v.tag]+'</span><div class="veille-title">'+v.title+'</div><div class="veille-note">'+(v.note||'')+'</div></div>';
   }).join(''):'<div style="color:#333;font-size:14px;grid-column:span 2;padding:1rem 0;">Aucune entree</div>';
 }
-const VPS_JSON_URL = 'http://187.77.139.251:8080/veille_resultats.json';
+const VPS_JSON_URL = 'https://lestrass06-bot.github.io/ofm-dashboard/veille_resultats.json';
 let veilleVPSData = [];
 
 async function fetchVeilleVPS() {
