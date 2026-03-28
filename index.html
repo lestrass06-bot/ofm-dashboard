@@ -565,7 +565,17 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
       <div class="page" id="page-veille">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
           <span class="page-title" style="margin-bottom:0;">Veille Instagram</span>
-          <button class="save-btn" onclick="openModal('veille-modal')">+ Ajouter</button>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span id="veille-last-update" style="font-size:12px;color:#555;"></span>
+            <button class="save-btn" onclick="fetchVeilleVPS()">↻ Sync VPS</button>
+            <button class="save-btn" onclick="openModal('veille-modal')">+ Manuel</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap;">
+          <button class="veille-filtre active" onclick="filtreVeille(this,'tous')">Tous</button>
+          <button class="veille-filtre" onclick="filtreVeille(this,'aguicheur')">Aguicheur</button>
+          <button class="veille-filtre" onclick="filtreVeille(this,'sportif')">Sportif</button>
+          <button class="veille-filtre" onclick="filtreVeille(this,'lifestyle')">Lifestyle</button>
         </div>
         <div class="veille-grid" id="veille-grid"></div>
       </div>
@@ -831,7 +841,7 @@ function goTo(page){
   document.getElementById('page-'+page).classList.add('active');
   document.getElementById('nav-'+page).classList.add('active');
   if(page==='revenus')renderRevs();
-  if(page==='veille')renderVeille();
+  if(page==='veille')initVeille();
   if(page==='parametres')loadParams();
   if(page==='apikeys')loadApiKeys();
   if(page==='modeles')renderModels();
@@ -1124,7 +1134,76 @@ function renderVeille(){
     return '<div class="veille-card"><button class="veille-del" onclick="delVeille('+i+')">✕</button><span class="veille-tag '+tc[v.tag]+'">'+tl[v.tag]+'</span><div class="veille-title">'+v.title+'</div><div class="veille-note">'+(v.note||'')+'</div></div>';
   }).join(''):'<div style="color:#333;font-size:14px;grid-column:span 2;padding:1rem 0;">Aucune entree</div>';
 }
-function addVeille(){
+const VPS_JSON_URL = 'http://187.77.139.251:8080/veille_resultats.json';
+let veilleVPSData = [];
+
+async function fetchVeilleVPS() {
+  const grid = document.getElementById('veille-grid');
+  grid.innerHTML = '<div style="color:#555;font-size:13px;padding:1rem;">Chargement depuis le VPS...</div>';
+  try {
+    const res = await fetch(VPS_JSON_URL);
+    const data = await res.json();
+    veilleVPSData = data.reels || [];
+    localStorage.setItem('veille_vps_cache', JSON.stringify(data));
+    const el = document.getElementById('veille-last-update');
+    if(el) el.textContent = 'Sync : ' + new Date(data.date).toLocaleDateString('fr-FR');
+    renderVeilleVPS();
+  } catch(e) {
+    const cache = localStorage.getItem('veille_vps_cache');
+    if(cache) {
+      const data = JSON.parse(cache);
+      veilleVPSData = data.reels || [];
+      renderVeilleVPS();
+    } else {
+      grid.innerHTML = '<div style="color:#e24b4a;font-size:13px;padding:1rem;">VPS inaccessible</div>';
+    }
+  }
+}
+
+function filtreVeille(btn, style) {
+  document.querySelectorAll('.veille-filtre').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  veilleVPSData_filtre = style;
+  renderVeilleVPS();
+}
+
+let veilleVPSData_filtre = 'tous';
+
+function renderVeilleVPS() {
+  const grid = document.getElementById('veille-grid');
+  let reels = veilleVPSData;
+  if(veilleVPSData_filtre !== 'tous') {
+    reels = reels.filter(r => r.analyse && r.analyse.style && r.analyse.style.toLowerCase().includes(veilleVPSData_filtre));
+  }
+  if(!reels.length) {
+    grid.innerHTML = '<div style="color:#555;font-size:13px;padding:1rem;">Aucun reel pour ce filtre</div>';
+    return;
+  }
+  grid.innerHTML = reels.map(r => `
+    <div style="background:#151515;border:1px solid #222;border-radius:12px;overflow:hidden;position:relative;">
+      <div style="position:absolute;top:8px;right:8px;background:#1D9E75;color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;">★ ${r.analyse.score}/10</div>
+      <img src="${r.thumbnail}" style="width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#1a1a1a;" onerror="this.style.display='none'" loading="lazy"/>
+      <div style="padding:10px 12px;">
+        <div style="font-size:11px;color:#1D9E75;font-weight:600;margin-bottom:4px;">@${r.username}</div>
+        <div style="display:inline-block;background:#EF9F2722;color:#EF9F27;font-size:10px;padding:2px 8px;border-radius:8px;margin-bottom:6px;">${r.analyse.style || 'autre'}</div>
+        <div style="font-size:11px;color:#aaa;margin-bottom:6px;line-height:1.4;">${r.analyse.raison}</div>
+        <div style="font-size:10px;color:#666;font-style:italic;margin-bottom:8px;line-height:1.4;">💡 ${r.analyse.conseil_kling}</div>
+        <div style="font-size:10px;color:#444;">👁 ${(r.views/1000).toFixed(0)}K vues · ${r.duration.toFixed(0)}s</div>
+      </div>
+      <a href="${r.url}" target="_blank" style="display:block;text-align:center;background:#1a1a1a;color:#1D9E75;font-size:11px;padding:6px;text-decoration:none;border-top:1px solid #222;">Voir le reel →</a>
+    </div>
+  `).join('');
+}
+
+function initVeille() {
+  const cache = localStorage.getItem('veille_vps_cache');
+  if(cache) {
+    const data = JSON.parse(cache);
+    veilleVPSData = data.reels || [];
+    renderVeilleVPS();
+  }
+  fetchVeilleVPS();
+}function addVeille(){
   var title=document.getElementById('v-title').value.trim();
   if(!title)return;
   var items=getVeille();items.unshift({title:title,tag:document.getElementById('v-tag').value,note:document.getElementById('v-note').value.trim()});
