@@ -1313,8 +1313,8 @@ async function uploadVeilleConfig(comptes, prompt) {
   console.log('Config uploadée sur GitHub ✅');
 async function fetchPerfsInsta() {
   const compte = document.getElementById('perf-compte-input')?.value.trim() || 'melina';
-  const apifyToken = localStorage.getItem('apify_token') || '';
-  if(!apifyToken) {
+  const ofm_api_apify = localStorage.getItem('ofm_api_apify') || '';
+  if(ofm_api_apify) {
     document.getElementById('perf-followers').textContent = 'Clé Apify manquante';
     return;
   }
@@ -1323,7 +1323,7 @@ async function fetchPerfsInsta() {
   document.getElementById('perf-engagement').textContent = '...%';
   try {
     const url = 'https://api.apify.com/v2/acts/apify-instagram-scraper/runs';
-    const headers = {'Content-Type':'application/json','Authorization':`Bearer ${apifyToken}`};
+    const headers = {'Content-Type':'application/json','Authorization':`Bearer ${ofm_api_apify}`};
     const payload = {directUrls:[`https://www.instagram.com/${compte}/`],resultsType:'posts',resultsLimit:12};
     const r = await fetch(url, {method:'POST', headers, body:JSON.stringify(payload)});
     const runId = (await r.json()).data?.id;
