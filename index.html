@@ -1314,7 +1314,7 @@ async function uploadVeilleConfig(comptes, prompt) {
 async function fetchPerfsInsta() {
   const compte = document.getElementById('perf-compte-input')?.value.trim() || 'melina';
   const ofm_api_apify = localStorage.getItem('ofm_api_apify') || '';
-  if(ofm_api_apify) {
+  if(!ofm_api_apify) {
     document.getElementById('perf-followers').textContent = 'Clé Apify manquante';
     return;
   }
