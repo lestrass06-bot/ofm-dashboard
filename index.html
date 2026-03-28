@@ -561,7 +561,7 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
         </div>
       </div>
 
-      <!-- VEILLE -->
+     <!-- VEILLE -->
       <div class="page" id="page-veille">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
           <span class="page-title" style="margin-bottom:0;">Veille Instagram</span>
@@ -569,6 +569,7 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
             <span id="veille-last-update" style="font-size:12px;color:#555;"></span>
             <button class="save-btn" onclick="fetchVeilleVPS()">↻ Sync VPS</button>
             <button class="save-btn" onclick="openModal('veille-modal')">+ Manuel</button>
+            <button class="save-btn" style="background:#7c6ff7;" onclick="openVeilleConfig('veille-config-modal')">⚙ Config</button>
           </div>
         </div>
         <div style="display:flex;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap;">
@@ -578,6 +579,25 @@ body{background:#080b10;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
           <button class="veille-filtre" onclick="filtreVeille(this,'lifestyle')">Lifestyle</button>
         </div>
         <div class="veille-grid" id="veille-grid"></div>
+      </div>
+
+      <!-- MODAL CONFIG VEILLE -->
+      <div class="modal" id="veille-config-modal">
+        <div class="modal-content" style="max-width:600px;">
+          <div class="modal-title">⚙ Configuration Veille</div>
+          <div class="section-title" style="margin-top:1rem;">Comptes à surveiller</div>
+          <div id="comptes-list" style="margin-bottom:1rem;"></div>
+          <div style="display:flex;gap:8px;margin-bottom:1.5rem;">
+            <input type="text" id="new-compte-input" placeholder="@username" class="param-input" style="flex:1;"/>
+            <button class="save-btn" onclick="addCompte()">+ Ajouter</button>
+          </div>
+          <div class="section-title">Prompt de sélection</div>
+          <textarea id="veille-prompt-input" style="width:100%;height:120px;background:#1a1a1a;border:1px solid #2a2a2a;color:#eee;border-radius:8px;padding:10px;font-size:12px;margin-bottom:1rem;resize:vertical;"></textarea>
+          <div style="display:flex;gap:8px;justify-content:flex-end;">
+            <button class="save-btn" onclick="saveVeilleConfig()">Sauvegarder</button>
+            <button class="save-btn" style="background:#333;" onclick="closeModals()">Annuler</button>
+          </div>
+        </div>
       </div>
 
       <!-- AGENTS -->
@@ -1195,7 +1215,67 @@ function renderVeilleVPS() {
   `).join('');
 }
 
-function initVeille() {
+const COMPTES_DEFAULT = ["sarah.h44","joellperry","dahyn1xoficial","karen.katc","marcimorallxo","julia_delenes22","annatomaax","amandakabdedo","clari_cremaschi","itselodiexoxo"];
+const PROMPT_DEFAULT = "Analyse ce reel Instagram pour une agence OFM. Note de 1-10. Retenir uniquement si: mouvement simple reproductible avec IA, pas trop suggestif, style sportif/aguicheur/lifestyle. Répondre en JSON: {recommande: bool, score: int, raison: string, style: string, conseil_kling: string}";
+
+function getVeilleConfig() {
+  const c = localStorage.getItem('veille_config');
+  return c ? JSON.parse(c) : {comptes: COMPTES_DEFAULT, prompt: PROMPT_DEFAULT};
+}
+
+function saveVeilleConfig() {
+  const comptes = Array.from(document.querySelectorAll('.compte-tag')).map(el => el.dataset.compte);
+  const prompt = document.getElementById('veille-prompt-input').value.trim();
+  localStorage.setItem('veille_config', JSON.stringify({comptes, prompt}));
+  uploadVeilleConfig(comptes, prompt);
+  closeModals();
+}
+
+function openVeilleConfig() {
+  const config = getVeilleConfig();
+  renderComptesList(config.comptes);
+  document.getElementById('veille-prompt-input').value = config.prompt;
+  openModal('veille-config-modal');
+}
+
+function renderComptesList(comptes) {
+  const el = document.getElementById('comptes-list');
+  el.innerHTML = comptes.map(c => `
+    <div class="compte-tag" data-compte="${c}" style="display:inline-flex;align-items:center;gap:6px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:4px 12px;margin:4px;font-size:12px;color:#eee;">
+      @${c}
+      <span onclick="removeCompte('${c}')" style="cursor:pointer;color:#e24b4a;font-weight:700;">✕</span>
+    </div>
+  `).join('');
+}
+
+function addCompte() {
+  const input = document.getElementById('new-compte-input');
+  let val = input.value.trim().replace('@','');
+  if(!val) return;
+  const config = getVeilleConfig();
+  if(!config.comptes.includes(val)) config.comptes.push(val);
+  renderComptesList(config.comptes);
+  input.value = '';
+}
+
+function removeCompte(compte) {
+  const tags = Array.from(document.querySelectorAll('.compte-tag')).map(el => el.dataset.compte).filter(c => c !== compte);
+  renderComptesList(tags);
+}
+
+async function uploadVeilleConfig(comptes, prompt) {
+  const token = localStorage.getItem('github_token') || '';
+  if(!token) { console.log('Pas de token GitHub'); return; }
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify({comptes, prompt}, null, 2))));
+  const url = 'https://api.github.com/repos/lestrass06-bot/ofm-dashboard/contents/veille_config.json';
+  const headers = {'Authorization': `token ${token}`, 'Content-Type': 'application/json'};
+  const r = await fetch(url, {headers});
+  const sha = r.ok ? (await r.json()).sha : '';
+  const body = {message: 'update config veille', content};
+  if(sha) body.sha = sha;
+  await fetch(url, {method:'PUT', headers, body: JSON.stringify(body)});
+  console.log('Config uploadée sur GitHub ✅');
+}function initVeille() {
   const cache = localStorage.getItem('veille_vps_cache');
   if(cache) {
     const data = JSON.parse(cache);
