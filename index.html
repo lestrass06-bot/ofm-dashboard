@@ -1183,12 +1183,11 @@ function delObjectif(i){var o=getObjectifs();o.splice(i,1);localStorage.setItem(
 
 function renderVeille(){
   var items=getVeille();
-  var tl={reel:'Reel',compte:'Compte',hook:'Hook/Caption',idee:'Idee'};
-  var tc={reel:'tag-reel',compte:'tag-compte',hook:'tag-hook',idee:'tag-idee'};
   var grid=document.getElementById('veille-grid');
-  grid.innerHTML=items.length?items.map(function(v,i){
-    return '<div class="veille-card"><button class="veille-del" onclick="delVeille('+i+')">✕</button><span class="veille-tag '+tc[v.tag]+'">'+tl[v.tag]+'</span><div class="veille-title">'+v.title+'</div><div class="veille-note">'+(v.note||'')+'</div></div>';
-  }).join(''):'<div style="color:#333;font-size:14px;grid-column:span 2;padding:1rem 0;">Aucune entree</div>';
+  if(!items.length){grid.innerHTML='<div style="color:#555;font-size:13px;padding:1rem;">Aucune entrée</div>';return;}
+  grid.innerHTML=items.map(function(v,i){
+    return '<div style="background:#1a1a1a;border:1px solid #222;border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;"><span style="color:#fff;font-size:13px;">'+v.title+'</span><button onclick="delVeille('+i+')" style="background:none;border:none;color:#e24b4a;cursor:pointer;font-size:16px;">×</button></div>';
+  }).join('');
 }
 const VPS_JSON_URL = 'https://lestrass06-bot.github.io/ofm-dashboard/veille_resultats.json';
 let veilleVPSData = [];
@@ -1225,30 +1224,39 @@ function filtreVeille(btn, style) {
 
 let veilleVPSData_filtre = 'tous';
 
-function renderVeilleVPS() {
-  const grid = document.getElementById('veille-grid');
-  let reels = veilleVPSData;
-  if(veilleVPSData_filtre !== 'tous') {
-    reels = reels.filter(r => r.analyse && r.analyse.style && r.analyse.style.toLowerCase().includes(veilleVPSData_filtre));
-  }
-  if(!reels.length) {
-    grid.innerHTML = '<div style="color:#555;font-size:13px;padding:1rem;">Aucun reel pour ce filtre</div>';
-    return;
-  }
-  grid.innerHTML = reels.map(r => `
-    <div style="background:#151515;border:1px solid #222;border-radius:12px;overflow:hidden;position:relative;">
-      <div style="position:absolute;top:8px;right:8px;background:#1D9E75;color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;">★ ${r.analyse.score}/10</div>
-      <img src="${r.thumbnail}" style="width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#1a1a1a;" onerror="this.style.display='none'" loading="lazy"/>
-      <div style="padding:10px 12px;">
-        <div style="font-size:11px;color:#1D9E75;font-weight:600;margin-bottom:4px;">@${r.username}</div>
-        <div style="display:inline-block;background:#EF9F2722;color:#EF9F27;font-size:10px;padding:2px 8px;border-radius:8px;margin-bottom:6px;">${r.analyse.style || 'autre'}</div>
-        <div style="font-size:11px;color:#aaa;margin-bottom:6px;line-height:1.4;">${r.analyse.raison}</div>
-        <div style="font-size:10px;color:#666;font-style:italic;margin-bottom:8px;line-height:1.4;">💡 ${r.analyse.conseil_kling}</div>
-        <div style="font-size:10px;color:#444;">👁 ${(r.views/1000).toFixed(0)}K vues · ${r.duration.toFixed(0)}s</div>
+function renderVeilleVPS(){
+  const grid=document.getElementById('veille-grid');
+  let reels=veilleVPSData;
+  if(veilleVPSData_filtre!=='tous'){reels=reels.filter(r=>r.analyse&&r.analyse.style&&r.analyse.style.toLowerCase().includes(veilleVPSData_filtre));}
+  if(!reels.length){grid.innerHTML='<div style="color:#555;font-size:13px;padding:1rem;">Aucun reel pour ce filtre</div>';return;}
+  const done=JSON.parse(localStorage.getItem('veille_done')||'[]');
+  grid.innerHTML=reels.map((r,i)=>{
+    const isDone=done.includes(r.username+'_'+i);
+    const score=r.analyse?r.analyse.score||0:0;
+    const scoreColor=score>=7?'#1D9E75':score>=5?'#EF9F27':'#e24b4a';
+    return `<div style="background:${isDone?'#111':'#1a1a1a'};border:1px solid ${isDone?'#1a1a1a':'#2a2a2a'};border-radius:12px;padding:14px 16px;margin-bottom:10px;opacity:${isDone?'0.4':'1'};transition:all 0.3s;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="background:#1D9E75;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;">@${r.username}</span>
+          <span style="background:${scoreColor};color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;">${score}/10</span>
+          <span style="background:#252525;color:#aaa;font-size:11px;padding:2px 8px;border-radius:6px;">${r.analyse?r.analyse.style||'':''}</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span style="color:#555;font-size:11px;">${r.views?Math.round(r.views/1000)+'K vues':''} · ${r.duration?r.duration.toFixed(0)+'s':''}</span>
+          <button onclick="toggleDoneVeille('${r.username}_${i}',this)" style="background:${isDone?'#1D9E75':'#252525'};color:${isDone?'#fff':'#888'};border:none;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;">${isDone?'✓ Fait':'Fait'}</button>
+          <a href="${r.url||'#'}" target="_blank" style="background:#252525;color:#1D9E75;border-radius:6px;padding:4px 10px;font-size:11px;text-decoration:none;">▶ Voir</a>
+        </div>
       </div>
-      <a href="${r.url}" target="_blank" style="display:block;text-align:center;background:#1a1a1a;color:#1D9E75;font-size:11px;padding:6px;text-decoration:none;border-top:1px solid #222;">Voir le reel →</a>
-    </div>
-  `).join('');
+      <div style="color:#ccc;font-size:12px;margin-bottom:4px;">${r.analyse?r.analyse.raison||'':''}</div>
+      <div style="color:#666;font-size:11px;font-style:italic;">💡 ${r.analyse?r.analyse.conseil_kling||'':''}</div>
+    </div>`;
+  }).join('');
+}
+function toggleDoneVeille(key,btn){
+  let done=JSON.parse(localStorage.getItem('veille_done')||'[]');
+  if(done.includes(key)){done=done.filter(k=>k!==key);}else{done.push(key);}
+  localStorage.setItem('veille_done',JSON.stringify(done));
+  renderVeilleVPS();
 }
 
 const COMPTES_DEFAULT = ["sarah.h44","joellperry","dahyn1xoficial","karen.katc","marcimorallxo","julia_delenes22","annatomaax","amandakabdedo","clari_cremaschi","itselodiexoxo"];
@@ -1256,7 +1264,7 @@ const PROMPT_DEFAULT = "Analyse ce reel Instagram pour une agence OFM. Note de 1
 
 function getVeilleConfig() {
   const c = localStorage.getItem('veille_config');
-  return c ? JSON.parse(c) : {comptes: COMPTES_DEFAULT, prompt: PROMPT_DEFAULT};
+  return c ? JSON.parse(c) : {comptes: COMPTES_DEFAULT, prompt: const PROMPT_DEFAULT = "Tu es un expert en contenu Instagram pour une agence OFM. Analyse ce reel et réponds UNIQUEMENT en JSON valide.\n\nCritères de sélection (TOUS doivent être respectés):\n1. REPRODUCTIBLE avec Kling AI motion control - mouvement simple, cadrage fixe ou léger, pas de mouvements complexes\n2. STYLE: lifestyle, sport, restaurant, chill uniquement\n3. DURÉE: entre 4 et 16 secondes\n4. PAS de bikini, lingerie ou contenu suggestif\n5. La modèle NE PARLE PAS ou parle FRANÇAIS uniquement (danse et playback OK)\n\nFormat JSON strict: {recommande: bool, score: int (1-10), raison: string, style: string, conseil_kling: string}";};
 }
 
 function saveVeilleConfig() {
