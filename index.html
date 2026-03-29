@@ -1777,7 +1777,7 @@ function saveParams(){
 }
 
 function openModal(id){var m=document.getElementById(id);m.style.display='flex';m.classList.add('show');}
-function closeModals(){document.querySelectorAll('.modal-overlay').forEach(function(m){m.classList.remove('show');});}
+function closeModals(){document.querySelectorAll('.modal-overlay').forEach(function(m){m.classList.remove('show');m.style.display='none';});}
 document.querySelectorAll('.modal-overlay').forEach(function(m){m.addEventListener('click',function(e){if(e.target===this)closeModals();});});
 </script>
 </body>
