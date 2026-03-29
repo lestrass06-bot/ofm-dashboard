@@ -890,7 +890,7 @@ function doLogout(){
 }
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('collapsed');}
 
-function goTo(page){
+function goTo(page){closeModals();
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
   document.getElementById('page-'+page).classList.add('active');
