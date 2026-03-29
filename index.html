@@ -1264,8 +1264,7 @@ const PROMPT_DEFAULT = "Analyse ce reel Instagram pour une agence OFM. Note de 1
 
 function getVeilleConfig() {
   const c = localStorage.getItem('veille_config');
-  return c ? JSON.parse(c) : {comptes: COMPTES_DEFAULT, prompt: const PROMPT_DEFAULT = "Tu es un expert en contenu Instagram pour une agence OFM. Analyse ce reel et réponds UNIQUEMENT en JSON valide.\n\nCritères de sélection (TOUS doivent être respectés):\n1. REPRODUCTIBLE avec Kling AI motion control - mouvement simple, cadrage fixe ou léger, pas de mouvements complexes\n2. STYLE: lifestyle, sport, restaurant, chill uniquement\n3. DURÉE: entre 4 et 16 secondes\n4. PAS de bikini, lingerie ou contenu suggestif\n5. La modèle NE PARLE PAS ou parle FRANÇAIS uniquement (danse et playback OK)\n\nFormat JSON strict: {recommande: bool, score: int (1-10), raison: string, style: string, conseil_kling: string}";};
-}
+return c ? JSON.parse(c) : {comptes: COMPTES_DEFAULT, prompt: PROMPT_DEFAULT};}
 
 function saveVeilleConfig() {
   const comptes = Array.from(document.querySelectorAll('.compte-tag')).map(el => el.dataset.compte);
