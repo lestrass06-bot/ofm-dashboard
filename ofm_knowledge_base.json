@@ -1,0 +1,227 @@
+{
+  "meta": {
+    "version": "1.0",
+    "date": "2026-04-01",
+    "source": "Conversations OFM SCALE 2026 — Axel Missud",
+    "total_elements": 89
+  },
+
+  "business": {
+    "agence": "TP Agency",
+    "associes": ["Axel Missud", "Théo"],
+    "modele_principal": "Mélina",
+    "plateforme": "OnlyFans",
+    "crm": "Infloww",
+    "chatting_ia": "OnlyChat AI",
+    "objectif_mensuel": 10000,
+    "revenu_actuel": 3501.60,
+    "localisation": "Thaïlande (Axel) / France (fans principaux)",
+    "objectifs": [
+      "Atteindre $10k/mois — Avril 2026",
+      "Scaler à 3 modèles — Mai 2026"
+    ]
+  },
+
+  "modele_melina": {
+    "profil": {
+      "prenom": "Mélina",
+      "age": 29,
+      "origine": "Franco-Italienne",
+      "metier": "Coach sportive",
+      "ancien_metier": "Agent immobilier",
+      "ville_origine": "Nice",
+      "parti_a": 18,
+      "statut": "Célibataire (rupture récente)",
+      "tatouage": "Circulaire biceps droit — inscription grecque 'Eros kai Psyche'"
+    },
+    "personnalite": [
+      "Directe et spontanée",
+      "Aime le sport, les restos, les soirées chill",
+      "Pas compliquée, authentique",
+      "Légèrement provoc sans être vulgaire"
+    ],
+    "style_ecriture": [
+      "Tout en minuscules",
+      "Style SMS casual",
+      "Fautes légères intentionnelles",
+      "Emojis rares et bien placés",
+      "Pas de ponctuation excessive"
+    ],
+    "strategie_proximite": {
+      "regle": "Toujours demander la localisation du fan en premier",
+      "reponse": "Prétendre habiter à 1h30-2h de distance — références régionales vagues",
+      "interdiction": "Ne jamais citer de ville précise"
+    }
+  },
+
+  "scripts_narratifs": {
+    "netflix_lingerie": {
+      "nom": "Netflix Lingerie",
+      "contexte": "Soirée tranquille à la maison",
+      "tenue": "Lingerie blanche (couleur fixe, jamais changer)",
+      "mecanique": "Jeu de devinettes — le fan doit deviner la couleur",
+      "progression": "Suggestion → révélation progressive",
+      "timing": "Tout moment de la journée"
+    },
+    "avant_douche": {
+      "nom": "Avant Douche",
+      "contexte": "Avant de prendre sa douche — contexte intemporel",
+      "tenue": "Débardeur marron + jupe blanche",
+      "progression": "Debout → auto-caresse → climax",
+      "regle": "Ne jamais entrer dans la douche dans le script",
+      "timing": "Tout moment"
+    },
+    "after_party": {
+      "nom": "After Party",
+      "contexte": "Retour de soirée",
+      "tenue": "Robe rouge épaule dénudée + ventre nu + talons blancs",
+      "timing": "Uniquement 19h-4h",
+      "ambiance": "Légèrement alcoolisée, désinhibée"
+    }
+  },
+
+  "chatting_techniques": {
+    "phases_fan": [
+      "1. Découverte — poser des questions sur lui, sa vie, sa localisation",
+      "2. Connexion — trouver des points communs, créer de la proximité",
+      "3. Escalade — suggérer du contenu, tester les limites",
+      "4. Closing — proposer le PPV au bon moment"
+    ],
+    "regles_cles": [
+      "Ne jamais lancer un script PPV sans avoir qualifié le fan",
+      "Toujours demander la localisation avant la proximité",
+      "Utiliser les prénoms des fans quand mémorisés",
+      "Répondre dans les 30 min aux nouveaux subs",
+      "Scripts After Party uniquement 19h-4h"
+    ],
+    "onlychat_config": {
+      "regle": "Toute la personnalisation dans 'Additional Infos' uniquement",
+      "laisser_defaut": ["Language", "Launch Script", "Sexualization", "Negotiation", "Follow-up"]
+    },
+    "metriques_cles": {
+      "unlock_rate_cible": "40%+",
+      "unlock_rate_actuel": "46.43%",
+      "revenus_ia_part": "48% du total",
+      "ltv_fan": "$57.75"
+    }
+  },
+
+  "content_creation": {
+    "pipeline": [
+      "1. Veille Instagram — scraper les reels performants des comptes cibles",
+      "2. Kling AI motion control — reproduire le mouvement",
+      "3. ElevenLabs — remplacer l'audio par la voix clonée de Mélina",
+      "4. CapCut — montage final"
+    ],
+    "kling_ai": {
+      "version_courte": "v3.0 (clips < 8s)",
+      "version_longue": "v2.6 (clips 8-16s)",
+      "taux_succes": "40-60%",
+      "criteres_reproductibilite": [
+        "Mouvement simple — pas de chorégraphie complexe",
+        "Cadrage fixe ou légèrement mobile",
+        "Pas de changement de décor",
+        "Pas de groupe de personnes",
+        "Pas de paroles"
+      ]
+    },
+    "elevenlabs": {
+      "voix": "Voix Mélina clonée",
+      "source_clone": "Contenu YouTube storytelling"
+    },
+    "nano_banana_pro": {
+      "usage": "Variation de poses",
+      "regle": "Préserver arrière-plan, éclairage et apparence du modèle"
+    },
+    "criteres_selection_reels": [
+      "Reproductible avec Kling AI motion control",
+      "Style : lifestyle / sport / restaurant / chill",
+      "Durée : 4 à 16 secondes",
+      "Pas de bikini / lingerie / contenu suggestif",
+      "Modèle ne parle pas OU parle français uniquement",
+      "Danses et playback acceptés"
+    ]
+  },
+
+  "veille_instagram": {
+    "comptes_surveilles": [
+      "sarah.h44", "joellperry", "dahyn1xoficial", "karen.katc",
+      "marcimorallxo", "julia_delenes22", "annatomaax", "amandakabdedo",
+      "clari_cremaschi", "itselodiexoxo"
+    ],
+    "comptes_a_ajouter": ["camillembx", "skylarskye14", "simalkm10"],
+    "frequence": "Quotidien à 8h (heure Thaïlande)",
+    "outils": ["Apify", "Claude API", "GitHub Pages"],
+    "filtres_dashboard": ["Tous", "Aguicheur", "Sportif", "Lifestyle"]
+  },
+
+  "stack_technique": {
+    "dashboard": "GitHub Pages — lestrass06-bot.github.io/ofm-dashboard",
+    "repo": "lestrass06-bot/ofm-dashboard",
+    "password": "ofm2026",
+    "vps": "Hostinger Ubuntu 24.04 — IP 187.77.139.251",
+    "apis": ["Anthropic Claude", "Apify", "Telegram Bot", "GitHub"],
+    "stockage": "localStorage (browser)",
+    "alertes": "Telegram — drop revenus > 15%"
+  },
+
+  "hooks_patterns": {
+    "formats_performants": [
+      "AVANT/APRÈS — transformation visible",
+      "POV — mise en situation immersive",
+      "Choix impossible — engagement par question",
+      "Double personnalité — contradiction intrigante",
+      "Révélation progressive — suspense maintenu"
+    ],
+    "regles_hooks": [
+      "Maximum 3 secondes pour accrocher",
+      "Question ou affirmation choc en ouverture",
+      "Pas d'intro — commencer in media res",
+      "Sous-titres sur les 3 premières secondes",
+      "Couper avant la fin pour créer la frustration"
+    ]
+  },
+
+  "strategies_trafic": {
+    "plateformes": ["Instagram (principal)", "Threads", "Tinder", "Reddit"],
+    "instagram": {
+      "warm_up": "3 semaines de contenu lifestyle avant push OF",
+      "ratio": "80% lifestyle / 20% suggestif",
+      "bio": "Jamais mentionner OF directement — lien en bio",
+      "stories": "Engagement quotidien — sondages, questions"
+    },
+    "tinder": {
+      "usage": "Acquisition fans locaux — proximité géographique",
+      "profil": "Photos lifestyle, bio mystérieuse"
+    }
+  },
+
+  "business_ops": {
+    "commission_chatters": "14% max",
+    "repartition_axel_theo": {
+      "axel": "Tech + Dashboard + Veille + Stratégie",
+      "theo": "Chatting principal + Relation modèles"
+    },
+    "metriques_suivi": [
+      "Revenu mensuel total",
+      "Unlock rate par chatter",
+      "Part revenus IA vs humain",
+      "LTV par fan actif",
+      "Nouveaux subs / churn"
+    ],
+    "analyse_hebdo": {
+      "frequence": "Chaque semaine",
+      "outil": "Dashboard — 6 screenshots Infloww analysés par Claude Vision",
+      "output": "Score /10 + analyse revenus/chatting/IA + 4-5 actions prioritaires"
+    }
+  },
+
+  "mindset_principes": [
+    "Automatiser avant d'engager — chaque tâche répétitive doit devenir un script",
+    "Data d'abord — pas de décision sans métrique",
+    "Qualité du contenu > quantité — mieux vaut 3 reels parfaits que 10 moyens",
+    "Le fan achète une connexion, pas du contenu — l'IA doit humaniser",
+    "Scaler par duplication — systèmes → modèle 2 → modèle 3",
+    "Le dashboard est le cockpit — tout doit y être visible en temps réel"
+  ]
+}
