@@ -1034,68 +1034,79 @@ function setPeriod(days){
 }
 
 // === HOME ===
+function getLastKpis(){
+  try{var s=localStorage.getItem('ofm_last_kpis');return s?JSON.parse(s):null;}catch(e){return null;}
+}
+
+function parseKpiAmount(v){
+  if(!v)return 0;
+  return parseFloat(String(v).replace(/[$, ]/g,'').replace(',','.'))||0;
+}
+
 function renderHome(){
   var params=getParams();
   var now=new Date();
   var obj=params.obj||10000;
-  // Récupérer le revenu réel depuis les analyses
+  var kpis=getLastKpis();
   var analyses=getAnalyses();
+
+  // Source de vérité: KPIs en priorité, sinon models, sinon 0
   var moisTotal=0;
-  if(analyses.length){
-    var rev=extractNum(analyses[0].result&&analyses[0].result.revenus||'');
-    if(rev>0)moisTotal=rev;
-    else{var models=getModels();if(models.length&&models[0].rev)moisTotal=models[0].rev;}
-  } else {
-    var models=getModels();if(models.length&&models[0].rev)moisTotal=models[0].rev;
+  var periode=30;
+  var lastDate='—';
+  if(kpis){
+    moisTotal=parseKpiAmount(kpis.revenus_net)||parseKpiAmount(kpis.revenus_brut)||0;
+    periode=kpis._periode||30;
+    lastDate=kpis._date||'—';
   }
-  if(!moisTotal)moisTotal=0;
+  if(!moisTotal){
+    var models=getModels();
+    if(models.length&&models[0].rev)moisTotal=parseFloat(models[0].rev)||0;
+  }
+
   var pct=Math.min(100,Math.round(moisTotal/obj*100));
   var remain=Math.max(0,obj-moisTotal);
   var daysInMonth=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
   var daysLeft=daysInMonth-now.getDate();
   var dailyNeeded=daysLeft>0?remain/daysLeft:0;
-  var labels={7:'7 derniers jours',14:'14 derniers jours',30:'30 derniers jours'};
-  // Calcul revenus sur la période
-  var periodRev=0;
-  if(analyses.length){
-    var cutDate=new Date(now.getTime()-currentPeriod*24*3600000);
-    analyses.forEach(function(a){
-      try{
-        var parts=a.date.split(' ');
-        var months={jan:0,fév:1,mar:2,avr:3,mai:4,jun:5,jul:6,aoû:7,sep:8,oct:9,nov:10,déc:11};
-        var d=new Date(parseInt(parts[2]),months[parts[1]],parseInt(parts[0]));
-        if(d>=cutDate)periodRev+=extractNum(a.result&&a.result.revenus||'');
-      }catch(e){}
-    });
+
+  var periodeLabel=periode===7?'7 derniers jours':periode===14?'14 derniers jours':'30 derniers jours';
+
+  // Stats principales
+  var el=function(id){return document.getElementById(id);};
+  if(el('h-period-rev'))el('h-period-rev').textContent='$'+moisTotal.toFixed(2);
+  if(el('h-period-label'))el('h-period-label').textContent=periodeLabel;
+  if(el('prog-current'))el('prog-current').textContent='$'+moisTotal.toFixed(2)+' / ';
+  if(el('prog-obj'))el('prog-obj').textContent='$'+obj.toLocaleString();
+  if(el('prog-pct'))el('prog-pct').textContent=pct+'%';
+  if(el('prog-bar')){el('prog-bar').style.width=pct+'%';el('prog-bar').style.background=pct>=100?'var(--green)':'var(--accent)';}
+  if(el('prog-remain'))el('prog-remain').textContent='$'+remain.toFixed(0)+' restants';
+  if(el('home-obj-pct'))el('home-obj-pct').textContent=pct+'% atteint';
+  if(el('home-days-left'))el('home-days-left').textContent=daysLeft+' jours restants';
+  if(el('home-daily'))el('home-daily').textContent='~$'+dailyNeeded.toFixed(0)+'/jour';
+  if(el('chart-period-label'))el('chart-period-label').textContent=periodeLabel;
+  if(el('h-mois'))el('h-mois').textContent='$'+moisTotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  if(el('rv-mois'))el('rv-mois').textContent='$'+moisTotal.toFixed(2);
+  if(el('h-mois-evo'))el('h-mois-evo').textContent=lastDate?'Analyse du '+lastDate:'';
+
+  // KPIs supplémentaires depuis dernière analyse
+  if(kpis){
+    if(el('h-ltv')){
+      var ltv=parseKpiAmount(kpis.theo_earnings_par_fan)||parseKpiAmount(kpis.axel_earnings_par_fan)||0;
+      if(ltv>0)el('h-ltv').textContent='$'+ltv.toFixed(2);
+    }
+    // Insta / trafic
+    if(el('home-clics'))el('home-clics').textContent=kpis.total_clics_getmysocial?parseInt(kpis.total_clics_getmysocial).toLocaleString('fr-FR'):(localStorage.getItem('ofm_last_clics')||'—');
+    if(el('home-top-lien'))el('home-top-lien').textContent=kpis.top_lien||localStorage.getItem('ofm_top_lien')||'—';
+    if(el('home-top-clics'))el('home-top-clics').textContent=kpis.top_lien_clics?(kpis.top_lien_clics+' clics'):(localStorage.getItem('ofm_top_lien_clics')||'—');
+  } else {
+    // Fallback localStorage
+    if(el('home-clics'))el('home-clics').textContent=localStorage.getItem('ofm_last_clics')||'—';
+    if(el('home-top-lien'))el('home-top-lien').textContent=localStorage.getItem('ofm_top_lien')||'—';
+    if(el('home-top-clics'))el('home-top-clics').textContent=localStorage.getItem('ofm_top_lien_clics')||'—';
   }
-  document.getElementById('h-period-rev').textContent='$'+periodRev.toFixed(2);
-  document.getElementById('h-period-label').textContent=labels[currentPeriod];
-  document.getElementById('prog-current').textContent='$'+moisTotal.toFixed(2)+' / ';
-  document.getElementById('prog-obj').textContent='$'+obj.toLocaleString();
-  document.getElementById('prog-pct').textContent=pct+'%';
-  document.getElementById('prog-bar').style.width=pct+'%';
-  document.getElementById('prog-bar').style.background=pct>=100?'var(--green)':'var(--accent)';
-  document.getElementById('prog-remain').textContent='$'+remain.toFixed(0)+' restants';
-  document.getElementById('home-obj-pct').textContent=pct+'% atteint';
-  document.getElementById('home-days-left').textContent=daysLeft+' jours restants';
-  document.getElementById('home-daily').textContent='~$'+dailyNeeded.toFixed(0)+'/jour';
-  document.getElementById('chart-period-label').textContent=labels[currentPeriod];
-  var hmois=document.getElementById('h-mois');if(hmois)hmois.textContent='$'+moisTotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
-  var hrv=document.getElementById('rv-mois');if(hrv)hrv.textContent='$'+moisTotal.toFixed(2);
+
   setTimeout(function(){try{initChart();}catch(e){}},100);
-  // Insta summary from stored data
-  var clics=localStorage.getItem('ofm_last_clics');
-  var topLien=localStorage.getItem('ofm_top_lien');
-  var topClics=localStorage.getItem('ofm_top_lien_clics');
-  var elClics=document.getElementById('home-clics');
-  var elTopLien=document.getElementById('home-top-lien');
-  var elTopClics=document.getElementById('home-top-clics');
-  if(elClics)elClics.textContent=clics?parseInt(clics).toLocaleString('fr-FR'):'—';
-  if(elTopLien)elTopLien.textContent=topLien?topLien:'—';
-  if(elTopClics)elTopClics.textContent=topClics?topClics+' clics':'—';
-  // Update h-mois-evo with last analysis period
-  var hmoisevo=document.getElementById('h-mois-evo');
-  if(hmoisevo&&analyses.length){var lastDate=analyses[0].date||'';hmoisevo.textContent='Dernière analyse: '+lastDate;}
 }
 
 function initChart(){
@@ -1193,7 +1204,7 @@ async function analyseAll(){
   document.getElementById('analyse-sections').style.display='none';
   var msgContent=[];
   keys.forEach(function(k){msgContent.push({type:'image',source:{type:'base64',media_type:'image/png',data:uploadedImages[k]}});});
-  var prompt='Tu es expert OFM et analyste business pour une agence marche francais. Ces screens viennent de: Infloww (revenus, abonnes, chatters), OnlyChat AI (performance bot), GetMySocial (trafic/clics).'+getKBContext()+
+  var periode=analysePeriod||30;var prompt='Tu es expert OFM et analyste business. Ces screens viennent de Infloww, OnlyChat AI et GetMySocial. La periode analysee est de '+periode+' jours. Lis bien les dates affichees dans les screens et extrait TOUS les chiffres exacts visibles. Ne devine pas, lis uniquement ce qui est ecrit dans les images.'+getKBContext()+
   'Extrais TOUS les chiffres visibles et retourne UNIQUEMENT ce JSON valide (pas de markdown):'+
   '{"score":8,'+
   '"kpis":{"revenus_net":"$4474","revenus_brut":"$5593","tips":"$116","messages_revenus":"$4262","publications":"$96","abonnes":495,"unlock_rate_global":"40.24%","theo_sales":"$2733","theo_ppv":"$2728","theo_fans_chatte":523,"theo_unlock":"38.72%","theo_earnings_par_fan":"$53.58","axel_sales":"$2151","axel_ppv":"$2151","axel_fans_chatte":343,"axel_unlock":"42.77%","axel_earnings_par_fan":"$71.70","ai_unlock_rate":"28.8%","ai_revenue":"$402","ai_sales":21,"meilleur_script":"Netflix Lingerie","total_clics_getmysocial":711,"top_lien":"meli_nanaxo","top_lien_clics":269},'+
@@ -1281,6 +1292,13 @@ function saveAnalyse(result){
   analyses.unshift({date:date,result:result});
   if(analyses.length>10)analyses=analyses.slice(0,10);
   set(K.analyses,analyses);
+  // Sauvegarder les KPIs séparément comme source de vérité
+  if(result.kpis){
+    var kpis=result.kpis;
+    kpis._date=date;
+    kpis._periode=analysePeriod||30;
+    localStorage.setItem('ofm_last_kpis',JSON.stringify(kpis));
+  }
 }
 function renderHistory(){
   var analyses=getAnalyses();
@@ -1295,11 +1313,26 @@ function showAnalyse(i){
   var a=getAnalyses()[i];if(!a||!a.result)return;
   var r=a.result;lastAnalysisActions=r.actions||null;
   document.getElementById('score-val').textContent=r.score||'—';
-  document.getElementById('content-revenus').textContent=r.revenus||'';
-  document.getElementById('content-chatting').textContent=r.chatting||'';
-  document.getElementById('content-ia').textContent=r.ia||'';
-  document.getElementById('content-actions').textContent=r.actions||'';
-  ['score','revenus','chatting','ia','actions'].forEach(function(s){document.getElementById('section-'+s).style.display=r[s]?'block':'none';});
+  document.getElementById('section-score').style.display=r.score?'block':'none';
+  // Render KPIs if present
+  if(r.kpis){
+    var kpis=r.kpis;
+    var kpiLabels={revenus_net:'Revenus net',revenus_brut:'Revenus brut',tips:'Tips',abonnes:'Abonnés',unlock_rate_global:'Unlock global',theo_sales:'Ventes Théo',theo_unlock:'Unlock Théo',theo_earnings_par_fan:'$/fan Théo',axel_sales:'Ventes Axel',axel_unlock:'Unlock Axel',axel_earnings_par_fan:'$/fan Axel',ai_unlock_rate:'Unlock IA',ai_revenue:'Revenue IA',meilleur_script:'Meilleur script',total_clics_getmysocial:'Clics total',top_lien:'Top lien'};
+    var kpiColors={revenus_net:'var(--green)',revenus_brut:'var(--green)',theo_sales:'var(--purple)',axel_sales:'var(--purple)',ai_revenue:'var(--orange)'};
+    var grid=document.getElementById('kpis-grid');
+    if(grid)grid.innerHTML=Object.keys(kpis).filter(function(k){return kpis[k]&&kpis[k]!=''&&!k.startsWith('_');}).map(function(k){var color=kpiColors[k]||'var(--text)';return '<div style="background:var(--bg3);border-radius:6px;padding:8px;"><div style="font-size:10px;color:var(--text3);margin-bottom:2px;">'+(kpiLabels[k]||k)+'</div><div style="font-size:14px;font-weight:600;color:'+color+';">'+kpis[k]+'</div></div>';}).join('');
+    document.getElementById('section-kpis').style.display='block';
+  }
+  var sections=['revenus','chatting','ia','trafic','actions'];
+  sections.forEach(function(s){
+    var el=document.getElementById('content-'+s);
+    var sec=document.getElementById('section-'+s);
+    if(!el||!sec)return;
+    var val=r[s];
+    if(Array.isArray(val)){el.innerHTML=val.map(function(a,i){return '<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:13px;"><span style="color:var(--text3);margin-right:6px;">'+(i+1)+'.</span>'+a+'</div>';}).join('');}
+    else{el.textContent=val||'';}
+    sec.style.display=val?'block':'none';
+  });
   document.getElementById('analyse-sections').style.display='block';
 }
 
