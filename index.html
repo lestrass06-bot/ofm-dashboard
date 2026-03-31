@@ -361,7 +361,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
         <div class="nav-group-label" style="margin-top:4px;">Opérations</div>
         <div class="nav-item" id="nav-analyse" onclick="goTo('analyse')"><span class="nav-icon">📊</span><span class="nav-label">Analyse Hebdo</span></div>
         <div class="nav-item" id="nav-hooks" onclick="goTo('hooks')"><span class="nav-icon">⚡</span><span class="nav-label">Hook Generator</span></div>
-        <div class="nav-item" id="nav-veille" onclick="goTo('veille')"><span class="nav-icon">◈</span><span class="nav-label">Veille Insta</span></div>
+        <div class="nav-item" id="nav-veille" onclick="goTo('veille')"><span class="nav-icon">📸</span><span class="nav-label">Compte Mélina</span></div>
         <div class="nav-item" id="nav-reels" onclick="goTo('reels')"><span class="nav-icon">🎬</span><span class="nav-label">Veille Reels</span></div>
         <div class="nav-item" id="nav-agents" onclick="goTo('agents')"><span class="nav-icon">◎</span><span class="nav-label">Agents IA</span></div>
 
@@ -551,8 +551,13 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
       <!-- VEILLE INSTA -->
       <div class="page" id="page-veille">
         <div class="page-header">
-          <div><div class="page-title">Veille Instagram</div></div>
-          <button class="btn btn-sm" onclick="openModal('veille-modal')">+ Ajouter</button>
+          <div><div class="page-title">Compte Mélina 📸</div><div class="page-sub">Suivi des comptes Instagram de Mélina</div></div>
+          <button class="btn btn-sm" onclick="openModal('veille-modal')">+ Ajouter compte</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;" id="melina-stats-grid">
+          <div class="card" style="text-align:center;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;">Comptes actifs</div><div style="font-size:22px;font-weight:700;" id="melina-count">0</div></div>
+          <div class="card" style="text-align:center;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;">Total followers</div><div style="font-size:22px;font-weight:700;" id="melina-followers">—</div></div>
+          <div class="card" style="text-align:center;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;">Dernier post</div><div style="font-size:22px;font-weight:700;" id="melina-lastpost">—</div></div>
         </div>
         <div class="veille-grid" id="veille-grid"></div>
       </div>
@@ -584,27 +589,46 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 
       <!-- AGENTS -->
       <div class="page" id="page-agents">
-        <div class="page-header"><div class="page-title">Agents IA</div></div>
+        <div class="page-header"><div class="page-title">Agents IA</div><div class="page-sub">Automatisations actives — statut en temps réel</div></div>
         <div class="agent-card">
-          <div class="agent-header"><div class="agent-dot" style="background:var(--green);"></div><div class="agent-name">Analyseur de contenu</div></div>
-          <div class="agent-desc">Décris un reel/post qui performe — analyse pourquoi ça marche et comment le reproduire.</div>
-          <textarea class="input textarea" id="a1" placeholder="Ex: reel 2M vues, hook tu savais pas que..."></textarea>
-          <button class="btn btn-sm" onclick="runAgent(1)" style="margin-top:8px;">Analyser</button>
-          <div class="agent-result" id="a1-result"></div>
+          <div class="agent-header"><div class="agent-dot" id="dot-veille-agent" style="background:var(--green);"></div><div class="agent-name">🔍 Veille Instagram</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">Chaque jour à 08:00 (Thaïlande)</span></div>
+          <div class="agent-desc">Scrape les comptes surveillés via Apify, analyse les reels avec Claude AI selon les critères de sélection, uploade les résultats sur GitHub.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fonction</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Scraping + Analyse</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fréquence</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Quotidien</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Dernière synchro</div><div style="font-size:12px;font-weight:600;margin-top:2px;" id="agent-veille-last">—</div></div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 VPS Hostinger (Ubuntu 24.04) · Script : veille_instagram.py · Crontab 8h</div>
         </div>
         <div class="agent-card">
-          <div class="agent-header"><div class="agent-dot" style="background:var(--orange);"></div><div class="agent-name">Générateur hooks & captions</div></div>
-          <div class="agent-desc">Décris ton contenu — génère 5 hooks et captions optimisés.</div>
-          <textarea class="input textarea" id="a2" placeholder="Ex: vidéo lifestyle Thaïlande, plage..."></textarea>
-          <button class="btn btn-sm" onclick="runAgent(2)" style="margin-top:8px;">Générer</button>
-          <div class="agent-result" id="a2-result"></div>
+          <div class="agent-header"><div class="agent-dot" style="background:var(--orange);"></div><div class="agent-name">🤖 OnlyChat AI — Mélina</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">24h/24 — 7j/7</span></div>
+          <div class="agent-desc">Répond automatiquement aux fans sur OnlyFans en incarnant Mélina. Gère les conversations, propose du PPV, applique les scripts Netflix Lingerie / Avant Douche / After Party.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fonction</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Chatting auto</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Plateforme</div><div style="font-size:12px;font-weight:600;margin-top:2px;">OnlyChat AI</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Modèle</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Mélina</div></div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 Infloww CRM · Scripts actifs : 3 · Style : lowercase SMS, pas d'emojis excessifs</div>
         </div>
         <div class="agent-card">
-          <div class="agent-header"><div class="agent-dot" style="background:var(--purple);"></div><div class="agent-name">Templates chatting OFM</div></div>
-          <div class="agent-desc">Décris le profil du fan — génère des messages pour maximiser engagement et ventes.</div>
-          <textarea class="input textarea" id="a3" placeholder="Ex: fan régulier, a acheté 2 fois..."></textarea>
-          <button class="btn btn-sm" onclick="runAgent(3)" style="margin-top:8px;">Générer</button>
-          <div class="agent-result" id="a3-result"></div>
+          <div class="agent-header"><div class="agent-dot" style="background:var(--accent);"></div><div class="agent-name">📊 Analyseur hebdo</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">Manuel — chaque semaine</span></div>
+          <div class="agent-desc">Analyse les screenshots de stats Infloww via Claude Vision. Génère score, analyse revenus/chatting/IA et liste d'actions prioritaires. Alimente automatiquement Vue d'ensemble.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fonction</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Analyse IA</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Déclencheur</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Manuel</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Dernière analyse</div><div style="font-size:12px;font-weight:600;margin-top:2px;" id="agent-analyse-last">—</div></div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 Dashboard · Claude Sonnet · 6 slots images max</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-header"><div class="agent-dot" style="background:var(--purple,#8b5cf6);"></div><div class="agent-name">🎬 Générateur contenu</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">Manuel — sur demande</span></div>
+          <div class="agent-desc">Pipeline complet : scrape les reels performants → génère via Kling AI motion control (v3.0 courtes, v2.6 longues) → remplace l'audio ElevenLabs (voix Mélina clonée) → montage CapCut.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Kling AI</div><div style="font-size:12px;font-weight:600;margin-top:2px;">v3.0 / v2.6</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Taux succès</div><div style="font-size:12px;font-weight:600;margin-top:2px;">~50%</div></div>
+            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Audio</div><div style="font-size:12px;font-weight:600;margin-top:2px;">ElevenLabs</div></div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 Kling AI + ElevenLabs + CapCut + Nano Banana Pro</div>
         </div>
       </div>
 
@@ -744,6 +768,15 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
             <button class="btn btn-sm" onclick="saveApiKey('apify','key-apify')">Sauvegarder</button>
           </div>
         </div>
+        <div class="card" style="margin-bottom:12px;">
+          <div class="card-title" style="margin-bottom:12px;">➕ Ajouter une clé personnalisée</div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;">
+            <input type="text" id="new-api-name" class="input" placeholder="Nom du service (ex: ElevenLabs)" style="flex:1;"/>
+            <input type="password" id="new-api-key" class="input" placeholder="Clé API..." style="flex:2;"/>
+            <button class="btn btn-sm btn-green" onclick="addCustomApiKey()">+ Ajouter</button>
+          </div>
+          <div id="custom-keys-list"></div>
+        </div>
         <div class="card">
           <div class="card-title">Statut connexions</div>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
@@ -874,6 +907,7 @@ function goTo(page){
   if(page==='chatters')renderChatterComparison();
   if(page==='finances')renderFinances();
   if(page==='reels')loadVeilleReels();
+  if(page==='agents')updateAgentsDates();
 }
 
 // === CLOCKS ===
@@ -902,14 +936,37 @@ function renderHome(){
   var params=getParams();
   var now=new Date();
   var obj=params.obj||10000;
-  var moisTotal=3501.60;
+  // Récupérer le revenu réel depuis les analyses
+  var analyses=getAnalyses();
+  var moisTotal=0;
+  if(analyses.length){
+    var rev=extractNum(analyses[0].result&&analyses[0].result.revenus||'');
+    if(rev>0)moisTotal=rev;
+    else{var models=getModels();if(models.length&&models[0].rev)moisTotal=models[0].rev;}
+  } else {
+    var models=getModels();if(models.length&&models[0].rev)moisTotal=models[0].rev;
+  }
+  if(!moisTotal)moisTotal=0;
   var pct=Math.min(100,Math.round(moisTotal/obj*100));
   var remain=Math.max(0,obj-moisTotal);
   var daysInMonth=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
   var daysLeft=daysInMonth-now.getDate();
   var dailyNeeded=daysLeft>0?remain/daysLeft:0;
   var labels={7:'7 derniers jours',14:'14 derniers jours',30:'30 derniers jours'};
-  document.getElementById('h-period-rev').textContent='$0.00';
+  // Calcul revenus sur la période
+  var periodRev=0;
+  if(analyses.length){
+    var cutDate=new Date(now.getTime()-currentPeriod*24*3600000);
+    analyses.forEach(function(a){
+      try{
+        var parts=a.date.split(' ');
+        var months={jan:0,fév:1,mar:2,avr:3,mai:4,jun:5,jul:6,aoû:7,sep:8,oct:9,nov:10,déc:11};
+        var d=new Date(parseInt(parts[2]),months[parts[1]],parseInt(parts[0]));
+        if(d>=cutDate)periodRev+=extractNum(a.result&&a.result.revenus||'');
+      }catch(e){}
+    });
+  }
+  document.getElementById('h-period-rev').textContent='$'+periodRev.toFixed(2);
   document.getElementById('h-period-label').textContent=labels[currentPeriod];
   document.getElementById('prog-current').textContent='$'+moisTotal.toFixed(2)+' / ';
   document.getElementById('prog-obj').textContent='$'+obj.toLocaleString();
@@ -921,6 +978,8 @@ function renderHome(){
   document.getElementById('home-days-left').textContent=daysLeft+' jours restants';
   document.getElementById('home-daily').textContent='~$'+dailyNeeded.toFixed(0)+'/jour';
   document.getElementById('chart-period-label').textContent=labels[currentPeriod];
+  var hmois=document.getElementById('h-mois');if(hmois)hmois.textContent='$'+moisTotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  var hrv=document.getElementById('rv-mois');if(hrv)hrv.textContent='$'+moisTotal.toFixed(2);
   setTimeout(function(){try{initChart();}catch(e){}},100);
 }
 
@@ -929,13 +988,17 @@ function initChart(){
   if(!ctx)return;
   if(chartInst){chartInst.destroy();chartInst=null;}
   var months=['jan','fév','mar','avr','mai','jun','jul','aoû','sep','oct','nov','déc'];
-  var marchBase=[85,120,95,180,145,210,88,165,230,155,195,110,175,260,140,190,125,145,285,160,200,115,180,240,160,195,130,210,155,170];
+  var monthsMap={jan:0,fév:1,mar:2,avr:3,mai:4,jun:5,jul:6,aoû:7,sep:8,oct:9,nov:10,déc:11};
   var now=new Date(),days=[],amounts=[];
+  var analyses=getAnalyses();
+  var revMap={};
+  analyses.forEach(function(a){
+    try{var parts=a.date.split(' ');var d=new Date(parseInt(parts[2]),monthsMap[parts[1]],parseInt(parts[0]));var key=d.toDateString();var rev=extractNum(a.result&&a.result.revenus||'');if(rev>0&&!revMap[key])revMap[key]=rev;}catch(e){}
+  });
   for(var i=currentPeriod-1;i>=0;i--){
     var d=new Date(now.getTime()-i*24*3600000);
     days.push(d.getDate()+' '+months[d.getMonth()]);
-    var v=d.getMonth()===2?(marchBase[d.getDate()-1]||0):0;
-    amounts.push(v);
+    amounts.push(revMap[d.toDateString()]||0);
   }
   chartInst=new Chart(ctx,{type:'line',data:{labels:days,datasets:[{label:'Revenus',data:amounts,borderColor:'rgba(59,130,246,0.8)',backgroundColor:function(c){var g=c.chart.ctx.createLinearGradient(0,0,0,180);g.addColorStop(0,'rgba(59,130,246,0.12)');g.addColorStop(1,'rgba(59,130,246,0)');return g;},borderWidth:1.5,pointRadius:0,pointHoverRadius:4,tension:0.4,fill:true}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(7,9,15,0.95)',borderColor:'rgba(59,130,246,0.3)',borderWidth:1,titleColor:'#94a3b8',bodyColor:'#f1f5f9',padding:10,displayColors:false,callbacks:{title:function(i){return i[0].label;},label:function(c){return '$'+c.parsed.y.toFixed(2);}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10},maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10},callback:function(v){return '$'+v;}}}}}});
 }
@@ -1164,17 +1227,18 @@ async function loadVeilleReels(){
   var el=document.getElementById('reels-list');
   el.innerHTML='<div class="card"><div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span style="color:var(--text3);font-size:13px;margin-left:8px;">Chargement des résultats VPS...</span></div></div>';
   try{
-    var apiKey=getApiKey();
-    if(!apiKey){el.innerHTML='<div class="card" style="color:var(--text3);font-size:13px;">Configure ta clé API pour utiliser cette section</div>';return;}
-    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,messages:[{role:'user',content:'Génère 5 exemples fictifs de reels recommandés pour une agence OFM lifestyle. JSON: [{"username":"compte","url":"https://instagram.com/p/xxx","views":250000,"duration":8,"analyse":{"score":8,"raison":"description courte","style":"sportif","conseil_kling":"conseil court"}}]. UNIQUEMENT JSON.'}]})});
+    var url='https://raw.githubusercontent.com/lestrass06-bot/ofm-dashboard/main/veille_resultats.json?t='+Date.now();
+    var res=await fetch(url);
+    if(!res.ok)throw new Error('Fichier introuvable ('+res.status+')');
     var data=await res.json();
-    var text=data.content&&data.content[0]?data.content[0].text:'[]';
-    var reels=JSON.parse(text.replace(/```json|```/g,'').trim());
+    var reels=data.reels||[];
     document.getElementById('reels-stats').textContent=reels.length+' reels';
-    document.getElementById('reels-date').textContent=new Date().toLocaleDateString('fr-FR');
+    document.getElementById('reels-date').textContent=data.date?new Date(data.date).toLocaleDateString('fr-FR'):new Date().toLocaleDateString('fr-FR');
+    if(!reels.length){el.innerHTML='<div class="card" style="color:var(--text3);font-size:13px;">Aucun reel recommandé dans les derniers résultats VPS</div>';return;}
     el.innerHTML=reels.map(function(r){
       var a=r.analyse||{};
-      return '<div class="reel-card"><div class="reel-thumb-ph">🎬</div><div class="reel-info"><div class="reel-account">@'+r.username+' · '+r.duration+'s · '+(r.views||0).toLocaleString()+' vues</div><div style="display:flex;align-items:center;gap:8px;margin-top:3px;"><div class="reel-score">Score '+a.score+'/10</div><span class="tag tag-'+a.style+'">'+a.style+'</span></div><div class="reel-reason">'+(a.raison||'')+'</div><div class="reel-conseil">💡 '+a.conseil_kling+'</div><a href="'+r.url+'" target="_blank" class="reel-link">Voir le reel →</a></div></div>';
+      var scoreColor=a.score>=7?'var(--green)':a.score>=5?'var(--orange)':'var(--red,#e24b4a)';
+      return '<div class="reel-card"><div class="reel-thumb-ph">🎬</div><div class="reel-info"><div class="reel-account">@'+r.username+' · '+(r.duration||0)+'s · '+((r.views||0)).toLocaleString()+' vues</div><div style="display:flex;align-items:center;gap:8px;margin-top:3px;"><div class="reel-score" style="background:'+scoreColor+';">Score '+(a.score||'?')+'/10</div><span class="tag tag-'+(a.style||'')+'>'+(a.style||'')+' </span></div><div class="reel-reason">'+(a.raison||'')+'</div><div class="reel-conseil">💡 '+(a.conseil_kling||'')+'</div><a href="'+(r.url||'#')+'" target="_blank" class="reel-link">Voir le reel →</a></div></div>';
     }).join('');
   }catch(e){el.innerHTML='<div class="card" style="color:var(--text3);font-size:13px;">Erreur: '+e.message+'</div>';}
 }
@@ -1343,6 +1407,7 @@ function loadApiKeys(){
     if(input)input.value=val?'••••••••••••':'';
     updateDots(k,!!val);
   });
+  renderCustomKeys();
 }
 function saveApiKey(name,inputId){
   var val=document.getElementById(inputId).value.trim();
@@ -1353,6 +1418,32 @@ function saveApiKey(name,inputId){
   updateDots(name,true);
   alert('Clé '+name+' sauvegardée !');
 }
+function addCustomApiKey(){
+  var name=document.getElementById('new-api-name').value.trim();
+  var key=document.getElementById('new-api-key').value.trim();
+  if(!name||!key){alert('Remplis le nom et la clé !');return;}
+  var customs=JSON.parse(localStorage.getItem('ofm_custom_keys')||'[]');
+  customs.push({name:name,key:key});
+  localStorage.setItem('ofm_custom_keys',JSON.stringify(customs));
+  document.getElementById('new-api-name').value='';
+  document.getElementById('new-api-key').value='';
+  renderCustomKeys();
+  alert('Clé "'+name+'" ajoutée !');
+}
+function renderCustomKeys(){
+  var el=document.getElementById('custom-keys-list');if(!el)return;
+  var customs=JSON.parse(localStorage.getItem('ofm_custom_keys')||'[]');
+  if(!customs.length){el.innerHTML='<div style="color:var(--text3);font-size:12px;padding:4px 0;">Aucune clé personnalisée</div>';return;}
+  el.innerHTML=customs.map(function(c,i){
+    return '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);"><div style="flex:1;"><div style="font-size:13px;font-weight:500;">'+c.name+'</div><div style="font-size:11px;color:var(--text3);">••••••••••••</div></div><button class="btn btn-sm" style="background:var(--red,#e24b4a);" onclick="delCustomApiKey('+i+')">Supprimer</button></div>';
+  }).join('');
+}
+function delCustomApiKey(i){
+  var customs=JSON.parse(localStorage.getItem('ofm_custom_keys')||'[]');
+  customs.splice(i,1);
+  localStorage.setItem('ofm_custom_keys',JSON.stringify(customs));
+  renderCustomKeys();
+}
 function updateDots(name,active){
   ['dot-','sdot-'].forEach(function(prefix){
     var el=document.getElementById(prefix+name);
@@ -1360,6 +1451,15 @@ function updateDots(name,active){
   });
   var info=document.getElementById('sinfo-'+name);
   if(info)info.textContent=active?'Configuré':'Non configuré';
+}
+function updateAgentsDates(){
+  var analyses=getAnalyses();
+  var el=document.getElementById('agent-analyse-last');
+  if(el&&analyses.length)el.textContent=analyses[0].date;
+  // Date dernière veille depuis veille_resultats.json en cache
+  var cache=localStorage.getItem('veille_vps_cache');
+  var el2=document.getElementById('agent-veille-last');
+  if(el2&&cache){try{var d=JSON.parse(cache);if(d.date)el2.textContent=new Date(d.date).toLocaleDateString('fr-FR');}catch(e){}}
 }
 
 // === PARAMS ===
