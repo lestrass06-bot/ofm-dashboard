@@ -566,7 +566,10 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
       <div class="page" id="page-reels">
         <div class="page-header">
           <div><div class="page-title">Veille Reels 🎬</div><div class="page-sub">Reels recommandés par le script VPS — mis à jour toutes les 24h</div></div>
-          <button class="btn btn-sm" onclick="loadVeilleReels()">↻ Sync</button>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-sm btn-ghost" onclick="openVeilleConfig()">⚙ Config</button>
+            <button class="btn btn-sm" onclick="loadVeilleReels()">↻ Sync</button>
+          </div>
         </div>
         <div class="card" style="margin-bottom:12px;">
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -580,7 +583,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
             </div>
             <div style="flex:1;min-width:160px;">
               <div style="font-size:11px;color:var(--text3);margin-bottom:6px;">Comptes surveillés</div>
-              <div style="font-size:13px;font-weight:500;">10 comptes</div>
+              <div id="reels-comptes-count" style="font-size:13px;font-weight:500;">—</div>
             </div>
           </div>
         </div>
@@ -762,10 +765,15 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
             <div class="api-inputs"><input type="password" id="key-telegram" class="input" placeholder="123456:ABC..." style="flex:1;"/><div class="api-status-dot" id="dot-telegram"></div></div>
             <button class="btn btn-sm" onclick="saveApiKey('telegram','key-telegram')">Sauvegarder</button>
           </div>
-          <div class="api-row" style="border-bottom:none;">
+          <div class="api-row">
             <div class="api-info"><div class="api-name">Apify</div><div class="api-desc">Veille Instagram</div></div>
             <div class="api-inputs"><input type="password" id="key-apify" class="input" placeholder="apify_api_..." style="flex:1;"/><div class="api-status-dot" id="dot-apify"></div></div>
             <button class="btn btn-sm" onclick="saveApiKey('apify','key-apify')">Sauvegarder</button>
+          </div>
+          <div class="api-row" style="border-bottom:none;">
+            <div class="api-info"><div class="api-name">GitHub</div><div class="api-desc">Deploy veille config</div></div>
+            <div class="api-inputs"><input type="password" id="key-github" class="input" placeholder="ghp_..." style="flex:1;"/><div class="api-status-dot" id="dot-github"></div></div>
+            <button class="btn btn-sm" onclick="saveApiKey('github','key-github')">Sauvegarder</button>
           </div>
         </div>
         <div class="card" style="margin-bottom:12px;">
@@ -829,6 +837,25 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 <div class="modal-overlay" id="todo-modal">
   <div class="modal"><h3>Nouvelle tâche</h3><input type="text" id="todo-input" class="input" placeholder="Description"/><select id="todo-prio" class="select" style="width:100%;margin-bottom:9px;"><option value="high">Urgent</option><option value="mid" selected>Moyen</option><option value="low">Low</option></select><div class="modal-btns"><button class="btn btn-ghost" onclick="closeModals()">Annuler</button><button class="btn" onclick="addTodo()">Ajouter</button></div></div>
 </div>
+<div class="modal-overlay" id="veille-config-modal" style="display:none;">
+  <div class="modal" style="max-width:560px;width:95%;">
+    <h3>⚙ Config Veille Reels</h3>
+    <div style="margin-bottom:12px;">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:6px;font-weight:500;">Comptes Instagram à scrapper (un par ligne)</div>
+      <textarea id="vc-accounts" class="input textarea" style="height:140px;font-family:'DM Mono',monospace;font-size:12px;" placeholder="sarah.h44&#10;joellperry&#10;karen.katc"></textarea>
+    </div>
+    <div style="margin-bottom:12px;">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:6px;font-weight:500;">Prompt de sélection Claude</div>
+      <textarea id="vc-prompt" class="input textarea" style="height:160px;font-size:12px;" placeholder="Tu es expert en contenu Instagram OFM..."></textarea>
+    </div>
+    <div id="vc-status" style="font-size:12px;color:var(--green);margin-bottom:8px;display:none;"></div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModals()">Annuler</button>
+      <button class="btn" onclick="saveVeilleConfig()">💾 Sauvegarder & Envoyer au bot</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="veille-modal">
   <div class="modal"><h3>Ajouter à la veille</h3><input type="text" id="v-title" class="input" placeholder="Titre / Compte / Reel"/><select id="v-tag" class="select" style="width:100%;margin-bottom:9px;"><option value="reel">Reel qui marche</option><option value="compte">Compte concurrent</option><option value="hook">Hook / Caption</option><option value="idee">Idée de contenu</option></select><textarea id="v-note" class="input textarea" placeholder="Notes..."></textarea><div class="modal-btns"><button class="btn btn-ghost" onclick="closeModals()">Annuler</button><button class="btn" onclick="addVeille()">Ajouter</button></div></div>
 </div>
@@ -1426,7 +1453,7 @@ async function loadNews(){
 
 // === API KEYS ===
 function loadApiKeys(){
-  ['anthropic','openai','telegram','apify'].forEach(function(k){
+  ['anthropic','openai','telegram','apify','github'].forEach(function(k){
     var val=localStorage.getItem('ofm_api_'+k)||'';
     if(k==='anthropic'&&!val)val=localStorage.getItem('ofm_api_key')||'';
     var input=document.getElementById('key-'+k);
@@ -1539,10 +1566,69 @@ async function checkRevenueAlert(){
 
 // === MODALS ===
 function openModal(id){document.getElementById(id).classList.add('show');}
-function closeModals(){document.querySelectorAll('.modal-overlay').forEach(function(m){m.classList.remove('show');});}
+function closeModals(){document.querySelectorAll('.modal-overlay').forEach(function(m){m.classList.remove('show');m.style.display='none';});}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModals();});
 document.querySelectorAll('.modal-overlay').forEach(function(m){m.addEventListener('click',function(e){if(e.target===this)closeModals();});});
 document.getElementById('pwd-input').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+
+// === VEILLE CONFIG ===
+var VEILLE_PROMPT_DEFAULT = 'Tu es expert en contenu Instagram OFM lifestyle marché français. Analyse ce reel et réponds UNIQUEMENT en JSON.\n\nCritères de sélection (score /10) :\n1. Reproductible avec Kling AI motion control (mouvement simple, pas de scène complexe)\n2. Style lifestyle/sport/restaurant/chill UNIQUEMENT (pas de bikini, lingerie, contenu explicite)\n3. Durée entre 4 et 16 secondes\n4. Modèle ne parle pas OU parle français uniquement (danse et playback OK)\n5. Potentiel viral élevé (hook visuel fort, regard caméra, émotion claire)\n\nRetourne : {"score": 7, "recommande": true, "style": "sport", "raison": "courte explication", "conseil_kling": "comment reproduire avec Kling AI"}\n\nNe recommande PAS si score < 6 ou si critères 2/3/4 non respectés.';
+
+function openVeilleConfig(){
+  // Load current config from GitHub
+  var url='https://raw.githubusercontent.com/lestrass06-bot/ofm-dashboard/main/veille_config.json?t='+Date.now();
+  fetch(url).then(function(r){return r.json();}).then(function(data){
+    var accounts=(data.comptes||[]).join('\n');
+    document.getElementById('vc-accounts').value=accounts;
+    document.getElementById('vc-prompt').value=data.prompt||VEILLE_PROMPT_DEFAULT;
+  }).catch(function(){
+    document.getElementById('vc-accounts').value='sarah.h44\njoellperry\ndahyn1xoficial\nkaren.katc\nmarcimorallxo\njulia_delenes22\nannatomaax\namandakabdedo\nclari_cremaschi\nitselodiexoxo';
+    document.getElementById('vc-prompt').value=VEILLE_PROMPT_DEFAULT;
+  });
+  document.getElementById('vc-status').style.display='none';
+  document.getElementById('veille-config-modal').style.display='flex';
+}
+
+async function saveVeilleConfig(){
+  var accounts=document.getElementById('vc-accounts').value.trim().split('\n').map(function(a){return a.trim().replace('@','');}).filter(Boolean);
+  var prompt=document.getElementById('vc-prompt').value.trim();
+  if(!accounts.length){alert('Ajoute au moins un compte !');return;}
+  var config={comptes:accounts,prompt:prompt,updated:new Date().toISOString()};
+  var json=JSON.stringify(config,null,2);
+  // Push to GitHub via API
+  var githubToken=localStorage.getItem('ofm_api_github')||'';
+  if(!githubToken){
+    // Fallback: download file for manual send to bot
+    var blob=new Blob([json],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='veille_config.json';a.click();
+    document.getElementById('vc-status').style.display='block';
+    document.getElementById('vc-status').textContent='Fichier téléchargé — envoie-le à ton bot Telegram !';
+    document.getElementById('vc-status').style.color='var(--orange)';
+    return;
+  }
+  var url='https://api.github.com/repos/lestrass06-bot/ofm-dashboard/contents/veille_config.json';
+  var headers={'Authorization':'token '+githubToken,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
+  var r=await fetch(url,{headers:headers});
+  var sha=r.ok?(await r.json()).sha:null;
+  var payload={message:'Update veille_config.json via dashboard',content:btoa(unescape(encodeURIComponent(json))),branch:'main'};
+  if(sha)payload.sha=sha;
+  var r2=await fetch(url,{method:'PUT',headers:headers,body:JSON.stringify(payload)});
+  var statusEl=document.getElementById('vc-status');
+  statusEl.style.display='block';
+  if(r2.ok){
+    statusEl.textContent='✅ Config sauvegardée sur GitHub ! Le VPS utilisera ces réglages au prochain run.';
+    statusEl.style.color='var(--green)';
+    document.getElementById('reels-comptes-count').textContent=accounts.length+' comptes';
+    setTimeout(closeModals,2000);
+  } else {
+    // Fallback download
+    var blob=new Blob([json],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='veille_config.json';a.click();
+    statusEl.textContent='Fichier téléchargé — envoie-le à ton bot Telegram !';
+    statusEl.style.color='var(--orange)';
+  }
+}
+
 </script>
 </body>
 </html>
