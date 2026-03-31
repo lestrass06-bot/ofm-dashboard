@@ -641,46 +641,232 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 
       <!-- AGENTS -->
       <div class="page" id="page-agents">
-        <div class="page-header"><div class="page-title">Agents IA</div><div class="page-sub">Automatisations actives — statut en temps réel</div></div>
-        <div class="agent-card">
-          <div class="agent-header"><div class="agent-dot" id="dot-veille-agent" style="background:var(--green);"></div><div class="agent-name">🔍 Veille Instagram</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">Chaque jour à 08:00 (Thaïlande)</span></div>
-          <div class="agent-desc">Scrape les comptes surveillés via Apify, analyse les reels avec Claude AI selon les critères de sélection, uploade les résultats sur GitHub.</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fonction</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Scraping + Analyse</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fréquence</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Quotidien</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Dernière synchro</div><div style="font-size:12px;font-weight:600;margin-top:2px;" id="agent-veille-last">—</div></div>
-          </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 VPS Hostinger (Ubuntu 24.04) · Script : veille_instagram.py · Crontab 8h</div>
+        <div class="page-header">
+          <div><div class="page-title">Agents IA</div><div class="page-sub">Ton équipe automatisée — active 24h/24</div></div>
         </div>
-        <div class="agent-card">
-          <div class="agent-header"><div class="agent-dot" style="background:var(--orange);"></div><div class="agent-name">🤖 OnlyChat AI — Mélina</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">24h/24 — 7j/7</span></div>
-          <div class="agent-desc">Répond automatiquement aux fans sur OnlyFans en incarnant Mélina. Gère les conversations, propose du PPV, applique les scripts Netflix Lingerie / Avant Douche / After Party.</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fonction</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Chatting auto</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Plateforme</div><div style="font-size:12px;font-weight:600;margin-top:2px;">OnlyChat AI</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Modèle</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Mélina</div></div>
+        <style>
+          .agents-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+          .agent-big-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden;transition:border-color 0.2s;}
+          .agent-big-card:hover{border-color:rgba(255,255,255,0.15);}
+          .agent-big-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+          .agent-big-card.green::before{background:linear-gradient(90deg,var(--green),transparent);}
+          .agent-big-card.orange::before{background:linear-gradient(90deg,var(--orange),transparent);}
+          .agent-big-card.blue::before{background:linear-gradient(90deg,var(--accent),transparent);}
+          .agent-big-card.purple::before{background:linear-gradient(90deg,#8b5cf6,transparent);}
+          .agent-avatar{width:90px;height:90px;margin:8px auto 14px;}
+          .agent-type-badge{font-size:9px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:8px;display:inline-block;}
+          .badge-auto{background:rgba(16,185,129,0.12);color:var(--green);}
+          .badge-hybrid{background:rgba(245,158,11,0.12);color:var(--orange);}
+          .agent-big-name{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em;}
+          .agent-big-desc{font-size:11px;color:var(--text3);line-height:1.6;margin-bottom:14px;}
+          .agent-pills{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:14px;}
+          .agent-pill{background:var(--bg3);border:1px solid var(--border);border-radius:20px;font-size:10px;padding:3px 9px;color:var(--text2);}
+          .agent-status-row{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text3);}
+          .agent-pulse{width:7px;height:7px;border-radius:50%;animation:pulse 2s infinite;}
+          .pulse-green{background:var(--green);}
+          .pulse-orange{background:var(--orange);}
+          .pulse-blue{background:var(--accent);}
+          .pulse-purple{background:#8b5cf6;}
+        </style>
+        <div class="agents-grid">
+
+          <!-- AGENT 1 : Veille Instagram — ROBOT PUR -->
+          <div class="agent-big-card green">
+            <span class="agent-type-badge badge-auto">Full Auto</span>
+            <div class="agent-avatar">
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corps robot veille -->
+                <rect x="25" y="38" width="40" height="32" rx="6" fill="#0f1a14" stroke="#10b981" stroke-width="1.5"/>
+                <!-- Tête -->
+                <rect x="28" y="18" width="34" height="26" rx="5" fill="#0f1a14" stroke="#10b981" stroke-width="1.5"/>
+                <!-- Antenne -->
+                <line x1="45" y1="10" x2="45" y2="18" stroke="#10b981" stroke-width="1.5"/>
+                <circle cx="45" cy="8" r="3" fill="#10b981" opacity="0.9"/>
+                <!-- Yeux / cameras -->
+                <circle cx="37" cy="28" r="4" fill="#10b981" opacity="0.2"/>
+                <circle cx="37" cy="28" r="2.5" fill="#10b981"/>
+                <circle cx="53" cy="28" r="4" fill="#10b981" opacity="0.2"/>
+                <circle cx="53" cy="28" r="2.5" fill="#10b981"/>
+                <!-- Bouche scan -->
+                <rect x="35" y="36" width="20" height="3" rx="1.5" fill="#10b981" opacity="0.4"/>
+                <!-- Bras -->
+                <rect x="10" y="42" width="15" height="8" rx="4" fill="#0f1a14" stroke="#10b981" stroke-width="1.2"/>
+                <rect x="65" y="42" width="15" height="8" rx="4" fill="#0f1a14" stroke="#10b981" stroke-width="1.2"/>
+                <!-- Icone loupe sur le corps -->
+                <circle cx="45" cy="55" r="7" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+                <line x1="50" y1="60" x2="54" y2="64" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+                <!-- Jambes -->
+                <rect x="33" y="70" width="9" height="12" rx="3" fill="#0f1a14" stroke="#10b981" stroke-width="1.2"/>
+                <rect x="48" y="70" width="9" height="12" rx="3" fill="#0f1a14" stroke="#10b981" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="agent-big-name">SCOUT</div>
+            <div class="agent-big-desc">Scrape les comptes Instagram ciblés via Apify chaque matin. Analyse chaque reel avec Claude Vision selon 5 critères Kling AI. Uploade les résultats sur GitHub.</div>
+            <div class="agent-pills">
+              <span class="agent-pill">Apify</span>
+              <span class="agent-pill">Claude Vision</span>
+              <span class="agent-pill">VPS 8h00</span>
+              <span class="agent-pill">GitHub</span>
+            </div>
+            <div class="agent-status-row">
+              <div class="agent-pulse pulse-green"></div>
+              <span>Actif · Quotidien · <span id="agent-veille-last">—</span></span>
+            </div>
           </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 Infloww CRM · Scripts actifs : 3 · Style : lowercase SMS, pas d'emojis excessifs</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-header"><div class="agent-dot" style="background:var(--accent);"></div><div class="agent-name">📊 Analyseur hebdo</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">Manuel — chaque semaine</span></div>
-          <div class="agent-desc">Analyse les screenshots de stats Infloww via Claude Vision. Génère score, analyse revenus/chatting/IA et liste d'actions prioritaires. Alimente automatiquement Vue d'ensemble.</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Fonction</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Analyse IA</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Déclencheur</div><div style="font-size:12px;font-weight:600;margin-top:2px;">Manuel</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Dernière analyse</div><div style="font-size:12px;font-weight:600;margin-top:2px;" id="agent-analyse-last">—</div></div>
+
+          <!-- AGENT 2 : OnlyChat AI — ROBOT PUR -->
+          <div class="agent-big-card orange">
+            <span class="agent-type-badge badge-auto">Full Auto</span>
+            <div class="agent-avatar">
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corps robot chat -->
+                <rect x="22" y="36" width="46" height="34" rx="8" fill="#1a1007" stroke="#f59e0b" stroke-width="1.5"/>
+                <!-- Tête arrondie -->
+                <rect x="26" y="14" width="38" height="28" rx="10" fill="#1a1007" stroke="#f59e0b" stroke-width="1.5"/>
+                <!-- Oreilles/antennes chat -->
+                <line x1="32" y1="14" x2="26" y2="6" stroke="#f59e0b" stroke-width="1.5"/>
+                <circle cx="24" cy="5" r="3" fill="#f59e0b" opacity="0.7"/>
+                <line x1="58" y1="14" x2="64" y2="6" stroke="#f59e0b" stroke-width="1.5"/>
+                <circle cx="66" cy="5" r="3" fill="#f59e0b" opacity="0.7"/>
+                <!-- Yeux expressifs -->
+                <ellipse cx="36" cy="26" rx="5" ry="5" fill="#f59e0b" opacity="0.15"/>
+                <ellipse cx="36" cy="26" rx="3" ry="3" fill="#f59e0b"/>
+                <ellipse cx="54" cy="26" rx="5" ry="5" fill="#f59e0b" opacity="0.15"/>
+                <ellipse cx="54" cy="26" rx="3" ry="3" fill="#f59e0b"/>
+                <!-- Sourire -->
+                <path d="M36 34 Q45 40 54 34" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <!-- Bulle message sur corps -->
+                <rect x="30" y="46" width="30" height="14" rx="5" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1"/>
+                <rect x="34" y="50" width="18" height="2" rx="1" fill="#f59e0b" opacity="0.5"/>
+                <rect x="34" y="54" width="12" height="2" rx="1" fill="#f59e0b" opacity="0.3"/>
+                <!-- Bras -->
+                <rect x="8" y="40" width="14" height="8" rx="4" fill="#1a1007" stroke="#f59e0b" stroke-width="1.2"/>
+                <rect x="68" y="40" width="14" height="8" rx="4" fill="#1a1007" stroke="#f59e0b" stroke-width="1.2"/>
+                <!-- Jambes -->
+                <rect x="31" y="70" width="10" height="12" rx="3" fill="#1a1007" stroke="#f59e0b" stroke-width="1.2"/>
+                <rect x="49" y="70" width="10" height="12" rx="3" fill="#1a1007" stroke="#f59e0b" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="agent-big-name">MÉLINA BOT</div>
+            <div class="agent-big-desc">Incarne Mélina 24h/24 sur OnlyFans. Gère les DMs, crée du lien émotionnel, propose les scripts Netflix Lingerie / Avant Douche / After Party au bon moment.</div>
+            <div class="agent-pills">
+              <span class="agent-pill">OnlyChat AI</span>
+              <span class="agent-pill">Infloww CRM</span>
+              <span class="agent-pill">3 scripts actifs</span>
+              <span class="agent-pill">24/7</span>
+            </div>
+            <div class="agent-status-row">
+              <div class="agent-pulse pulse-orange"></div>
+              <span>Actif · Temps réel · Unlock ~40%</span>
+            </div>
           </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 Dashboard · Claude Sonnet · 6 slots images max</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-header"><div class="agent-dot" style="background:var(--purple,#8b5cf6);"></div><div class="agent-name">🎬 Générateur contenu</div><span style="font-size:11px;color:var(--text3);margin-left:auto;">Manuel — sur demande</span></div>
-          <div class="agent-desc">Pipeline complet : scrape les reels performants → génère via Kling AI motion control (v3.0 courtes, v2.6 longues) → remplace l'audio ElevenLabs (voix Mélina clonée) → montage CapCut.</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Kling AI</div><div style="font-size:12px;font-weight:600;margin-top:2px;">v3.0 / v2.6</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Taux succès</div><div style="font-size:12px;font-weight:600;margin-top:2px;">~50%</div></div>
-            <div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center;border:1px solid var(--border);"><div style="font-size:11px;color:var(--text3);">Audio</div><div style="font-size:12px;font-weight:600;margin-top:2px;">ElevenLabs</div></div>
+
+          <!-- AGENT 3 : Analyseur — HYBRIDE -->
+          <div class="agent-big-card blue">
+            <span class="agent-type-badge badge-hybrid">Hybride</span>
+            <div class="agent-avatar">
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corps hybride : moitié humain moitié robot -->
+                <!-- Silhouette corps -->
+                <rect x="25" y="38" width="40" height="32" rx="6" fill="#070d1a" stroke="#3b82f6" stroke-width="1.5"/>
+                <!-- Tête humanoïde -->
+                <ellipse cx="45" cy="27" rx="18" ry="20" fill="#070d1a" stroke="#3b82f6" stroke-width="1.5"/>
+                <!-- Coté gauche = humain (cheveux) -->
+                <path d="M27 22 Q30 10 38 14 Q35 18 33 24" fill="#3b82f6" opacity="0.3"/>
+                <!-- Coté droit = robot (panneau métallique) -->
+                <rect x="50" y="13" width="13" height="18" rx="2" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+                <rect x="52" y="16" width="4" height="4" rx="1" fill="#3b82f6" opacity="0.4"/>
+                <rect x="57" y="16" width="4" height="4" rx="1" fill="#3b82f6" opacity="0.4"/>
+                <!-- Oeil gauche humain -->
+                <ellipse cx="37" cy="27" rx="4" ry="4.5" fill="white" opacity="0.9"/>
+                <circle cx="37" cy="27" r="2.5" fill="#1e3a5f"/>
+                <circle cx="38" cy="26" r="1" fill="white" opacity="0.8"/>
+                <!-- Oeil droit robot -->
+                <rect x="49" y="23" width="9" height="8" rx="2" fill="#3b82f6" opacity="0.2"/>
+                <rect x="51" y="25" width="5" height="4" rx="1" fill="#3b82f6" opacity="0.8"/>
+                <!-- Bouche -->
+                <path d="M38 35 Q45 39 52 35" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                <!-- Graphique sur corps -->
+                <polyline points="32,62 37,54 42,58 47,50 52,55 57,48" stroke="#3b82f6" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <!-- Bras gauche humain -->
+                <path d="M25 44 Q14 44 12 52" stroke="#3b82f6" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.3"/>
+                <!-- Bras droit robot -->
+                <rect x="65" y="40" width="13" height="8" rx="4" fill="#070d1a" stroke="#3b82f6" stroke-width="1.2"/>
+                <!-- Jambes -->
+                <rect x="32" y="70" width="10" height="12" rx="3" fill="#070d1a" stroke="#3b82f6" stroke-width="1.2"/>
+                <rect x="48" y="70" width="10" height="12" rx="3" fill="#070d1a" stroke="#3b82f6" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="agent-big-name">ORACLE</div>
+            <div class="agent-big-desc">Tu uploads les screens — lui extrait tous les chiffres, génère le score semaine, analyse revenus/chatting/IA et produit les actions prioritaires. Alimente tout le dashboard.</div>
+            <div class="agent-pills">
+              <span class="agent-pill">Claude Vision</span>
+              <span class="agent-pill">Infloww</span>
+              <span class="agent-pill">OnlyChat</span>
+              <span class="agent-pill">GetMySocial</span>
+            </div>
+            <div class="agent-status-row">
+              <div class="agent-pulse pulse-blue"></div>
+              <span>En attente · <span id="agent-analyse-last">—</span></span>
+            </div>
           </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--text3);">📍 Kling AI + ElevenLabs + CapCut + Nano Banana Pro</div>
+
+          <!-- AGENT 4 : Générateur contenu — HYBRIDE -->
+          <div class="agent-big-card purple">
+            <span class="agent-type-badge badge-hybrid">Hybride</span>
+            <div class="agent-avatar">
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corps créatif -->
+                <rect x="23" y="37" width="44" height="33" rx="7" fill="#100a1f" stroke="#8b5cf6" stroke-width="1.5"/>
+                <!-- Tête avec palette créative -->
+                <ellipse cx="45" cy="25" rx="17" ry="18" fill="#100a1f" stroke="#8b5cf6" stroke-width="1.5"/>
+                <!-- Cheveux côté humain -->
+                <path d="M28 18 Q32 8 40 12 Q37 16 34 22" fill="#8b5cf6" opacity="0.25"/>
+                <!-- Casque/écouteur côté robot -->
+                <path d="M62 18 Q66 24 64 32" stroke="#8b5cf6" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
+                <circle cx="63" cy="18" r="4" fill="#8b5cf6" opacity="0.4"/>
+                <!-- Oeil gauche humain avec éclat créatif -->
+                <ellipse cx="37" cy="24" rx="4" ry="4.5" fill="white" opacity="0.9"/>
+                <circle cx="37" cy="24" r="2.5" fill="#4c1d95"/>
+                <circle cx="38" cy="23" r="1" fill="white" opacity="0.9"/>
+                <!-- Oeil droit robot caméra -->
+                <circle cx="53" cy="24" r="5" fill="#8b5cf6" opacity="0.15"/>
+                <circle cx="53" cy="24" r="3" fill="#8b5cf6" opacity="0.7"/>
+                <circle cx="54" cy="23" r="1" fill="white" opacity="0.6"/>
+                <!-- Sourire -->
+                <path d="M37 33 Q45 38 53 33" stroke="#8b5cf6" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+                <!-- Clap de cinéma sur corps -->
+                <rect x="31" y="47" width="28" height="16" rx="3" fill="none" stroke="#8b5cf6" stroke-width="1.2" opacity="0.5"/>
+                <line x1="31" y1="51" x2="59" y2="51" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+                <line x1="35" y1="47" x2="32" y2="51" stroke="#8b5cf6" stroke-width="1.2" opacity="0.6"/>
+                <line x1="41" y1="47" x2="38" y2="51" stroke="#8b5cf6" stroke-width="1.2" opacity="0.6"/>
+                <line x1="47" y1="47" x2="44" y2="51" stroke="#8b5cf6" stroke-width="1.2" opacity="0.6"/>
+                <line x1="53" y1="47" x2="50" y2="51" stroke="#8b5cf6" stroke-width="1.2" opacity="0.6"/>
+                <!-- Play button -->
+                <polygon points="38,55 38,63 50,59" fill="#8b5cf6" opacity="0.5"/>
+                <!-- Bras gauche humain -->
+                <path d="M23 44 Q12 46 11 54" stroke="#8b5cf6" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.25"/>
+                <!-- Bras droit robot -->
+                <rect x="67" y="41" width="12" height="8" rx="4" fill="#100a1f" stroke="#8b5cf6" stroke-width="1.2"/>
+                <!-- Jambes -->
+                <rect x="31" y="70" width="10" height="12" rx="3" fill="#100a1f" stroke="#8b5cf6" stroke-width="1.2"/>
+                <rect x="49" y="70" width="10" height="12" rx="3" fill="#100a1f" stroke="#8b5cf6" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="agent-big-name">CRÉA</div>
+            <div class="agent-big-desc">Tu sélectionnes le reel — lui gère le pipeline complet. Nano Banana génère les photos, Kling AI anime, ElevenLabs clone la voix, CapCut assemble. Taux de succès ~50%.</div>
+            <div class="agent-pills">
+              <span class="agent-pill">Nano Banana</span>
+              <span class="agent-pill">Kling AI v3</span>
+              <span class="agent-pill">ElevenLabs</span>
+              <span class="agent-pill">CapCut</span>
+            </div>
+            <div class="agent-status-row">
+              <div class="agent-pulse pulse-purple"></div>
+              <span>En attente · Sur demande · ~50% succès</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -734,32 +920,69 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
       <!-- REVENUS -->
       <div class="page" id="page-revenus">
         <div class="page-header">
-          <div><div class="page-title">Revenus</div><div class="page-sub">Mis à jour via Analyse Hebdo</div></div>
+          <div>
+            <div class="page-title">Revenus</div>
+            <div class="page-sub" id="rv-mois-label">Mis à jour via Analyse Hebdo</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="font-size:11px;color:var(--text3);">Mois :</div>
+            <select id="rv-month-select" class="select" style="font-size:12px;padding:4px 8px;" onchange="renderRevs()">
+            </select>
+          </div>
         </div>
-        <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
-          <div class="stat"><div class="stat-label">Ce mois</div><div class="stat-value" style="color:var(--green);" id="rv-mois">$3,501.60</div><div class="stat-trend up">+125.9%</div></div>
-          <div class="stat"><div class="stat-label">Semaine en cours</div><div class="stat-value" style="color:var(--accent);" id="rv-semaine">—</div><div class="stat-trend" id="rv-semaine-evo"></div></div>
-          <div class="stat"><div class="stat-label">Revenus IA</div><div class="stat-value" id="rv-ia">$96</div><div class="stat-trend neutral" id="rv-ia-pct">3% du total</div></div>
-          <div class="stat"><div class="stat-label">Meilleur shift</div><div class="stat-value" style="color:var(--orange);" id="rv-best">$900</div><div class="stat-trend neutral">Mars 2026</div></div>
+        <!-- KPIs mois sélectionné -->
+        <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px;">
+          <div class="stat">
+            <div class="stat-label">Revenus net</div>
+            <div class="stat-value" style="color:var(--green);" id="rv-mois">—</div>
+            <div class="stat-trend" id="rv-mois-evo">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Revenus IA</div>
+            <div class="stat-value" style="color:var(--orange);" id="rv-ia">—</div>
+            <div class="stat-trend neutral" id="rv-ia-pct">du total</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Unlock rate</div>
+            <div class="stat-value" style="color:var(--purple);" id="rv-unlock">—</div>
+            <div class="stat-trend neutral" id="rv-unlock-evo">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">$/fan (avg)</div>
+            <div class="stat-value" style="color:var(--accent);" id="rv-epf">—</div>
+            <div class="stat-trend neutral" id="rv-epf-evo">—</div>
+          </div>
         </div>
+        <!-- Graphe revenus par analyse -->
         <div class="card" style="margin-bottom:12px;">
-          <div class="card-title">Revenus semaine par semaine</div>
+          <div class="card-title">Évolution des revenus — <span id="rv-chart-label">ce mois</span></div>
           <div class="chart-wrap"><canvas id="weeklyChart"></canvas></div>
         </div>
-        <div class="grid2">
+        <!-- Unlock + CVR -->
+        <div class="grid2" style="margin-bottom:12px;">
           <div class="card">
             <div class="card-title">Évolution unlock rate</div>
             <div style="position:relative;height:130px;"><canvas id="unlockChart2"></canvas></div>
           </div>
           <div class="card">
-            <div class="card-title">Évolution CVR</div>
-            <div style="position:relative;height:130px;"><canvas id="cvrChart"></canvas></div>
+            <div class="card-title">Théo vs Axel — ce mois</div>
+            <div style="margin-top:8px;" id="rv-chatter-comparison">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);">
+                <span style="font-size:12px;">Théo</span>
+                <div style="text-align:right;"><div style="font-size:14px;font-weight:600;color:var(--green);" id="rv-theo-sales">—</div><div style="font-size:10px;color:var(--text3);" id="rv-theo-unlock">—</div></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;">
+                <span style="font-size:12px;">Axel</span>
+                <div style="text-align:right;"><div style="font-size:14px;font-weight:600;color:var(--green);" id="rv-axel-sales">—</div><div style="font-size:10px;color:var(--text3);" id="rv-axel-unlock">—</div></div>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- Historique par mois -->
         <div class="card">
-          <div class="card-title">Historique par semaine</div>
+          <div class="card-title">Historique mensuel</div>
           <table class="rev-table">
-            <thead><tr><th>Semaine</th><th>Total</th><th>Unlock</th><th>CVR</th><th>IA rev</th><th>Évol.</th></tr></thead>
+            <thead><tr><th>Mois</th><th>Revenus net</th><th>Unlock rate</th><th>$/fan</th><th>IA rev</th><th>Évol.</th></tr></thead>
             <tbody id="rv-history-body"></tbody>
           </table>
         </div>
@@ -1566,35 +1789,150 @@ function delObjectif(i){var o=getObjectifs();o.splice(i,1);set(K.objectifs,o);re
 
 // === REVENUS ===
 var weeklyChartInst2=null;
+// === REVENUS - LOGIQUE MENSUELLE ===
+function getMonthKey(dateStr){
+  // dateStr = "1 avr. 2026" ou "31 mars 2026"
+  var monthsMap={'janv':0,'jan':0,'févr':1,'fév':1,'mars':2,'avr':3,'mai':4,'juin':5,'juil':6,'août':7,'aoû':7,'sept':8,'oct':9,'nov':10,'déc':11};
+  if(!dateStr)return null;
+  var parts=dateStr.split(' ');
+  if(parts.length<3)return null;
+  var m=monthsMap[parts[1].replace('.','').toLowerCase()];
+  var y=parseInt(parts[2]);
+  if(isNaN(m)||isNaN(y))return null;
+  return y+'-'+String(m+1).padStart(2,'0');
+}
+
+function groupAnalysesByMonth(analyses){
+  var months={};
+  analyses.forEach(function(a){
+    var key=getMonthKey(a.date);
+    if(!key)return;
+    if(!months[key])months[key]={key:key,analyses:[],label:a.date.split(' ').slice(1).join(' ')};
+    months[key].analyses.push(a);
+  });
+  return months;
+}
+
+function getKpisFromAnalyse(a){
+  var kpis=a.result&&a.result.kpis||{};
+  var rev=parseKpiAmount(kpis.revenus_net)||parseKpiAmount(kpis.revenus_brut)||extractNum(a.result&&a.result.revenus||'');
+  var ia=parseKpiAmount(kpis.ai_revenue)||0;
+  var unlock=parseFloat((kpis.unlock_rate_global||'').replace('%',''))||0;
+  var theoEpf=parseKpiAmount(kpis.theo_earnings_par_fan)||0;
+  var axelEpf=parseKpiAmount(kpis.axel_earnings_par_fan)||0;
+  var epf=theoEpf||axelEpf||0;
+  var theoSales=parseKpiAmount(kpis.theo_sales)||0;
+  var axelSales=parseKpiAmount(kpis.axel_sales)||0;
+  var theoUnlock=parseFloat((kpis.theo_unlock||'').replace('%',''))||0;
+  var axelUnlock=parseFloat((kpis.axel_unlock||'').replace('%',''))||0;
+  return {rev:rev,ia:ia,unlock:unlock,epf:epf,theoSales:theoSales,axelSales:axelSales,theoUnlock:theoUnlock,axelUnlock:axelUnlock,date:a.date};
+}
+
+function getCurrentMonthKey(){
+  var now=new Date();
+  return now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+}
+
 function renderRevs(){
   var analyses=getAnalyses();
-  if(!analyses.length){document.getElementById('rv-history-body').innerHTML='<tr><td colspan="6" style="color:var(--text3);padding:16px 0;text-align:center;">Fais une Analyse Hebdo pour voir tes stats ici</td></tr>';return;}
-  var weeks=analyses.slice().reverse();
-  var labels=weeks.map(function(a){return a.date;});
-  var revAmounts=weeks.map(function(a){return extractNum(a.result&&a.result.revenus||'');});
-  var iaRevs=weeks.map(function(a){var m=(a.result&&a.result.ia||'').match(/[$]([0-9][0-9,]*(?:[.][0-9]+)?)/);return m?parseFloat(m[1].replace(',','')):0;});
-  var latest=analyses[0];
-  if(latest&&latest.result){
-    var lRev=extractNum(latest.result.revenus||'');
-    var lIA=iaRevs[iaRevs.length-1]||0;
-    var prevRev=analyses.length>1?extractNum(analyses[1].result&&analyses[1].result.revenus||''):0;
-    var evo=prevRev>0?((lRev-prevRev)/prevRev*100).toFixed(1):0;
-    document.getElementById('rv-semaine').textContent=lRev>0?'$'+lRev.toFixed(2):'—';
-    document.getElementById('rv-semaine-evo').innerHTML='<span style="color:'+(evo>=0?'var(--green)':'var(--red)')+';">'+(evo>=0?'↑':'↓')+' '+Math.abs(evo)+'% vs sem. préc.</span>';
-    document.getElementById('rv-ia').textContent='$'+lIA.toFixed(2);
-    document.getElementById('rv-ia-pct').textContent=lRev>0?((lIA/lRev)*100).toFixed(1)+'% du total':'—';
+  var histBody=document.getElementById('rv-history-body');
+  if(!analyses.length){
+    if(histBody)histBody.innerHTML='<tr><td colspan="6" style="color:var(--text3);padding:16px 0;text-align:center;">Fais une Analyse Hebdo pour voir tes stats ici</td></tr>';
+    return;
   }
-  if(weeklyChartInst2){weeklyChartInst2.destroy();}
+
+  var months=groupAnalysesByMonth(analyses);
+  var monthKeys=Object.keys(months).sort().reverse();
+  var currentKey=getCurrentMonthKey();
+
+  // Populate month selector
+  var sel=document.getElementById('rv-month-select');
+  if(sel){
+    var existingVal=sel.value;
+    sel.innerHTML=monthKeys.map(function(k){
+      var isCurrentMonth=k===currentKey;
+      var m=months[k];
+      return '<option value="'+k+'"'+(k===existingVal?' selected':'')+'>'+m.label+(isCurrentMonth?' (en cours)':'')+'</option>';
+    }).join('');
+    if(!existingVal&&monthKeys.length)sel.value=monthKeys[0];
+  }
+
+  var selectedKey=sel?sel.value:monthKeys[0];
+  var selectedMonth=months[selectedKey];
+  if(!selectedMonth)return;
+
+  var isCurrentMonth=selectedKey===currentKey;
+  var lbl=document.getElementById('rv-mois-label');
+  if(lbl)lbl.textContent=isCurrentMonth?'Mois en cours — reset automatique le 1er':'Historique — '+selectedMonth.label;
+
+  // Get latest kpis for selected month
+  var latestAnalyse=selectedMonth.analyses[0];
+  var kpis=getKpisFromAnalyse(latestAnalyse);
+
+  // If current month and no analyse this month yet → show $0
+  var rev=isCurrentMonth&&!selectedMonth.analyses.length?0:kpis.rev;
+
+  // KPIs stats
+  var prevKey=monthKeys[monthKeys.indexOf(selectedKey)+1];
+  var prevKpis=prevKey&&months[prevKey]?getKpisFromAnalyse(months[prevKey].analyses[0]):null;
+  var evo=prevKpis&&prevKpis.rev>0?((kpis.rev-prevKpis.rev)/prevKpis.rev*100).toFixed(1):null;
+  var unlockEvo=prevKpis&&prevKpis.unlock>0?((kpis.unlock-prevKpis.unlock)).toFixed(1):null;
+  var epfEvo=prevKpis&&prevKpis.epf>0?((kpis.epf-prevKpis.epf)/prevKpis.epf*100).toFixed(1):null;
+
+  var el=function(id){return document.getElementById(id);};
+  if(el('rv-mois'))el('rv-mois').textContent=rev>0?'$'+rev.toFixed(2):'$0.00';
+  if(el('rv-mois-evo'))el('rv-mois-evo').innerHTML=evo!==null?'<span style="color:'+(evo>=0?'var(--green)':'var(--red)')+'">'+(evo>=0?'↑':'↓')+' '+Math.abs(evo)+'% vs mois préc.</span>':'Premier mois enregistré';
+  if(el('rv-ia'))el('rv-ia').textContent=kpis.ia>0?'$'+kpis.ia.toFixed(2):'—';
+  if(el('rv-ia-pct'))el('rv-ia-pct').textContent=kpis.rev>0&&kpis.ia>0?((kpis.ia/kpis.rev)*100).toFixed(1)+'% du total':'—';
+  if(el('rv-unlock'))el('rv-unlock').textContent=kpis.unlock>0?kpis.unlock.toFixed(1)+'%':'—';
+  if(el('rv-unlock-evo'))el('rv-unlock-evo').innerHTML=unlockEvo!==null?'<span style="color:'+(unlockEvo>=0?'var(--green)':'var(--red)')+'">'+(unlockEvo>=0?'↑ +':'↓ ')+unlockEvo+'pts vs préc.</span>':'—';
+  if(el('rv-epf'))el('rv-epf').textContent=kpis.epf>0?'$'+kpis.epf.toFixed(2):'—';
+  if(el('rv-epf-evo'))el('rv-epf-evo').innerHTML=epfEvo!==null?'<span style="color:'+(epfEvo>=0?'var(--green)':'var(--red)')+'">'+(epfEvo>=0?'↑':'↓')+' '+Math.abs(epfEvo)+'% vs préc.</span>':'—';
+  if(el('rv-chart-label'))el('rv-chart-label').textContent=selectedMonth.label;
+
+  // Théo vs Axel
+  if(el('rv-theo-sales'))el('rv-theo-sales').textContent=kpis.theoSales>0?'$'+kpis.theoSales.toFixed(0):'—';
+  if(el('rv-theo-unlock'))el('rv-theo-unlock').textContent=kpis.theoUnlock>0?'Unlock: '+kpis.theoUnlock.toFixed(1)+'%':'—';
+  if(el('rv-axel-sales'))el('rv-axel-sales').textContent=kpis.axelSales>0?'$'+kpis.axelSales.toFixed(0):'—';
+  if(el('rv-axel-unlock'))el('rv-axel-unlock').textContent=kpis.axelUnlock>0?'Unlock: '+kpis.axelUnlock.toFixed(1)+'%':'—';
+
+  // Chart - analyses du mois sélectionné
+  var monthAnalyses=selectedMonth.analyses.slice().reverse();
+  var chartLabels=monthAnalyses.map(function(a){return a.date.split(' ').slice(0,2).join(' ');});
+  var chartRevs=monthAnalyses.map(function(a){return getKpisFromAnalyse(a).rev;});
+  var chartIA=monthAnalyses.map(function(a){return getKpisFromAnalyse(a).ia;});
+  var chartUnlocks=monthAnalyses.map(function(a){return getKpisFromAnalyse(a).unlock;});
+
+  if(weeklyChartInst2){weeklyChartInst2.destroy();weeklyChartInst2=null;}
   var ctx=document.getElementById('weeklyChart');
-  if(ctx){weeklyChartInst2=new Chart(ctx,{type:'bar',data:{labels:labels,datasets:[{label:'Revenus',data:revAmounts,backgroundColor:'rgba(59,130,246,0.3)',borderColor:'rgba(59,130,246,0.7)',borderWidth:1,borderRadius:4},{label:'IA',data:iaRevs,backgroundColor:'rgba(16,185,129,0.3)',borderColor:'rgba(16,185,129,0.7)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#475569',font:{size:10}}},tooltip:{backgroundColor:'rgba(7,9,15,0.95)',borderColor:'rgba(59,130,246,0.3)',borderWidth:1,bodyColor:'#f1f5f9',callbacks:{label:function(c){return c.dataset.label+': $'+c.parsed.y.toFixed(2);}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10},callback:function(v){return '$'+v;}}}}}});}
-  var rows=analyses.map(function(a,i){
-    var rev=extractNum(a.result&&a.result.revenus||'');
-    var ia=iaRevs[analyses.length-1-i]||0;
-    var prev=i<analyses.length-1?extractNum(analyses[i+1].result&&analyses[i+1].result.revenus||''):0;
-    var evo2=prev>0?((rev-prev)/prev*100).toFixed(1):0;
-    return '<tr><td>'+a.date+'</td><td class="amount">$'+rev.toFixed(2)+'</td><td>—</td><td>—</td><td style="color:var(--green);">$'+ia.toFixed(2)+'</td><td style="color:'+(evo2>=0?'var(--green)':'var(--red)')+';">'+(evo2>=0?'↑':'↓')+' '+Math.abs(evo2)+'%</td></tr>';
+  if(ctx&&chartLabels.length){
+    weeklyChartInst2=new Chart(ctx,{type:'bar',data:{labels:chartLabels,datasets:[{label:'Revenus net',data:chartRevs,backgroundColor:'rgba(59,130,246,0.3)',borderColor:'rgba(59,130,246,0.7)',borderWidth:1,borderRadius:4},{label:'IA',data:chartIA,backgroundColor:'rgba(16,185,129,0.3)',borderColor:'rgba(16,185,129,0.7)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#475569',font:{size:10}}},tooltip:{backgroundColor:'rgba(7,9,15,0.95)',borderColor:'rgba(59,130,246,0.3)',borderWidth:1,bodyColor:'#f1f5f9',callbacks:{label:function(c){return c.dataset.label+': $'+c.parsed.y.toFixed(2);}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10},callback:function(v){return '$'+v;}}}}}});
+  }
+
+  // Unlock chart
+  if(unlockChartInst){unlockChartInst.destroy();unlockChartInst=null;}
+  var uctx=document.getElementById('unlockChart2');
+  if(uctx&&chartLabels.length){
+    unlockChartInst=new Chart(uctx,{type:'line',data:{labels:chartLabels,datasets:[{label:'Unlock %',data:chartUnlocks,borderColor:'rgba(139,92,246,0.8)',backgroundColor:'rgba(139,92,246,0.05)',borderWidth:1.5,pointRadius:3,tension:0.4,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#475569',font:{size:10},callback:function(v){return v+'%';}}}}}}); 
+  }
+
+  // Historique mensuel tableau
+  var rows=monthKeys.map(function(k,i){
+    var m=months[k];
+    var mk=getKpisFromAnalyse(m.analyses[0]);
+    var pk=i<monthKeys.length-1?getKpisFromAnalyse(months[monthKeys[i+1]].analyses[0]):null;
+    var evo2=pk&&pk.rev>0?((mk.rev-pk.rev)/pk.rev*100).toFixed(1):null;
+    var isCurrent=k===currentKey;
+    return '<tr style="'+(isCurrent?'background:rgba(59,130,246,0.04);':'')+'">'+
+      '<td>'+m.label+(isCurrent?' <span style="font-size:10px;color:var(--accent);">EN COURS</span>':'')+'</td>'+
+      '<td class="amount" style="color:var(--green);">$'+mk.rev.toFixed(2)+'</td>'+
+      '<td>'+(mk.unlock>0?mk.unlock.toFixed(1)+'%':'—')+'</td>'+
+      '<td>'+(mk.epf>0?'$'+mk.epf.toFixed(2):'—')+'</td>'+
+      '<td style="color:var(--orange);">'+(mk.ia>0?'$'+mk.ia.toFixed(2):'—')+'</td>'+
+      '<td>'+(evo2!==null?'<span style="color:'+(evo2>=0?'var(--green)':'var(--red)')+'">'+(evo2>=0?'↑':'↓')+' '+Math.abs(evo2)+'%</span>':'—')+'</td>'+
+    '</tr>';
   }).join('');
-  document.getElementById('rv-history-body').innerHTML=rows||'<tr><td colspan="6" style="color:var(--text3);text-align:center;padding:12px 0;">Aucune donnée</td></tr>';
+  if(histBody)histBody.innerHTML=rows||'<tr><td colspan="6" style="color:var(--text3);text-align:center;padding:12px 0;">Aucune donnée</td></tr>';
 }
 
 // === FINANCES ===
