@@ -1,9 +1,10 @@
 {
   "meta": {
-    "version": "1.0",
+    "version": "2.0",
     "generated": "2026-04-01",
     "source": "Extraction conversations ChatGPT + Claude - Axel OFM",
-    "description": "Base de connaissance OFM - Agency d'Axel & Théo"
+    "description": "Base de connaissance OFM - Agency d'Axel & Théo",
+    "derniere_maj": "Session nuit 01/04/2026 - Bot Telegram deploy + Stats Mélina + Config Veille"
   },
 
   "profil_axel": {
@@ -52,9 +53,10 @@
       "profession_persona": "Coach sportive",
       "lieu_vie": "Variable (stratégie géo-proximité)",
       "situation": "Célibataire après rupture",
-      "tatouage": "Circulaire sur le biceps droit, inscription grecque 'Eros kai Psyche'"
+      "tatouage": "Circulaire sur le biceps droit, inscription grecque Eros kai Psyche"
     },
-    "noms_comptes_insta": ["melinaflix", "melilablonde", "fxmeli", "melinaxoxo"],
+    "comptes_insta_actifs": ["meligymxo", "just_melinaxo", "melilablondex", "melilacoach", "meli_nanaxo", "fxmelinaa", "melinaaflex"],
+    "anciens_comptes": ["melinaflix", "melilablonde", "fxmeli", "melinaxoxo"],
     "style_ecriture_bot": {
       "ton": "Lowercase, SMS casual, légères fautes volontaires, emojis rares",
       "strategie_geo": "Demander d'abord la ville du fan, puis prétendre habiter à 1h30-2h, jamais de ville précise"
@@ -100,10 +102,10 @@
           "prompt_obligatoire_debut": "selfie réaliste pris avec la caméra frontale d'un smartphone",
           "prompt_style": "En français, très détaillé, une seule ligne pour copier-coller rapide",
           "notes": [
-            "Toujours mettre 'femme' pas 'modèle'",
+            "Toujours mettre femme pas modèle",
             "Préciser de respecter les tatouages des photos de références (taille, emplacement)",
-            "Ne pas dire 'selfie' si c'est clairement une photo de caméra arrière",
-            "Ne pas mettre 'même femme que les photos de références' - inutile",
+            "Ne pas dire selfie si c'est clairement une photo de caméra arrière",
+            "Ne pas mettre même femme que les photos de références - inutile",
             "Mettre toujours le prompt en une seule ligne pour sélection rapide"
           ]
         },
@@ -149,7 +151,7 @@
     },
 
     "acquisition_trafic": {
-      "principal": "Instagram (5 comptes + 1 backup)",
+      "principal": "Instagram (7 comptes actifs Mélina)",
       "secondaire": ["TikTok", "Twitter/X (marché FR en développement)"],
       "tracking": "GetMySocial (liens trackés par compte)",
       "funnel": "Reel Instagram → Lien bio → OnlyFans gratuit → Chatting → PPV/tips"
@@ -167,6 +169,13 @@
           "output": "/root/veille_resultats.json",
           "crontab": "8h quotidien",
           "upload": "upload_github.sh"
+        },
+        "telegram_deploy": {
+          "fichier": "telegram_deploy.py",
+          "service": "telegram-deploy (systemd, restart automatique)",
+          "usage": "Reçoit fichiers sur Telegram et push sur GitHub automatiquement",
+          "fichiers_autorises": ["index.html", "ofm_knowledge_base.json", "veille_resultats.json", "veille_config.json"],
+          "dependances": "python-telegram-bot, requests, python-dotenv"
         }
       },
       "env_file": "/root/.env (APIFY_TOKEN, ANTHROPIC_KEY, GITHUB_TOKEN)"
@@ -176,24 +185,29 @@
       "url": "lestrass06-bot.github.io/ofm-dashboard",
       "repo": "lestrass06-bot/ofm-dashboard",
       "password": "ofm2026",
+      "deploy_methode": "Bot Telegram - envoyer le fichier au bot = push GitHub automatique",
       "sections": [
         "Vue d'ensemble (revenus, graphes Chart.js)",
-        "Veille Insta (reels recommandés depuis VPS)",
-        "Perfs Instagram (followers, engagement via Apify)",
+        "Analyse Hebdo (6 slots upload + analyse Claude API)",
+        "Hook Generator (analyse image + génère hooks/captions)",
+        "Compte Mélina (7 comptes, stats Apify: followers, vues, top reels)",
+        "Veille Reels (reels VPS + config comptes/prompt depuis dashboard)",
         "Agents IA (4 agents avec statuts)",
-        "Analyse hebdo (6 slots upload + analyse Claude API)",
-        "Tâches (import IA)",
-        "Stats Mélina",
+        "Chatters (comparaison Théo vs Axel)",
+        "Modèles",
         "Objectifs",
-        "News",
-        "Clés API"
-      ]
+        "Revenus",
+        "Finances",
+        "News IA & OFM",
+        "Clés API (Anthropic, OpenAI, Telegram, Apify, GitHub)"
+      ],
+      "knowledge_base": "ofm_knowledge_base.json chargée au démarrage, injectée dans tous les prompts IA"
     }
   },
 
   "strategie_contenu": {
     "pipeline_reel": [
-      "1. Veille Instagram - identifier reels performants",
+      "1. Veille Instagram - identifier reels performants (VPS automatique 8h/jour)",
       "2. Extraire le prompt depuis le screen via Claude",
       "3. Générer la photo avec Nano Banana Pro (modèle de référence)",
       "4. Améliorer/modifier avec SeaDreams si besoin",
@@ -201,23 +215,13 @@
       "6. Remplacer l'audio avec ElevenLabs (voix clonée)",
       "7. Montage final CapCut"
     ],
-    "organisation_dossiers": {
-      "veille": "Reels/carrousels trouvés pendant la veille, classés",
-      "pret_a_animer": "Photos générées prêtes pour Kling/HeyGen",
-      "sons_elevenlabs": "Sons préparés classés",
-      "reels_finis": "Contenu final prêt à poster"
-    },
-    "formats_contenu": {
-      "reels": "Principal moteur d'acquisition",
-      "carrousels": "3 photos qui se suivent (logique narrative)",
-      "selfies": "Photos proches, personnelles, créant de la connexion"
-    },
     "criteres_veille_selection": [
-      "Reproductible avec Kling AI motion control",
+      "Reproductible avec Kling AI motion control (mouvement simple)",
       "Style lifestyle/sport/restaurant/chill uniquement",
       "Durée 4-16 secondes",
       "Pas de bikini/lingerie",
-      "Modèle ne parle pas ou parle français uniquement (danse et playback OK)"
+      "Modèle ne parle pas ou parle français uniquement (danse et playback OK)",
+      "Score minimum 6/10 pour être recommandé"
     ],
     "hooks_viraux": [
       "les mecs si tu regardes cette vidéo c'est que t'es seul",
@@ -272,10 +276,6 @@
       "reponses_par_jour": "2-4 sous gros comptes FR",
       "thread_tous_les": "2 jours",
       "horaires_fr": ["7h30-9h", "12h-14h", "18h-22h", "23h30"]
-    },
-    "profil_girls_next_door_sportive": {
-      "bio": "29 ans • girl next door sportive 🏋️‍♀️ | Coulisses + VIP 🔒 | DM ouvert",
-      "pinned": "CTA conversion DM + lien OF"
     }
   },
 
@@ -283,7 +283,6 @@
     "formule_full_free": "LTV = revenus totaux / nombre de fans",
     "ltv_actuelle": "~5.66$ par fan",
     "ltv_cible": "10$+ par fan",
-    "churn_model": "Durée de vie ≈ 1 / churn mensuel",
     "lecon": "CVR déjà excellent (7%). Ne pas chercher à améliorer la conversion mais augmenter le volume de trafic.",
     "payers_vs_fans": "Sur Full Free, la vraie métrique est le % de fans qui paient au moins 1 fois"
   },
@@ -298,9 +297,10 @@
     "technique_ia": [
       "Apify actor URL: apify~instagram-scraper (tilde, pas tiret)",
       "Apify retourne maintenant une liste directe JSON, pas un dict imbriqué",
-      "Nano Banana: prompt en une seule ligne, 'femme' pas 'modèle', respecter les tatouages",
+      "Nano Banana: prompt en une seule ligne, femme pas modèle, respecter les tatouages",
       "SeaDreams: préserver grains de peau naturels, spécifier dans le prompt",
-      "Kling v3.0 pour courts, v2.6 pour longs"
+      "Kling v3.0 pour courts, v2.6 pour longs",
+      "Apostrophes dans les strings JS cassent le code - utiliser des guillemets doubles dans les templates HTML"
     ],
     "business": [
       "Full Free + chatting = modèle scalable si le script est bon",
@@ -311,7 +311,9 @@
     "dashboard": [
       "localStorage peut causer des états périmés - hard refresh ou navigation privée",
       "Les modals doivent être reset dans goTo() pour éviter les bugs de persistance",
-      "Regex JavaScript avec $ et multiligne nécessite un escaping soigneux"
+      "Regex JavaScript avec $ et multiligne nécessite un escaping soigneux",
+      "Bot Telegram deploy: envoyer le fichier au bot = push GitHub automatique (service systemd permanent)",
+      "La KB est chargée au démarrage du dashboard via loadOFMKnowledgeBase() et injectée dans tous les prompts"
     ]
   },
 
