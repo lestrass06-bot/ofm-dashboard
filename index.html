@@ -429,6 +429,25 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
           <div class="progress-meta"><span class="live"><span class="pulse"></span>Mis à jour en direct</span><span id="prog-remain" style="color:var(--red);">$6,498 restants</span></div>
         </div>
 
+        <!-- Instagram + Trafic summary -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;" id="home-insta-summary">
+          <div class="card" style="text-align:center;">
+            <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Clics GetMySocial</div>
+            <div style="font-size:20px;font-weight:700;font-family:DM Mono,monospace;color:var(--green);" id="home-clics">—</div>
+            <div style="font-size:10px;color:var(--text3);">7 derniers jours</div>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Top lien</div>
+            <div style="font-size:13px;font-weight:600;color:var(--purple);" id="home-top-lien">—</div>
+            <div style="font-size:12px;font-weight:500;font-family:DM Mono,monospace;" id="home-top-clics">—</div>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Comptes actifs</div>
+            <div style="font-size:20px;font-weight:700;font-family:DM Mono,monospace;" id="home-comptes-nb">7</div>
+            <div style="font-size:10px;color:var(--text3);">Instagram Mélina</div>
+          </div>
+        </div>
+
         <div class="grid2">
           <div class="card">
             <div class="card-title">Revenus — <span id="chart-period-label">7 derniers jours</span></div>
@@ -447,7 +466,14 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
       <!-- ANALYSE -->
       <div class="page" id="page-analyse">
         <div class="page-header">
-          <div><div class="page-title">Analyse Hebdo</div><div class="page-sub">Upload tes screens OF — l'IA extrait tout</div></div>
+          <div>
+            <div class="page-title">Analyse Hebdo</div>
+            <div class="page-sub">Upload tes screens — l'IA extrait tous les chiffres automatiquement</div>
+            <div style="display:flex;gap:6px;margin-top:8px;">
+              <button class="btn btn-sm" id="period-btn-7" onclick="setAnalysePeriod(7)" style="font-size:11px;">7 jours</button>
+              <button class="btn btn-sm btn-ghost" id="period-btn-30" onclick="setAnalysePeriod(30)" style="font-size:11px;">30 jours</button>
+            </div>
+          </div>
         </div>
         <div class="grid2">
           <div>
@@ -1057,6 +1083,19 @@ function renderHome(){
   var hmois=document.getElementById('h-mois');if(hmois)hmois.textContent='$'+moisTotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
   var hrv=document.getElementById('rv-mois');if(hrv)hrv.textContent='$'+moisTotal.toFixed(2);
   setTimeout(function(){try{initChart();}catch(e){}},100);
+  // Insta summary from stored data
+  var clics=localStorage.getItem('ofm_last_clics');
+  var topLien=localStorage.getItem('ofm_top_lien');
+  var topClics=localStorage.getItem('ofm_top_lien_clics');
+  var elClics=document.getElementById('home-clics');
+  var elTopLien=document.getElementById('home-top-lien');
+  var elTopClics=document.getElementById('home-top-clics');
+  if(elClics)elClics.textContent=clics?parseInt(clics).toLocaleString('fr-FR'):'—';
+  if(elTopLien)elTopLien.textContent=topLien?topLien:'—';
+  if(elTopClics)elTopClics.textContent=topClics?topClics+' clics':'—';
+  // Update h-mois-evo with last analysis period
+  var hmoisevo=document.getElementById('h-mois-evo');
+  if(hmoisevo&&analyses.length){var lastDate=analyses[0].date||'';hmoisevo.textContent='Dernière analyse: '+lastDate;}
 }
 
 function initChart(){
@@ -1266,14 +1305,42 @@ function showAnalyse(i){
 
 function updateStatsFromAnalysis(result){
   if(!result)return;
-  var text=(result.revenus||'')+(result.chatting||'')+(result.ia||'');
-  var models=getModels();if(!models.length)return;
-  var matches=text.match(/[$][0-9][0-9,]*(?:[.][0-9]+)?/g)||[];
-  var amounts=matches.map(function(m){return parseFloat(m.replace(/[$,]/g,''));}).filter(function(v){return v>500&&v<50000;});
-  if(amounts.length){models[0].rev=Math.max.apply(null,amounts);}
-  var um=text.match(/unlock[^0-9]*([0-9]+(?:[.][0-9]+)?)[^%]*%/i)||text.match(/([0-9]+(?:[.][0-9]+)?)[^%]*%[^a-z]*unlock/i);
-  if(um)models[0].unlock=parseFloat(um[1]);
-  set(K.models,models);
+  var kpis=result.kpis||{};
+  // Update models/revenue
+  var models=getModels();
+  if(models.length){
+    var rev=parseFloat((kpis.revenus_net||'').replace(/[$,]/g,''))||0;
+    if(!rev){var text=(result.revenus||'');var m=text.match(/[$][0-9][0-9,.]+/g)||[];var a=m.map(function(x){return parseFloat(x.replace(/[$,]/g,''));}).filter(function(v){return v>500&&v<50000;});rev=a.length?Math.max.apply(null,a):0;}
+    if(rev>0)models[0].rev=rev;
+    var unlockStr=kpis.unlock_rate_global||kpis.theo_unlock||'';
+    var um=parseFloat(unlockStr.replace('%',''))||0;
+    if(um>0)models[0].unlock=um;
+    var script=kpis.meilleur_script||'';
+    if(script)models[0].script=script;
+    set(K.models,models);
+  }
+  // Update chatters directly from kpis
+  if(kpis.theo_sales||kpis.axel_sales){
+    var tRev=parseFloat((kpis.theo_sales||'0').replace(/[$,]/g,''))||0;
+    var aRev=parseFloat((kpis.axel_sales||'0').replace(/[$,]/g,''))||0;
+    var tUnlock=parseFloat((kpis.theo_unlock||'0').replace('%',''))||0;
+    var aUnlock=parseFloat((kpis.axel_unlock||'0').replace('%',''))||0;
+    var tPPV=parseInt(kpis.theo_ppv||0)||0;
+    var aPPV=parseInt(kpis.axel_ppv||0)||0;
+    var tFans=kpis.theo_fans_chatte||'—';
+    var aFans=kpis.axel_fans_chatte||'—';
+    var tEPF=kpis.theo_earnings_par_fan||'—';
+    var aEPF=kpis.axel_earnings_par_fan||'—';
+    // Store for chatters page
+    var chatterData={theo:{rev:tRev,unlock:tUnlock,ppv:tPPV,fans:tFans,epf:tEPF},axel:{rev:aRev,unlock:aUnlock,ppv:aPPV,fans:aFans,epf:aEPF}};
+    localStorage.setItem('ofm_chatter_data',JSON.stringify(chatterData));
+  }
+  // Update home insta summary from getmysocial
+  if(kpis.total_clics_getmysocial){
+    localStorage.setItem('ofm_last_clics',kpis.total_clics_getmysocial);
+    localStorage.setItem('ofm_top_lien',kpis.top_lien||'');
+    localStorage.setItem('ofm_top_lien_clics',kpis.top_lien_clics||'');
+  }
   renderHome();
 }
 
@@ -1376,6 +1443,28 @@ async function runAgent(n){
 
 // === CHATTERS ===
 function renderChatterComparison(){
+  // Try from stored kpis first (most accurate)
+  var stored=localStorage.getItem('ofm_chatter_data');
+  if(stored){
+    try{
+      var d=JSON.parse(stored);
+      var t=d.theo,a=d.axel;
+      document.getElementById('theo-rev').textContent=t.rev>0?'$'+t.rev.toFixed(0):'—';
+      document.getElementById('theo-unlock').textContent=t.unlock>0?t.unlock.toFixed(1)+'%':'—';
+      document.getElementById('theo-ppv').textContent=t.ppv>0?t.ppv:'—';
+      document.getElementById('theo-cvr').textContent=t.fans?t.fans+' fans':'—';
+      document.getElementById('axel-rev').textContent=a.rev>0?'$'+a.rev.toFixed(0):'—';
+      document.getElementById('axel-unlock').textContent=a.unlock>0?a.unlock.toFixed(1)+'%':'—';
+      document.getElementById('axel-ppv').textContent=a.ppv>0?a.ppv:'—';
+      document.getElementById('axel-cvr').textContent=a.fans?a.fans+' fans':'—';
+      if(t.rev>0&&a.rev>0){
+        document.getElementById('theo-badge').innerHTML=t.rev>a.rev?'<span class="winner">Top revenus</span>':'';
+        document.getElementById('axel-badge').innerHTML=a.rev>=t.rev?'<span class="winner">Top revenus</span>':'';
+      }
+      return;
+    }catch(e){}
+  }
+  // Fallback: parse from text
   var analyses=getAnalyses();if(!analyses.length)return;
   var text=analyses[0].result?(analyses[0].result.chatting||''):'';if(!text)return;
   function extRev(t,n){var re=new RegExp(n+'[^$]*[$]([0-9,]+(?:[.][0-9]+)?)','i');var m=t.match(re);return m?parseFloat(m[1].replace(',','')):0;}
@@ -1817,6 +1906,14 @@ function loadMelinaFromCache(){
   }
 }
 
+
+// === PERIODE ANALYSE ===
+var analysePeriod = 7;
+function setAnalysePeriod(p){
+  analysePeriod = p;
+  document.getElementById('period-btn-7').className = p===7 ? 'btn btn-sm' : 'btn btn-sm btn-ghost';
+  document.getElementById('period-btn-30').className = p===30 ? 'btn btn-sm' : 'btn btn-sm btn-ghost';
+}
 </script>
 </body>
 </html>
