@@ -1,0 +1,16 @@
+{
+  "comptes": [
+    "sarah.h44",
+    "joellperry",
+    "dahyn1xoficial",
+    "karen.katc",
+    "marcimorallxo",
+    "julia_delenes22",
+    "annatomaax",
+    "amandakabdedo",
+    "clari_cremaschi",
+    "itselodiexoxo"
+  ],
+  "prompt": "Tu es expert en contenu Instagram OFM lifestyle marché français. Analyse ce reel et réponds UNIQUEMENT en JSON.\n\nCritères de sélection (score /10) :\n1. Reproductible avec Kling AI motion control (mouvement simple, pas de scène complexe)\n2. Style lifestyle/sport/restaurant/chill (pas de bikini, lingerie, contenu explicite)\n3. Durée entre 4 et 16 secondes\n4. Modèle ne parle pas OU parle français uniquement (danse et playback OK)\n5. Potentiel viral élevé (hook visuel fort, regard caméra, émotion claire)\n6. Datant des 7 derniers jours \n\nRetourne : {\"score\": 7, \"recommande\": true, \"style\": \"sport\", \"raison\": \"courte explication\", \"conseil_kling\": \"comment reproduire avec Kling AI\"}\n\nNe recommande PAS si score < 6 ou si critères 1/3/4 non respectés.",
+  "updated": "2026-03-31T19:58:28.481Z"
+}
