@@ -1,306 +1,156 @@
 {
-  "date": "2026-03-30T08:14:52.650891",
-  "total": 79,
-  "recommandes": 20,
+  "date": "2026-03-31T08:12:22.886368",
+  "total": 56,
+  "recommandes": 10,
   "reels": [
     {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DWHGh-yjqLD/",
-      "views": 41597,
-      "duration": 12.9,
-      "caption": "Abs don’t just appear on their own… 😮‍🔥\n\n.\n\n.\n\n.\n\n.\n#reels #viral #florida #girl #usa",
-      "thumbnail": "https://scontent-atl3-2.cdninstagram.com/v/t51.71878-15/655155903_717023028164257_2471845235487709718_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFRZLrEBak79QsvyioS19kAOn5ZEuGtFV2SzCGQAmw6Tdimo_o0ITkvsYrWjLJXh-s&_nc_ohc=lrrETy-KucEQ7kNvwG0kKUs&_nc_gid=mxrVUkrDPFot0MGGoxmWKQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfzX3nubwdpW-iAHmYwyjILOKOXvw_RHkn_kTp1y3pIl4Q&oe=69CFFB10&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 8,
-        "raison": "Contenu fitness parfait pour une agence OFM - exercices d'abdominaux reproductibles, style sportif/lifestyle attractif, durée optimale et engagement élevé",
-        "style": "sportif/lifestyle",
-        "conseil_kling": "Reproduire avec mouvements d'abdos lents et contrôlés, éclairage sportif, focus sur la technique d'exercice, transitions fluides entre les mouvements"
-      }
-    },
-    {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DNA5dq0Mtbd/",
-      "views": 351290,
-      "duration": 10.6,
-      "caption": "Good morning training 💪🏽❤️",
-      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/527601933_555208217585626_6854073257107625628_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2gGLSFeeY-hnaVa29FDoYIB1UCv6BaJBDpB9P1NXWRP6dSW6gtb5PKXQ4yrADo6mkcI&_nc_ohc=RCgTT7FkTvoQ7kNvwFaus5S&_nc_gid=I2VshEtqWxNQ8HxIHzcgJQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afy4Ym9td5kYjU5nies6POVsIThRIgR_j0eLrzKjuOLagg&oe=69D003AD&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 8,
-        "raison": "Contenu fitness parfaitement aligné avec les critères : style sportif authentique, mouvements d'entraînement reproductibles par IA, caption motivante appropriée, bon engagement (351K vues). Durée optimale de 10.6s.",
-        "style": "sportif/lifestyle",
-        "conseil_kling": "Reproduire des mouvements d'entraînement fitness fluides en tenue de sport, avec éclairage naturel et cadrage similaire. Maintenir l'énergie motivante et l'authenticité du contenu sportif."
-      }
-    },
-    {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DMlQA6Qv3T0/",
-      "views": 1524036,
-      "duration": 13.5,
-      "caption": "Force 💪🏽❤️",
-      "thumbnail": "https://scontent-lga3-3.cdninstagram.com/v/t51.82787-15/522724745_18325952071224158_1846664438000892962_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-lga3-3.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gGgmvKejJcsg77_DmyC_028T14vOqCuBmmb3ON0ENbMsG2KiYNi3cpkv-MNW1-tDp4&_nc_ohc=bGf9d9mU1IsQ7kNvwHksUqE&_nc_gid=qoPAaQNRlI4uQ5fecY3fdQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfyoIJE8qI1vdhmiNnQsLQlsDu_qZjXhioChO_jSDejAoA&oe=69CFEB70&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 8,
-        "raison": "Contenu fitness/sportif avec caption motivante 'Force 💪🏽❤️', bon engagement (1.5M vues), style approprié pour agence OFM",
-        "style": "sportif/lifestyle",
-        "conseil_kling": "Reproduire avec mouvements fitness simples, éclairage naturel, focus sur l'aspect motivationnel et sportif"
-      }
-    },
-    {
       "username": "clari_cremaschi",
-      "url": "https://www.instagram.com/p/DKfl3Vqp9ZK/",
-      "views": 1589941,
-      "duration": 9.466,
-      "caption": "esto se fue mundialll",
-      "thumbnail": "https://scontent-sjc3-1.cdninstagram.com/v/t51.71878-15/504339155_1771695230441523_7356900642039836832_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gEMFWvkuBhNERmW5-G-TdWSwsmQscfM9QNbLM0llrDsLXY_FCp663hG9gTnUXnkPsY&_nc_ohc=h5FGc322VmEQ7kNvwEubRd6&_nc_gid=S85vL5CkMf-FdPWTw__xww&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afw2hALLGzjEauRtS30TwirP0y1MP5BFcHtXGuvoXI5fng&oe=69CFF47E&_nc_sid=10d13b",
+      "url": "https://www.instagram.com/p/DHWz7hHp0GD/",
+      "views": 3373404,
+      "duration": 11,
+      "caption": "🤪",
+      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/485094009_3953364508210204_2324379009432679197_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gE5PxzTKaIyOo4EdWYw9C9ndsWaYBS6uO3WOOE5LHC2Zo9QkSiHKIE8j6ofA9gD6Qg&_nc_ohc=sh_4vZBkOwoQ7kNvwFyF2kU&_nc_gid=dMVdWc_3N8X_upkaNDd7Vw&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfzQB3iA9AeJyuqaFq-JSkHtYEc-V23Cw3ROk1JOEJiOVw&oe=69D14B9E&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 8,
-        "raison": "Reel avec excellent engagement (1.5M vues), mouvement de danse simple et reproductible, style aguicheur/lifestyle adapté pour OFM, pas trop suggestif",
+        "raison": "Mouvement simple et reproductible, style aguicheur/lifestyle approprié, bonne viralité (3.3M vues), pas trop suggestif",
         "style": "aguicheur/lifestyle",
-        "conseil_kling": "Reproduire le mouvement de danse rythmé avec transitions fluides, garder le cadrage mi-corps, utiliser éclairage naturel et fond neutre pour mettre en valeur les mouvements"
-      }
-    },
-    {
-      "username": "joellperry",
-      "url": "https://www.instagram.com/p/DWcgu3Ljhmo/",
-      "views": 16319,
-      "duration": 9.3,
-      "caption": "tell me if this works\n#explorepage",
-      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/657566780_1342200851273572_820156357000192459_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gFq9kq_vtATUJhiuslrkWERgc1Sb_Vvz4JQZAt3TB3Uau1UN4Dso0CzTYGM5_9Gjuk&_nc_ohc=AmUUtiuor50Q7kNvwGFgZ6k&_nc_gid=HutGAeSPRfqbueXmVW-6Mw&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfwlXohBCAHLU1nY6JhBCQgE0bZzTSWoFTJ1SL--_Y-eGQ&oe=69D010E6&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Contenu fitness/lifestyle approprié, mouvement simple et reproductible, style aguicheur mais pas excessif",
-        "style": "sportif/lifestyle",
-        "conseil_kling": "Reproduire des mouvements de fitness simples avec transitions fluides, focus sur l'aspect motivationnel et lifestyle healthy"
-      }
-    },
-    {
-      "username": "joellperry",
-      "url": "https://www.instagram.com/p/DWeWn_WAGbc/",
-      "views": 5432,
-      "duration": 9.966,
-      "caption": "Happy Sunday🥰\n#explorepage",
-      "thumbnail": "https://scontent-mia3-3.cdninstagram.com/v/t51.71878-15/656903498_1723781075669504_5530192170125674558_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-mia3-3.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gGvBmAD8EKgXKWl2Xlsb74WrKLj39qsXAimFjyZt8EpxhKI-f-v-pOCbDrmE4a1fL8&_nc_ohc=S3-rEQXUt4IQ7kNvwEmQ69r&_nc_gid=2bxSw2aSh5ZIhd2sbUxXSA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afyofr4MQc-fzv57yBZyaPuQhVEgW0nwT2DzudRN1NmEtw&oe=69D0025A&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Style lifestyle approprié avec mouvement simple et reproductible. Contenu non suggestif, adapté pour une agence OFM. Bonne engagement avec plus de 5k vues.",
-        "style": "lifestyle",
-        "conseil_kling": "Reproduire le mouvement naturel et décontracté, conserver l'aspect spontané du dimanche matin, utiliser un éclairage doux et naturel pour maintenir l'ambiance cozy"
-      }
-    },
-    {
-      "username": "joellperry",
-      "url": "https://www.instagram.com/p/DWc0imkjM0q/",
-      "views": 10463,
-      "duration": 7.547,
-      "caption": "trying something different… thoughts?\n#fyp #explorepage",
-      "thumbnail": "https://scontent-mia3-2.cdninstagram.com/v/t51.71878-15/657556550_913163491710907_8899511810144191369_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gFtxprxcCXslI1ZuB5VIkonGjbXK5EMcskPfDim4NBzQCQQDiScJLaiUH_D3lujhiw&_nc_ohc=AYnJKZuGDjQQ7kNvwGXbJnj&_nc_gid=E47tulMJxNAtiIlhPwzwog&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfwR8JtEFuY-pJgRznVWEH_zTHDK6WFoUHtdAFmunBlUzg&oe=69D004FD&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Mouvement simple et reproductible, style lifestyle approprié, pas trop suggestif. Bonnes performances avec 10k+ vues. Caption engage l'audience.",
-        "style": "lifestyle",
-        "conseil_kling": "Reproduire le mouvement simple de transition ou pose statique, maintenir l'esthétique lifestyle épurée, ajouter des éléments de branding subtils"
-      }
-    },
-    {
-      "username": "joellperry",
-      "url": "https://www.instagram.com/p/DWUm76LjpJ5/",
-      "views": 20512,
-      "duration": 8.533,
-      "caption": "It’s a hot day today!❤️ what’s the weather like for you?\n#explorepage #fyp",
-      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/655420667_1596057101626095_5706783146472637056_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gGxdyv9jXVuMG5l2yZIK7N_AoDkGlV_zUP8IUqXgS_TdE3n__U2aKhUiEm-mt4ga4A&_nc_ohc=gbH3FTOhNskQ7kNvwFOY_Ob&_nc_gid=9OA9P9OWVT6EGzfGLiqZBQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfwQJCHwzMzy12kWV2COE0BQZVFNo97f3TvWk7qG_2bqVg&oe=69D0102E&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Contenu lifestyle attrayant avec bonne performance (20k vues), mouvement simple reproductible, style aguicheur approprié sans être excessivement suggestif",
-        "style": "lifestyle/aguicheur",
-        "conseil_kling": "Reproduire avec modèle féminin en tenue estivale décontractée, mouvements naturels et spontanés, éclairage naturel extérieur, focus sur l'authenticité et la fraîcheur"
+        "conseil_kling": "Reproduire les mouvements de tête et expressions faciales ludiques, utiliser un cadrage similaire buste/visage, garder la spontanéité du mouvement"
       }
     },
     {
       "username": "joellperry",
       "url": "https://www.instagram.com/p/DWO-1JtAJVP/",
-      "views": 39277,
+      "views": 42374,
       "duration": 12.5,
       "caption": "What looks better on me?! \n#fyp #explorepage",
-      "thumbnail": "https://scontent-dfw6-1.cdninstagram.com/v/t51.71878-15/657839407_1569634544106831_4212771265266540700_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gFvddGCh-_VuX_7OopE2XPH3OkTOGlRKiG0c7SQyFRHS-L4W00PYfHOZOzQLvodnvQ&_nc_ohc=kYPctqxyU44Q7kNvwGM91DX&_nc_gid=pr1rL2Pk1uYDJKVgr60_GQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afxm_tei4_Dz8GhbV_dFqO58djfazZ-ld22O0l9ejahInw&oe=69CFFF21&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/657839407_1569634544106831_4212771265266540700_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gHCok2A-zBsn_Es71TgsEpwFVn-2DZgrS9Eyxa-oYIIwmIUu3jl6KaZi7_14o3ug8c&_nc_ohc=s5NgX26BEMwQ7kNvwGDklo9&_nc_gid=qqTd4npKwlrgiJRse0ZrTQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afw3pWgeDVB_irE8wIdYBevtekWTc8EgHXZOLbJno22Vxw&oe=69D150A1&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 7,
-        "raison": "Concept simple de comparaison de tenues, mouvement basique reproductible avec IA, style lifestyle/mode approprié sans être trop suggestif",
+        "raison": "Concept simple de comparaison de tenues, mouvement reproductible avec IA, style lifestyle approprié sans être trop suggestif",
         "style": "lifestyle",
-        "conseil_kling": "Reproduire le concept de changement de tenue rapide avec transitions fluides, utiliser des mouvements simples de présentation face caméra, maintenir un cadrage statique centré"
+        "conseil_kling": "Utiliser des transitions fluides entre les différentes tenues, garder des mouvements naturels de présentation, éviter les angles trop provocants"
       }
     },
     {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DWH7XQGDpCF/",
-      "views": 40952,
-      "duration": 15.51,
-      "caption": "The sun came out… I guess it heard I was going for a walk ☀️😌\n\n.\n\n.\n\n.\n\n.\n#reels #eeuu #viral #latin",
-      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/655677882_2053961141836155_229236640148515528_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gEeJYCoW-JtyTmMB8U9B12xm1vZPF4WWHrgd4tt7IekwObSlyd24ArNkRSI1BhLUr8&_nc_ohc=mFFHegNSAwYQ7kNvwFltRmT&_nc_gid=1Qg4vht33FEoQxma_H2Cmw&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfyK8lfl7ioBnKTBpYLJTj0jkciiojD-R0Hw3RymzWcwRA&oe=69D00F53&_nc_sid=10d13b",
+      "username": "joellperry",
+      "url": "https://www.instagram.com/p/DWJ_-q5D_Ts/",
+      "views": 25292,
+      "duration": 8.2,
+      "caption": "Wanna go on a roadtrip? \n#explorepage",
+      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/656843538_1466892348224574_9081042456746165736_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gEw1uKO7q0LUPPSTENtgPWmG0t3-VPPTtSC2JUQhMTFsgmfykctNnTWFzRkZI96j7A&_nc_ohc=sHfDewtgbxwQ7kNvwFtGhNA&_nc_gid=G1gQ3YXHuZZeraMwYggP0Q&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afxy0zThtjycz9PX_3Ztpsmcgiim0-7CuwulR5iqVuBw4Q&oe=69D13974&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 7,
-        "raison": "Contenu lifestyle simple avec marche en extérieur, mouvements naturels reproductibles, caption engageante sans être suggestive, style décontracté approprié",
-        "style": "lifestyle/décontracté",
-        "conseil_kling": "Reproduire une séquence de marche naturelle en extérieur avec éclairage solaire, mouvements fluides de déambulation, expression détendue et confiante"
+        "raison": "Style lifestyle attrayant avec thématique roadtrip, mouvement probablement simple, durée courte adaptée, bon engagement",
+        "style": "lifestyle",
+        "conseil_kling": "Reproduire les mouvements de transition fluides, focus sur l'aspect aventure et liberté du roadtrip, utiliser des plans dynamiques en voiture"
       }
     },
     {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DNQxKJjOzEg/",
-      "views": 352774,
-      "duration": 8.896,
-      "caption": "Are the gym results showing up? 😸\n\n.\n\n.\n\n.\n#reels #viral #cutegirl #eeuu",
-      "thumbnail": "https://scontent-atl3-2.cdninstagram.com/v/t51.82787-15/530745833_18327924853224158_2221067173205231966_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gGlSBtnU8f98PmgkJOfhjBkp2E1kbGMNAnSO7v2F6XL6uwbGQZ0idZD-I1l9iIvyjw&_nc_ohc=Tc-oJHig8P4Q7kNvwEsIJpd&_nc_gid=twpdaZvYw68SrohDQsEqgw&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfyhLEwdKdgHQL02a-Kob13eD5UQ0ya6e-bMYWynmbwp2A&oe=69CFF499&_nc_sid=10d13b",
+      "username": "joellperry",
+      "url": "https://www.instagram.com/p/DWIIuKKjNb6/",
+      "views": 24293,
+      "duration": 9.309,
+      "caption": "What’s your favorite summer activity? \n#fyp #explorepage #trendingnow #usa",
+      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/655729496_1841026049917884_293493669072048868_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gGUHGO6FiV-qPhKscQWVP3C8VYdtH3PNVV88gDXBPozudo48Zzn7RzAgcDjqG0rBWg&_nc_ohc=QNtt97e-pVMQ7kNvwGvx0nV&_nc_gid=4XXJm1AH1KtRKcjJCkOOrw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afyba3Hne1fFoCBzskCuz9kxMjY4VJJ9XVQpIqpVfz3KLQ&oe=69D1501A&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 7,
-        "raison": "Contenu fitness/lifestyle approprié avec caption orientée résultats sportifs. Style aguicheur mais pas excessivement suggestif. Bon engagement avec 352k vues.",
-        "style": "sportif/aguicheur",
-        "conseil_kling": "Reproduire avec mouvements fitness simples, poses de progression sportive, transitions fluides entre exercices ou positions de démonstration de résultats d'entraînement"
-      }
-    },
-    {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DWSg1xRDlkC/",
-      "views": 199468,
-      "duration": 10.966,
-      "caption": "Just a transition… and everything turns red ❤️✨\n\n.\n\n.\n\n.\n\n.\n\n#reels #cutegirl #eeuu #cute #usa",
-      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/658650059_2205274550311206_4687958551220965394_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gHml7HQGyLi6Clv_U6wb_vxEnLK7-QKt_8nSB6s2tfZUM0WwGw1mVVHX2K3eaxF_JI&_nc_ohc=-11HAEHjV68Q7kNvwHSofk6&_nc_gid=J_V3lTC3MgRQztl-6jjfMA&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfykrXF5TH1OvKWPt8Ey6NxnJ-vZEIcunZsnqlsZVjdUwA&oe=69CFE729&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Transition simple et reproductible avec changement de couleur/tenue, bon engagement (199k vues), style lifestyle approprié sans être trop suggestif",
-        "style": "lifestyle/transition",
-        "conseil_kling": "Reproduire avec transition fluide en changeant outfit/couleur dominante, utiliser éclairage rouge pour l'effet final, garder mouvement simple et net"
-      }
-    },
-    {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DNTgTPzOotT/",
-      "views": 7212564,
-      "duration": 8.233,
-      "caption": "Constancia y enfoque… 💪🏽\n\n.\n.\n\n.\n\n.\n#reels #cutegirl #cute #eeuu",
-      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/532416541_1302983928275647_1570911871861033358_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gEnRcTN-WEEWcx0aTXIq-qlGc_-GFjyPKW7_w5ZkUTwvLi8qRE4vElK6E7LTNOjoIw&_nc_ohc=bKg2ZEEcOnEQ7kNvwES6h9A&_nc_gid=d_gbdbq0aQt511WHZBZOAw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afzl7Y7dz_ON3C-3cdVcNtOFb3TdQ5klOULBSto_5qAmLQ&oe=69CFFF2C&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Contenu sportif avec message motivationnel 'Constancia y enfoque', style fitness approprié, mouvements probablement reproductibles par IA, bon engagement (7M+ vues)",
-        "style": "sportif/lifestyle",
-        "conseil_kling": "Reproduire les mouvements d'exercice fitness en studio, lighting naturel, focus sur la gestuelle sportive et l'expression de détermination"
+        "raison": "Contenu lifestyle estival approprié avec bonne engagement (24k vues). Caption interactive encourage l'engagement. Durée optimale pour réseaux sociaux.",
+        "style": "lifestyle",
+        "conseil_kling": "Reproduire avec mouvements fluides en extérieur, éclairage naturel, transitions douces entre activités estivales, garder le dynamisme sans être trop rapide"
       }
     },
     {
       "username": "karen.katc",
-      "url": "https://www.instagram.com/p/DV6QpeEDbjj/",
-      "views": 70585,
-      "duration": 11.566,
+      "url": "https://www.instagram.com/p/DWXn-QKjaGz/",
+      "views": 30749,
+      "duration": 14.048,
       "caption": "",
-      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/652057714_936004648911018_916005896929065881_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gF49sUi8Kuh8ip5iYqRlMBMaNHcjVdMnPTUCYaaQtwL-9XyQbTGOFr-v7aSm8LN0Ow&_nc_ohc=2HgGL_4MBqUQ7kNvwGIjMP1&_nc_gid=22SnSF7iLm4UpGw6qmBccQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfxtC3O2ulgjrTbMWQRyyXo7VFLbcsYFeTvPm-EtCYwYZQ&oe=69CFEF68&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/658893303_1572147067184288_2499514765826639219_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gH2UaeHQINmXU55AnKo9U2gOJD4tP_UNklgUZWU404EhQs0iHS7QtFCY3N9-eqlZqU&_nc_ohc=SScyI8REScMQ7kNvwFm2Nlg&_nc_gid=T5U_ppUuEN--QwWiFduZxw&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfwslueMX2w9pHrLuD7ldPEMx3XN8MrSmMBCEa1jUp8tCw&oe=69D14B7F&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 7,
-        "raison": "Contenu fitness/lifestyle approprié, mouvement simple de danse/workout reproductible, style aguicheur mais pas excessivement suggestif, bon engagement avec 70k+ vues",
-        "style": "sportif/aguicheur",
-        "conseil_kling": "Reproduire les mouvements de danse fitness simples, utiliser un éclairage naturel similaire, garder le rythme dynamique et les transitions fluides entre les mouvements"
+        "raison": "Contenu fitness/lifestyle avec bonne engagement (30k vues), durée optimale pour l'IA, style sportif approprié pour une agence OFM",
+        "style": "sportif/lifestyle",
+        "conseil_kling": "Reproduire les mouvements fitness simples, maintenir le cadrage serré sur les exercices, utiliser un éclairage naturel similaire et des transitions fluides entre les mouvements"
       }
     },
     {
       "username": "julia_delenes22",
       "url": "https://www.instagram.com/p/DWbhzQygtzQ/",
-      "views": 32665,
+      "views": 38333,
       "duration": 8.393,
       "caption": "Le retour de cette trend👀",
-      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/656859928_801300882560742_6334639098595753101_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gHtiRh9h85DivgDe8upEvOkhK9XIcHKWPWi_8Cbb_tTycuiuGBEJjpjOW_qGNBErHM&_nc_ohc=Tv7BBinS5U4Q7kNvwG84_K4&_nc_gid=jTBEFjaVzOhd-i_AQ2HMmA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afzrh53VPlJfOPHPGSER0o5xPbOfiQb_IEtcqWl-32T_ZQ&oe=69D0183E&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/656859928_801300882560742_6334639098595753101_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gGhKVcBe2EGq5FI4217CN7S8-79t-cq82sC9t0iN9-w7qTzGCFmXTJCYVnPROxIzYA&_nc_ohc=Tv7BBinS5U4Q7kNvwFTnflz&_nc_gid=XneJ3pZuZlAqgNw8OSx7Ag&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfwNabB1EjatnwvcFzGzux1tp3NdYt9z6mTggbvK6_wdmg&oe=69D169BE&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 7,
-        "raison": "Mouvement simple et reproductible, style sportif/lifestyle approprié, pas trop suggestif, bonne performance avec 32k vues",
-        "style": "sportif/lifestyle",
-        "conseil_kling": "Reproduire le mouvement de transition simple, maintenir l'esthétique sportive épurée, utiliser un éclairage naturel similaire"
+        "raison": "Mouvement de danse simple et reproductible, style lifestyle tendance avec bonne performance (38k vues), approprié pour une agence",
+        "style": "lifestyle/tendance",
+        "conseil_kling": "Reproduire les mouvements de danse synchronisés, garder le rythme dynamique et l'énergie positive du trend original"
       }
     },
     {
-      "username": "julia_delenes22",
-      "url": "https://www.instagram.com/p/DWL43MFgn7p/",
-      "views": 27004,
-      "duration": 8.393,
-      "caption": "(Vous devinerez jamais où je suis)😭",
-      "thumbnail": "https://scontent-bos5-1.cdninstagram.com/v/t51.71878-15/656005582_2094845537964202_1002121236141823689_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-bos5-1.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2gGRbHtsyVpeBBpMz2ezPNmvZQejpbOcCXrXmZvtRobnsccOrBEQXcmiA1LlGAy3Ll4&_nc_ohc=idfMvMN8sL4Q7kNvwEeibhS&_nc_gid=el9bPMOj2FOshTHF1FS1Eg&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfxMO4rOBVBUTWZYvuCRdOt6aXtmIdeIMB5ob6TaYPNRPQ&oe=69CFEAD7&_nc_sid=10d13b",
+      "username": "clari_cremaschi",
+      "url": "https://www.instagram.com/p/DOOXnf2DVr_/",
+      "views": 1048698,
+      "duration": 11.6,
+      "caption": "nose ni a quien extraño ya😅",
+      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/542270243_703007642826773_2749834543861351364_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=105&_nc_oc=Q6cZ2gF8kyP_YZEnJyj1HX_AWT1OhVgOSaj1A_yrjy9VlR_CgSzRDwIBXfna6K1sFdzkzeo&_nc_ohc=8bgv-1w6Rs8Q7kNvwF_ZOC2&_nc_gid=9N2IDb1_H-nmEiKYIGPfnw&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfybQV-n9pMbJlHTlxdShpEVksq30MyQA5S1WwMbfVTDPQ&oe=69D1556E&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 7,
-        "raison": "Contenu lifestyle avec bon engagement (27k vues), mouvement simple reproductible, style approprié sans être trop suggestif",
-        "style": "lifestyle/casual",
-        "conseil_kling": "Reproduire avec modèle en tenue décontractée, mouvements naturels de présentation/révélation de lieu, garder l'aspect mystérieux avec caption similaire"
+        "raison": "Contenu lifestyle avec bon engagement (1M+ vues), mouvements simples reproductibles, style décontracté approprié pour une agence OFM",
+        "style": "lifestyle/décontracté",
+        "conseil_kling": "Reproduire les mouvements naturels et expressions faciales, maintenir le cadrage serré sur le visage/buste, utiliser un éclairage doux similaire"
+      }
+    },
+    {
+      "username": "clari_cremaschi",
+      "url": "https://www.instagram.com/p/DQS1CEBjPtr/",
+      "views": 2713800,
+      "duration": 5.566,
+      "caption": "ahhh ok!!!!",
+      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/571292820_1014177094173073_1841254858544277415_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gGvptxCUyjoxamEJm-UbsRVcoK8cS0xuPZu-vowSmMQDisc2CscIswN2FN9bjGjbIA&_nc_ohc=0BgmcDtZ15kQ7kNvwHH5CfV&_nc_gid=_omuXISFyZx1pXflUig5Hw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afwoa2olORQLPPHpxjO8AXTETmpvbcMXGrHiL_KRdyiOVw&oe=69D16361&_nc_sid=10d13b",
+      "analyse": {
+        "recommande": true,
+        "score": 7,
+        "raison": "Contenu lifestyle attractif avec bon engagement (2.7M vues), mouvement semble simple à reproduire, style adapté pour agence OFM",
+        "style": "lifestyle/aguicheur",
+        "conseil_kling": "Reproduire le mouvement de transition ou pose en conservant l'esthétique lifestyle, adapter l'environnement et le timing pour maintenir l'impact visuel"
+      }
+    },
+    {
+      "username": "clari_cremaschi",
+      "url": "https://www.instagram.com/p/DPCuo-WjMVz/",
+      "views": 2385352,
+      "duration": 14.6,
+      "caption": "nochooooon!!! JSKSJSJ",
+      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/553361969_1296897131515139_6243537874341806370_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gG2RY0AdHJ3-oZsAkVyvGKieRXrItcgFXIpmlxs9TdPVM9EXnN5KW0XNkgrH3gSXLY&_nc_ohc=IFiWsytaE3sQ7kNvwGRmiHa&_nc_gid=p-wy8j8ocU8Liw7qlkChSw&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfwyI5UJ73HD10QBmfkQVBh9YSYVMos0t7PtvL2KiiKR8g&oe=69D14973&_nc_sid=10d13b",
+      "analyse": {
+        "recommande": true,
+        "score": 7,
+        "raison": "Reel avec bon engagement (2.3M vues), durée optimale 14.6s, style sportif/lifestyle apparent sur le thumbnail. Caption ludique qui génère de l'interaction.",
+        "style": "lifestyle/sportif",
+        "conseil_kling": "Reproduire des mouvements dynamiques simples en tenue sportive, privilégier les transitions fluides et les expressions naturelles pour maintenir l'authenticité"
       }
     },
     {
       "username": "clari_cremaschi",
       "url": "https://www.instagram.com/p/DLvjnsApRQr/",
-      "views": 5475787,
+      "views": 5476050,
       "duration": 7.166,
       "caption": "😎🫵🏽",
-      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/504375244_1708065109897487_7045876959012831445_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gGPuyPDtymrWiSLevEsSclhUMCfZrRIjDo3KOvtA-zVVSCQA-LMPUK5UTmMvYhLOQ8&_nc_ohc=Fv8W-l0xlCYQ7kNvwGvq22s&_nc_gid=L2BqR4yDFKUhEHZAv1Malw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afz4JsBSxybGLZy8ppKmD55FNU4lXL1CEmfezbfpHGNe5A&oe=69D000FB&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/504375244_1708065109897487_7045876959012831445_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gE4a5cjhRt6aUwxQFrF-yHsof5BeeoUnvG-ZX9xyYIxkY6hDldS2-OA9VjtaBo4_MM&_nc_ohc=Fv8W-l0xlCYQ7kNvwGuUTxj&_nc_gid=_8_glQO9O8nv1Bztq6vDsg&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfzkczanRY7Qi0ZsS9nSB_341ZV_9v9qgMnAekQD8C_n7g&oe=69D1527B&_nc_sid=10d13b",
       "analyse": {
         "recommande": true,
         "score": 7,
-        "raison": "Reel avec bon engagement (5.4M vues), style aguicheur approprié, mouvements simples reproductibles avec IA. Caption minimaliste efficace.",
+        "raison": "Mouvement simple et reproductible, style aguicheur/lifestyle approprié, bonne performance (5.4M vues), geste du doigt pointé facilement réalisable en IA",
         "style": "aguicheur/lifestyle",
-        "conseil_kling": "Reproduire les gestes de pointage et expressions faciales confiantes, maintenir le cadrage serré sur le visage, utiliser un éclairage naturel similaire"
-      }
-    },
-    {
-      "username": "clari_cremaschi",
-      "url": "https://www.instagram.com/p/DMkzvd2A9V-/",
-      "views": 1071256,
-      "duration": 6.166,
-      "caption": "Vete YA A DORMIR😠",
-      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/523976033_1632687780979796_4413154705030888341_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gHHMctzcLx8n8FG-ZqvCCyLRIYb6r0x91KzFcKQMfEF6JiZZx25wOwIWMdz1KlJ6_o&_nc_ohc=1vVK8ljpluUQ7kNvwE7Ej9g&_nc_gid=GaIhKHvromiEmF09FB4bbA&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfxLkbbFFOzP5r139JL3I0v50cFHINpU6GKGIibuvblv8Q&oe=69CFE698&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Reel avec bon engagement (1M+ vues), mouvement simple à reproduire avec IA, style aguicheur mais pas trop suggestif. Caption en espagnol ajoute du caractère. Durée courte idéale pour l'attention.",
-        "style": "aguicheur/lifestyle",
-        "conseil_kling": "Reproduire le mouvement de pointage/geste avec expression faciale directive, utiliser éclairage doux, angle légèrement en contre-plongée, vêtements casual chic"
-      }
-    },
-    {
-      "username": "clari_cremaschi",
-      "url": "https://www.instagram.com/p/DO_ZXZKjU89/",
-      "views": 3498645,
-      "duration": 13.646,
-      "caption": "yo nunca pierdo 🥱",
-      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/552751500_1343325920694517_18183016416005961_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFtI8515OfWh92UuwU7zN3N8bOUqEHX4JMxPCPQ6TfxrE2BpcBqYw5fZg2ygyMMask&_nc_ohc=1AzHngGIi8AQ7kNvwF7SFIX&_nc_gid=enzjeZoHWa2OPkdau9PiOg&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afx52YfnczyrxczdQVq7oh6rUzbaKuYhqMkQlxRMWyMtoQ&oe=69D00D23&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Style lifestyle/sportif moderne avec attitude confiante. Mouvement simple de pose statique facilement reproductible par IA. Bon engagement avec 3.5M de vues.",
-        "style": "lifestyle/sportif",
-        "conseil_kling": "Reproduire la pose confiante et décontractée, focus sur l'attitude 'winner' avec des mouvements de tête subtils et regard assuré"
-      }
-    },
-    {
-      "username": "clari_cremaschi",
-      "url": "https://www.instagram.com/p/DLMDFz4NZLg/",
-      "views": 9342036,
-      "duration": 7.1,
-      "caption": "creo que la segunda JAJAJ 😔",
-      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/504117369_1282098133333503_5968080524905906001_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gFKdPHcI8dk4gCdRDCbrueI-zSU-YmYCAJPao1FqxNamJXle6NI9K8NeBiRstW6Xzg&_nc_ohc=ZzymjkmPupoQ7kNvwHmiQta&_nc_gid=LousBnRy7oXuOF-nxOPEuA&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfwTtLfzK0jai7PtOel-9fxJVigZxY91j1xIG4k4PvL_Wg&oe=69D01B2E&_nc_sid=10d13b",
-      "analyse": {
-        "recommande": true,
-        "score": 7,
-        "raison": "Contenu lifestyle approprié avec bon engagement (9M+ vues). Style décontracté et authentique qui fonctionne bien sur Instagram. Mouvement semble simple et naturel.",
-        "style": "lifestyle/décontracté",
-        "conseil_kling": "Reproduire le mouvement naturel et spontané, garder l'aspect authentique et décontracté, utiliser un cadrage similaire en plan rapproché"
+        "conseil_kling": "Reproduire le geste confiant du doigt pointé vers la caméra avec lunettes de soleil, expression assurée, éclairage naturel, cadrage buste, mouvement fluide et direct"
       }
     }
   ]
