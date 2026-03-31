@@ -852,6 +852,31 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 // === STORAGE KEYS ===
 var K={todos:'ofm_todos_v4',veille:'ofm_veille',params:'ofm_params',models:'ofm_models',objectifs:'ofm_objectifs',analyses:'ofm_analyses',notes:'ofm_notes',fins:'ofm_finances',pwd:'ofm_pwd'};
 var currentPeriod=7,uploadedImages={},lastAnalysisActions=null,chartInst=null,weeklyChartInst=null,unlockChartInst=null,cvrChartInst=null,clockInterval=null,hookImageData=null,hookPlat='ig';
+var ofmKB=null;
+
+// === OFM KNOWLEDGE BASE ===
+async function loadOFMKnowledgeBase(){
+  try{
+    var url='https://raw.githubusercontent.com/lestrass06-bot/ofm-dashboard/main/ofm_knowledge_base.json?t='+Date.now();
+    var res=await fetch(url);
+    if(!res.ok)return;
+    ofmKB=await res.json();
+    console.log('[OFM KB] Base de connaissance chargée ✅');
+  }catch(e){console.warn('[OFM KB] Impossible de charger la KB:',e.message);}
+}
+
+function getKBContext(){
+  if(!ofmKB)return '';
+  return '\n\n=== BASE DE CONNAISSANCE OFM ===\n'+
+    'Agence: '+ofmKB.business_overview.type+' | Modèle principale: '+ofmKB.model_melina.identite.prenom+
+    ' | Métriques fév 2026: '+JSON.stringify(ofmKB.metriques_business.situation_fevrier_2026)+
+    ' | CVR global: '+ofmKB.metriques_business.kpis_cles.cvr_global+
+    ' | LTV actuelle: '+ofmKB.metriques_business.kpis_cles.ltv_par_fan+
+    ' | Hooks viraux: '+JSON.stringify(ofmKB.strategie_contenu.hooks_viraux)+
+    ' | Flow chatting: '+JSON.stringify(ofmKB.strategie_chatting.modele_flow)+
+    ' | Leçons apprises: '+JSON.stringify(ofmKB.lecons_apprises.business)+
+    '\n=== FIN BASE DE CONNAISSANCE ===\n';
+}
 
 // === HELPERS ===
 function get(k,d){try{return JSON.parse(localStorage.getItem(k))||d;}catch(e){return d;}}
@@ -889,6 +914,7 @@ function initApp(){
   if(clockInterval)clearInterval(clockInterval);
   tickClocks();clockInterval=setInterval(tickClocks,1000);
   loadApiKeys();
+  loadOFMKnowledgeBase();
 }
 
 // === NAV ===
@@ -1078,7 +1104,7 @@ async function analyseAll(){
   document.getElementById('analyse-sections').style.display='none';
   var msgContent=[];
   keys.forEach(function(k){msgContent.push({type:'image',source:{type:'base64',media_type:'image/png',data:uploadedImages[k]}});});
-  msgContent.push({type:'text',text:'Tu es expert OFM et analyste business. Analyse tous ces screens de statistiques. Retourne JSON avec: "score" (nombre /10), "revenus" (analyse), "chatting" (performance), "ia" (performance IA), "actions" (4-5 actions concrètes en texte). UNIQUEMENT JSON valide.'});
+  msgContent.push({type:'text',text:'Tu es expert OFM et analyste business pour une agence sur le marché français. Analyse tous ces screens de statistiques.'+getKBContext()+'Retourne JSON avec: "score" (nombre /10), "revenus" (analyse chiffrée), "chatting" (performance), "ia" (performance IA), "actions" (4-5 actions concrètes et spécifiques à ce business). UNIQUEMENT JSON valide.'});
   try{
     var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:msgContent}]})});
     var data=await res.json();
@@ -1188,7 +1214,7 @@ async function generateHooks(){
   document.getElementById('hook-empty').style.display='none';
   var platLabel=hookPlat==='ig'?'Instagram Reels':hookPlat==='tt'?'TikTok':'Instagram & TikTok';
   try{
-    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:'image/jpeg',data:hookImageData}},{type:'text',text:'Tu es expert en viralité Instagram/TikTok pour une agence OFM lifestyle. Analyse ce contenu pour '+platLabel+'. Génère: 5 hooks texte courts à superposer (time watch, max 8 mots, percutants, qui forcent le stop scroll), 3 captions optimisées (engagement, curiosité, mystère), un score viral /10. Reponds en JSON: {"hooks":["hook1"...],"captions":["cap1"...],"score":8,"raison":"pourquoi ce score"}'}]}]})});
+    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:'image/jpeg',data:hookImageData}},{type:'text',text:'Tu es expert en viralité Instagram/TikTok pour une agence OFM lifestyle marché français.'+getKBContext()+'Analyse ce contenu pour '+platLabel+'. Génère: 5 hooks texte courts à superposer (max 8 mots, percutants, stop scroll, inspirés des hooks qui marchent dans la KB), 3 captions optimisées (engagement, curiosité, mystère, marché FR), un score viral /10. Reponds en JSON: {"hooks":["hook1"...],"captions":["cap1"...],"score":8,"raison":"pourquoi ce score"}'}]}]})});
     var data=await res.json();
     var text=data.content&&data.content[0]?data.content[0].text:'{}';
     var result=JSON.parse(text.replace(/```json|```/g,'').trim());
@@ -1251,7 +1277,7 @@ async function runAgent(n){
   var apiKey=getApiKey();
   if(!apiKey){resultEl.style.display='block';resultEl.textContent='Configure ta clé API !';return;}
   resultEl.style.display='block';resultEl.textContent='Analyse en cours...';
-  var prompts={1:'Expert Instagram et OFM. Analyse ce contenu et explique POURQUOI il performe et comment reproduire.\n\n'+input,2:'Copywriter expert. Génère 5 hooks ET 5 captions optimisés pour ce contenu.\n\n'+input,3:'Expert chatting OFM. Génère 5 messages adaptés pour ce fan.\n\n'+input};
+  var kb=getKBContext();var prompts={1:'Expert Instagram et OFM agence marché français.'+kb+'Analyse ce contenu et explique POURQUOI il performe et comment reproduire avec la stack de cette agence (Nano Banana, Kling AI, ElevenLabs).\n\n'+input,2:'Copywriter expert OFM marché français.'+kb+'Génère 5 hooks ET 5 captions optimisés pour ce contenu, adaptés au style de la modèle Mélina.\n\n'+input,3:'Expert chatting OFM. Tu connais le flow: ice breaker → small talk → confiance → proposition PPV → upsell.'+kb+'Génère 5 messages adaptés pour ce fan.\n\n'+input};
   try{
     var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompts[n]}]})});
     var data=await res.json();
