@@ -1,39 +1,29 @@
 {
   "meta": {
-    "version": "2.0",
+    "version": "3.0",
     "generated": "2026-04-01",
-    "source": "Extraction conversations ChatGPT + Claude - Axel OFM",
-    "description": "Base de connaissance OFM - Agency d'Axel & Théo",
-    "derniere_maj": "Session nuit 01/04/2026 - Bot Telegram deploy + Stats Mélina + Config Veille"
+    "derniere_maj": "Session nuit 01/04/2026 - Agents IA redesign + Page Revenus mensuelle + Notif Telegram 23h"
   },
 
   "profil_axel": {
     "psychologie": {
-      "mental": "Battant / survivant - mode débrouillard quoi qu'il arrive. Cherche comment s'en sortir, pas qui accuser.",
-      "ambition": "Silencieuse mais énorme. Veut liberté financière, liberté de mouvement, liberté de créer. Faim de vie.",
-      "profil": "Anti-cadre, anti-routine. Besoin de liberté de décision. Entrepreneur dans l'âme.",
-      "loyaute": "Très attaché aux siens, très protecteur. Donne beaucoup en amitié. Garde une part de pudeur émotionnelle.",
-      "analytique": "Observe et analyse beaucoup malgré un style simple. Voit plusieurs niveaux de lecture.",
-      "execution": "Préfère avancer et corriger en chemin plutôt que planifier à l'excès. Discipline concrète."
+      "mental": "Battant / survivant - mode débrouillard quoi qu'il arrive.",
+      "ambition": "Silencieuse mais énorme. Liberté financière, liberté de mouvement, liberté de créer.",
+      "profil": "Anti-cadre, anti-routine. Entrepreneur dans l'âme.",
+      "execution": "Préfère avancer et corriger en chemin. Discipline concrète. Warrior : travaille jusqu'à 6h du mat."
     },
     "style_communication": {
       "ton": "Frero, casual, direct, emojis fréquents",
       "prefere": "Instructions courtes et claires, une étape à la fois",
-      "langue": "Français, orthographe décontractée",
-      "pace": "Rapide, efficace, pas de blabla"
+      "langue": "Français, orthographe décontractée"
     },
-    "objectifs_personnels": [
-      "Vivre en Thaïlande",
-      "Liberté financière via OFM",
-      "Scaler l'agence",
-      "Progresser physiquement"
-    ]
+    "objectifs_personnels": ["Vivre en Thaïlande", "Liberté financière via OFM", "Scaler l'agence", "Progresser physiquement"]
   },
 
   "business_overview": {
     "type": "OFM Agency (OnlyFans Management)",
+    "nom_agence": "TP Agency",
     "associes": ["Axel", "Théo"],
-    "structure": "2 managers sur 1 modèle principale + développement multi-modèles",
     "repartition_roles": {
       "axel": "Création de contenu, prompts IA, veille Instagram, technique/automation",
       "theo": "Chatting (nuit), gestion fans, conversion"
@@ -51,276 +41,191 @@
       "age": 29,
       "origine": "Franco-italienne",
       "profession_persona": "Coach sportive",
-      "lieu_vie": "Variable (stratégie géo-proximité)",
       "situation": "Célibataire après rupture",
       "tatouage": "Circulaire sur le biceps droit, inscription grecque Eros kai Psyche"
     },
     "comptes_insta_actifs": ["meligymxo", "just_melinaxo", "melilablondex", "melilacoach", "meli_nanaxo", "fxmelinaa", "melinaaflex"],
-    "anciens_comptes": ["melinaflix", "melilablonde", "fxmeli", "melinaxoxo"],
     "style_ecriture_bot": {
       "ton": "Lowercase, SMS casual, légères fautes volontaires, emojis rares",
-      "strategie_geo": "Demander d'abord la ville du fan, puis prétendre habiter à 1h30-2h, jamais de ville précise"
+      "strategie_geo": "Demander ville du fan, prétendre habiter à 1h30-2h, jamais de ville précise"
     },
     "scripts_narratifs": [
-      "Netflix Lingerie (lingerie blanche, jeu de devinette, couleur fixe)",
-      "Avant Douche (débardeur marron + jupe blanche, progression vers climax, jamais entre dans la douche)",
-      "After Party (robe rouge épaule dénudée ventre ouvert, talons blancs, uniquement 19h-4h)"
+      "Netflix Lingerie (lingerie blanche, jeu de devinette)",
+      "Avant Douche (débardeur marron + jupe blanche, progression vers climax)",
+      "After Party (robe rouge, uniquement 19h-4h)"
     ]
   },
 
   "metriques_business": {
-    "situation_fevrier_2026": {
-      "comptes_insta": [7000, 2300, 1200, 800, 400],
-      "total_followers": 11700,
-      "backup_compte": "100 demandes en attente",
-      "clics_journaliers_getmysocial": 250,
-      "subs_normaux_par_jour": "10-15",
-      "subs_bon_jour": "25-35 (quand reel perf)",
-      "revenus_net": 1649,
+    "mars_2026": {
+      "revenus_net": 4474.40,
+      "revenus_brut": 5593,
+      "tips": 116,
+      "messages_revenus": 4262.40,
+      "publications": 96,
+      "abonnes": 495,
+      "unlock_rate_global": "40.24%",
+      "theo_sales": 2733,
+      "theo_ppv": 2728,
+      "theo_fans_chatte": 523,
+      "theo_unlock": "38.72%",
+      "theo_earnings_par_fan": 53.58,
+      "axel_sales": 2151,
+      "axel_ppv": 2151,
+      "axel_fans_chatte": 343,
+      "axel_unlock": "42.77%",
+      "axel_earnings_par_fan": 71.70,
+      "ai_unlock_rate": "28.8%",
+      "ai_revenue": 402.40,
+      "ai_sales": 21,
+      "meilleur_script": "Netflix Lingerie",
+      "total_clics_getmysocial": 4291,
+      "top_lien": "insta meli_nanaxo",
+      "top_lien_clics": 1946,
       "currency": "USD"
     },
-    "conversion_par_compte": {
-      "melinaflix": {"clics": 1644, "subs": 121, "cvr": "7.36%", "earnings": 537},
-      "fxmeli": {"clics": 593, "subs": 44, "cvr": "7.42%"},
-      "melilablonde": {"clics": 306, "subs": 17, "cvr": "5.56%", "earnings": 72}
+    "fevrier_2026": {
+      "revenus_net": 1649,
+      "total_followers_insta": 11700,
+      "clics_journaliers": 250,
+      "cvr_global": "7%",
+      "currency": "USD"
     },
     "kpis_cles": {
       "cvr_global": "~7%",
-      "ltv_par_fan": "~4-5$ (full free)",
+      "ltv_par_fan": "~5.66$ (full free)",
       "ltv_cible": "10$ par sub",
-      "objectif_mars_2026": "5000$ net",
       "levier_principal": "Augmenter volume clics (pas améliorer CVR)"
-    },
-    "analyse": "Le CVR de 7% est excellent en Full Free. Le seul levier = augmenter le nombre de clics via plus de reels performants."
+    }
   },
 
   "stack_technologique": {
     "creation_contenu": {
-      "generation_photos": {
-        "nano_banana_pro": {
-          "usage": "Génération de photos réalistes avec modèle de référence",
-          "prompt_obligatoire_debut": "selfie réaliste pris avec la caméra frontale d'un smartphone",
-          "prompt_style": "En français, très détaillé, une seule ligne pour copier-coller rapide",
-          "notes": [
-            "Toujours mettre femme pas modèle",
-            "Préciser de respecter les tatouages des photos de références (taille, emplacement)",
-            "Ne pas dire selfie si c'est clairement une photo de caméra arrière",
-            "Ne pas mettre même femme que les photos de références - inutile",
-            "Mettre toujours le prompt en une seule ligne pour sélection rapide"
-          ]
-        },
-        "seedreams": {
-          "usage": "Modifications NSFW, augmentation poitrine, changements de tenue, position",
-          "notes": [
-            "Conserver les grains de peau naturels (préciser dans le prompt)",
-            "Garder exactement le même décor quand on change juste la position",
-            "Pour augmentation poitrine: +30%, col en U",
-            "Léger maquillage + léger mascara = formule standard"
-          ]
-        }
+      "nano_banana_pro": {
+        "debut_obligatoire": "selfie réaliste pris avec la caméra frontale d'un smartphone",
+        "notes": ["Toujours mettre femme pas modèle", "Respecter tatouages des photos de références", "Une seule ligne pour copier-coller rapide"]
       },
-      "animation_photos": {
-        "kling_ai": {
-          "v3_0": "Pour clips courts (meilleur rendu)",
-          "v2_6": "Pour clips plus longs",
-          "taux_succes": "40-60%",
-          "usage": "Animation naturelle, motion control"
-        },
-        "minimax_hailuo": {
-          "v2_3_fast": "Pour animations courtes et naturelles",
-          "v2_6": "Pour animations plus complexes"
-        }
-      },
-      "voix_audio": {
-        "elevenlabs": {
-          "usage": "Clonage vocal (voix clonée depuis contenu YouTube storytelling)",
-          "prompts_emotion": "Crochets en anglais pour les émotions [happy], [laughing] etc. mais phrase en français",
-          "techniques": [
-            "Demander une respiration au milieu de la phrase",
-            "Petit rire avant de parler",
-            "Reprendre sa respiration à un moment clé"
-          ]
-        }
-      },
-      "animation_video": {
-        "heygen": "Talking avatar (lipsync voix ElevenLabs sur photo)",
-        "infinitetalk": "Alternative à HeyGen recommandée par les US (meilleur lipsync)",
-        "wavespeed": "Hub polyvalent qui regroupe plusieurs modèles"
-      },
+      "seedreams": "Modifications NSFW, augmentation poitrine +30%, col en U, léger maquillage",
+      "kling_ai": {"v3_0": "clips courts", "v2_6": "clips longs", "taux_succes": "40-60%"},
+      "minimax_hailuo": "Animations naturelles courtes",
+      "elevenlabs": "Clonage vocal, crochets emotion en anglais [happy] mais phrase en français",
+      "heygen_infinitetalk": "Talking avatar lipsync",
       "edition": "CapCut"
     },
-
     "acquisition_trafic": {
       "principal": "Instagram (7 comptes actifs Mélina)",
-      "secondaire": ["TikTok", "Twitter/X (marché FR en développement)"],
-      "tracking": "GetMySocial (liens trackés par compte)",
+      "secondaire": ["TikTok", "Twitter/X marché FR"],
+      "tracking": "GetMySocial",
       "funnel": "Reel Instagram → Lien bio → OnlyFans gratuit → Chatting → PPV/tips"
     },
-
     "vps_automation": {
-      "provider": "Hostinger",
-      "os": "Ubuntu 24.04",
+      "provider": "Hostinger Ubuntu 24.04",
       "scripts": {
-        "veille_instagram": {
-          "fichier": "veille_instagram.py",
-          "source_comptes": "veille_config.json (GitHub)",
-          "scraping": "Apify (apify~instagram-scraper)",
-          "analyse": "Claude API (5 critères sélection)",
-          "output": "/root/veille_resultats.json",
-          "crontab": "8h quotidien",
-          "upload": "upload_github.sh"
-        },
-        "telegram_deploy": {
-          "fichier": "telegram_deploy.py",
-          "service": "telegram-deploy (systemd, restart automatique)",
-          "usage": "Reçoit fichiers sur Telegram et push sur GitHub automatiquement",
-          "fichiers_autorises": ["index.html", "ofm_knowledge_base.json", "veille_resultats.json", "veille_config.json"],
-          "dependances": "python-telegram-bot, requests, python-dotenv"
-        }
+        "veille_instagram.py": "Scraping Apify + analyse Claude + upload GitHub — cron 8h",
+        "telegram_deploy.py": "Reçoit fichiers Telegram → push GitHub — service systemd permanent",
+        "notify_screens.py": "Notif rappel screens à 23h Thaïlande (16h UTC) — cron quotidien"
       },
-      "env_file": "/root/.env (APIFY_TOKEN, ANTHROPIC_KEY, GITHUB_TOKEN)"
+      "env_file": "/root/.env (APIFY_TOKEN, ANTHROPIC_KEY, GITHUB_TOKEN, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID)"
     },
-
     "dashboard": {
       "url": "lestrass06-bot.github.io/ofm-dashboard",
       "repo": "lestrass06-bot/ofm-dashboard",
       "password": "ofm2026",
-      "deploy_methode": "Bot Telegram - envoyer le fichier au bot = push GitHub automatique",
+      "deploy": "Bot Telegram OFM Dashboard — envoyer fichier au bot = push GitHub auto",
       "sections": [
-        "Vue d'ensemble (revenus, graphes Chart.js)",
-        "Analyse Hebdo (6 slots upload + analyse Claude API)",
-        "Hook Generator (analyse image + génère hooks/captions)",
-        "Compte Mélina (7 comptes, stats Apify: followers, vues, top reels)",
-        "Veille Reels (reels VPS + config comptes/prompt depuis dashboard)",
-        "Agents IA (4 agents avec statuts)",
-        "Chatters (comparaison Théo vs Axel)",
-        "Modèles",
-        "Objectifs",
-        "Revenus",
-        "Finances",
-        "News IA & OFM",
-        "Clés API (Anthropic, OpenAI, Telegram, Apify, GitHub)"
+        "Vue d'ensemble (KPIs, trafic GetMySocial, graphe revenus)",
+        "Analyse Hebdo (6 slots: Infloww Revenus/Abonnés/Chatters x2, OnlyChat AI, GetMySocial)",
+        "Hook Generator",
+        "Compte Mélina (7 comptes, stats Apify)",
+        "Veille Reels (VPS + config depuis dashboard)",
+        "Agents IA (SCOUT/MÉLINA BOT/ORACLE/CRÉA — cards SVG robot/hybride)",
+        "Chatters (Théo vs Axel)",
+        "Revenus (logique mensuelle, reset auto au 1er du mois, historique par mois)",
+        "Clés API"
       ],
       "knowledge_base": "ofm_knowledge_base.json chargée au démarrage, injectée dans tous les prompts IA"
     }
   },
 
+  "agents_ia": {
+    "SCOUT": {
+      "type": "Full Auto",
+      "couleur": "vert",
+      "fonction": "Veille Instagram — scraping Apify + analyse Claude Vision",
+      "frequence": "Quotidien 8h Thaïlande"
+    },
+    "MELINA_BOT": {
+      "type": "Full Auto",
+      "couleur": "orange",
+      "fonction": "Chatting OnlyFans — incarne Mélina 24/7",
+      "unlock_rate": "~40%"
+    },
+    "ORACLE": {
+      "type": "Hybride",
+      "couleur": "bleu",
+      "fonction": "Analyse screens Infloww/OnlyChat/GetMySocial — extrait tous les KPIs",
+      "declencheur": "Manuel (upload screens)"
+    },
+    "CREA": {
+      "type": "Hybride",
+      "couleur": "violet",
+      "fonction": "Pipeline contenu — Nano Banana + Kling AI + ElevenLabs + CapCut",
+      "taux_succes": "~50%"
+    }
+  },
+
   "strategie_contenu": {
     "pipeline_reel": [
-      "1. Veille Instagram - identifier reels performants (VPS automatique 8h/jour)",
-      "2. Extraire le prompt depuis le screen via Claude",
-      "3. Générer la photo avec Nano Banana Pro (modèle de référence)",
-      "4. Améliorer/modifier avec SeaDreams si besoin",
-      "5. Animer avec Kling AI (motion control v3.0)",
-      "6. Remplacer l'audio avec ElevenLabs (voix clonée)",
-      "7. Montage final CapCut"
+      "1. SCOUT scrape reels performants (8h auto)",
+      "2. Tu extrais le prompt via Claude",
+      "3. Nano Banana Pro génère la photo",
+      "4. SeaDreams modifie si besoin",
+      "5. Kling AI anime (v3.0)",
+      "6. ElevenLabs remplace l'audio (voix Mélina clonée)",
+      "7. CapCut montage final"
     ],
-    "criteres_veille_selection": [
-      "Reproductible avec Kling AI motion control (mouvement simple)",
-      "Style lifestyle/sport/restaurant/chill uniquement",
+    "criteres_veille": [
+      "Reproductible avec Kling AI (mouvement simple)",
+      "Style lifestyle/sport/restaurant/chill",
       "Durée 4-16 secondes",
       "Pas de bikini/lingerie",
-      "Modèle ne parle pas ou parle français uniquement (danse et playback OK)",
-      "Score minimum 6/10 pour être recommandé"
+      "Modèle ne parle pas ou parle français",
+      "Score minimum 6/10"
     ],
     "hooks_viraux": [
       "les mecs si tu regardes cette vidéo c'est que t'es seul",
       "ok je vais être honnête...",
-      "si t'es encore là c'est que t'as un problème",
       "si tu t'abonnes je serais obligée de t'envoyer une belle surprise",
-      "est-ce que tu m'appellerais si je te donnais mon numéro",
       "Phrase choc + regard caméra + CTA DM = format gagnant"
     ]
   },
 
   "strategie_chatting": {
-    "modele_flow": [
-      "1. Ice breaker (question ouverte - t'es d'où ?)",
-      "2. Small talk (entretien relationnel - connaitre la personne)",
-      "3. Créer de l'intrigue",
-      "4. Mettre en confiance",
-      "5. Le faire se sentir spécial et intéressant",
-      "6. Créer attraction mutuelle",
-      "7. Proposition PPV (message émotionnel > description sexuelle)",
-      "8. Upsell ou relance"
-    ],
-    "segmentation_fans": {
-      "chaud": "A déjà payé - priorité max",
-      "tiede": "Parle mais hésite",
-      "time_waster": "Parle beaucoup, n'achète jamais - ignorer",
-      "whale": "Très gros dépensier - attention particulière"
-    },
-    "regles_cles": [
-      "Relation → confiance → vente (dans cet ordre)",
-      "On vend une expérience, pas juste des photos",
-      "Message émotionnel > description sexuelle pour les PPV",
-      "1 relance max, ton taquin",
-      "Jamais promettre ce qui n'existe pas"
-    ],
-    "plan_5k": {
-      "etape1": "Doubler les clics (250 → 500/jour via plus de reels)",
-      "etape2": "Doubler la LTV (4-5$ → 10$ par sub)",
-      "math": "500 clics × 7% × 10$ × 30j = 10 500$/mois"
-    }
+    "flow": ["Ice breaker (t'es d'où ?)", "Small talk", "Intrigue", "Confiance", "Spécial/intéressant", "Attraction", "PPV (émotionnel > sexuel)", "Upsell"],
+    "segmentation": {"chaud": "A payé - priorité max", "tiede": "Hésite", "time_waster": "Ignorer", "whale": "Gros dépensier"},
+    "regles": ["Relation → confiance → vente", "Message émotionnel > description sexuelle", "1 relance max ton taquin"]
   },
 
-  "strategie_twitter_fr": {
-    "3_piliers": [
-      "Viral court (clips/teasers + phrases punchy)",
-      "Conversation (réponses/quotes sur tweets qui performent)",
-      "Funnel (1 lien clair + 1 CTA)"
-    ],
-    "regle_or": "Sur X tu gagnes avec la fréquence + régularité, pas avec 1 post parfait",
-    "cadence_lancement": {
-      "tweets_par_jour": "6-10",
-      "reponses_par_jour": "2-4 sous gros comptes FR",
-      "thread_tous_les": "2 jours",
-      "horaires_fr": ["7h30-9h", "12h-14h", "18h-22h", "23h30"]
-    }
-  },
-
-  "ltv_metrics": {
-    "formule_full_free": "LTV = revenus totaux / nombre de fans",
-    "ltv_actuelle": "~5.66$ par fan",
-    "ltv_cible": "10$+ par fan",
-    "lecon": "CVR déjà excellent (7%). Ne pas chercher à améliorer la conversion mais augmenter le volume de trafic.",
-    "payers_vs_fans": "Sur Full Free, la vraie métrique est le % de fans qui paient au moins 1 fois"
+  "automatisations_crons": {
+    "8h_veille": "veille_instagram.py — scraping + analyse + upload GitHub",
+    "16h_utc_23h_thai": "notify_screens.py — rappel Telegram pour upload screens dashboard"
   },
 
   "lecons_apprises": {
-    "organisation": [
-      "Se mettre à 2 sur 1 modèle au début = plus efficace que 1 modèle chacun",
-      "SOP dès le début, même simples",
-      "Règles claires entre associés dès le départ",
-      "Chacun touche à tout pour ne pas être dépendant d'un seul domaine"
-    ],
-    "technique_ia": [
-      "Apify actor URL: apify~instagram-scraper (tilde, pas tiret)",
-      "Apify retourne maintenant une liste directe JSON, pas un dict imbriqué",
-      "Nano Banana: prompt en une seule ligne, femme pas modèle, respecter les tatouages",
-      "SeaDreams: préserver grains de peau naturels, spécifier dans le prompt",
-      "Kling v3.0 pour courts, v2.6 pour longs",
-      "Apostrophes dans les strings JS cassent le code - utiliser des guillemets doubles dans les templates HTML"
+    "technique": [
+      "Apostrophes dans strings JS cassent le code — utiliser guillemets doubles dans templates HTML",
+      "Apify actor: apify~instagram-scraper (tilde pas tiret)",
+      "localStorage source of truth pour KPIs — pas de parsing texte approximatif",
+      "Bot Telegram deploy: service systemd permanent, fichiers autorisés: index.html, ofm_knowledge_base.json, veille_resultats.json, veille_config.json",
+      "Font-family dans strings JS: DM Mono sans apostrophes",
+      "python-dotenv nécessaire pour charger .env dans les scripts Python"
     ],
     "business": [
-      "Full Free + chatting = modèle scalable si le script est bon",
-      "Le reel est le moteur principal d'acquisition",
-      "250 clics/jour = ~17 subs/jour à 7% CVR",
-      "Priorité: augmenter les clics avant tout"
-    ],
-    "dashboard": [
-      "localStorage peut causer des états périmés - hard refresh ou navigation privée",
-      "Les modals doivent être reset dans goTo() pour éviter les bugs de persistance",
-      "Regex JavaScript avec $ et multiligne nécessite un escaping soigneux",
-      "Bot Telegram deploy: envoyer le fichier au bot = push GitHub automatique (service systemd permanent)",
-      "La KB est chargée au démarrage du dashboard via loadOFMKnowledgeBase() et injectée dans tous les prompts"
+      "Mars 2026: 4474$ net — Axel meilleur unlock (42.77%), Théo meilleur volume (2733$)",
+      "Netflix Lingerie = meilleur script OnlyChat AI",
+      "meli_nanaxo = top compte GetMySocial (1946 clics sur 4291 total)",
+      "Full Free + chatting = modèle scalable",
+      "Priorité: augmenter les clics (CVR déjà excellent à 7%)"
     ]
-  },
-
-  "prompts_nano_banana": {
-    "debut_obligatoire": "selfie réaliste pris avec la caméra frontale d'un smartphone",
-    "salle_sport": "selfie réaliste pris avec la caméra frontale d'un smartphone, femme proche de l'objectif penchée vers l'avant, brassière de sport rose, gouttes de transpiration visibles sur le front les tempes le cou et la poitrine, poitrine mise en valeur naturellement par la posture, éclairage salle de sport avec jeu de lumières doux, maquillage léger lèvres glossy sourcils tracés regard intense, cheveux attachés queue de cheval, arrière-plan salle de sport légèrement flou, profondeur de champ réaliste, ultra naturaliste",
-    "serviette_salle_de_bain": "selfie réaliste pris avec la caméra frontale d'un smartphone, femme dans sa salle de bain avec les cheveux mouillés gouttes sur le corps bien visibles, assez proche de l'objectif pour voir la poitrine en valeur et bien la tête aussi, serviette de bain blanche autour du buste, lumière chaude de salle de bain, expression douce et aguicheuse, fond salle de bain moderne",
-    "terrasse_peignoir": "selfie réaliste pris avec la caméra frontale d'un smartphone, femme adulte debout sur une terrasse moderne en extérieur ambiance fin d'après-midi, peignoir de bain blanc légèrement entrouvert laissant apparaître subtilement le haut du décolleté, cheveux mouillés plaqués légèrement en arrière quelques mèches collées sur le front, gouttes d'eau visibles sur la peau clavicules épaules cou, expression douce et surprise regard direct, terrasse carrelage clair balustrade verre piscine floue en arrière-plan, lumière naturelle"
   }
 }
