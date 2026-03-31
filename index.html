@@ -453,13 +453,14 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
           <div>
             <div class="card" style="margin-bottom:12px;">
               <div class="card-title">Screens de la semaine</div>
+              <div style="font-size:11px;color:var(--text3);margin-bottom:8px;">Upload les screens de tes 4 outils — l'IA extrait tout automatiquement</div>
               <div class="upload-grid" id="upload-grid">
-                <div class="upload-slot" id="slot-0" onclick="triggerUpload(0)"><input type="file" id="file-0" accept="image/*" onchange="handleFile(event,0)" style="display:none"/><div class="slot-ph"><div class="slot-icon">📸</div><div class="slot-label">Revenus OF</div></div></div>
-                <div class="upload-slot" id="slot-1" onclick="triggerUpload(1)"><input type="file" id="file-1" accept="image/*" onchange="handleFile(event,1)" style="display:none"/><div class="slot-ph"><div class="slot-icon">📊</div><div class="slot-label">Stats chatters</div></div></div>
-                <div class="upload-slot" id="slot-2" onclick="triggerUpload(2)"><input type="file" id="file-2" accept="image/*" onchange="handleFile(event,2)" style="display:none"/><div class="slot-ph"><div class="slot-icon">🤖</div><div class="slot-label">Stats IA</div></div></div>
-                <div class="upload-slot" id="slot-3" onclick="triggerUpload(3)"><input type="file" id="file-3" accept="image/*" onchange="handleFile(event,3)" style="display:none"/><div class="slot-ph"><div class="slot-icon">👥</div><div class="slot-label">Abonnés</div></div></div>
-                <div class="upload-slot" id="slot-4" onclick="triggerUpload(4)"><input type="file" id="file-4" accept="image/*" onchange="handleFile(event,4)" style="display:none"/><div class="slot-ph"><div class="slot-icon">💬</div><div class="slot-label">Chatting</div></div></div>
-                <div class="upload-slot" id="slot-5" onclick="triggerUpload(5)"><input type="file" id="file-5" accept="image/*" onchange="handleFile(event,5)" style="display:none"/><div class="slot-ph"><div class="slot-icon">➕</div><div class="slot-label">Autre</div></div></div>
+                <div class="upload-slot" id="slot-0" onclick="triggerUpload(0)"><input type="file" id="file-0" accept="image/*" onchange="handleFile(event,0)" style="display:none"/><div class="slot-ph"><div class="slot-icon">💰</div><div class="slot-label">Infloww Revenus</div></div></div>
+                <div class="upload-slot" id="slot-1" onclick="triggerUpload(1)"><input type="file" id="file-1" accept="image/*" onchange="handleFile(event,1)" style="display:none"/><div class="slot-ph"><div class="slot-icon">👥</div><div class="slot-label">Infloww Abonnés</div></div></div>
+                <div class="upload-slot" id="slot-2" onclick="triggerUpload(2)"><input type="file" id="file-2" accept="image/*" onchange="handleFile(event,2)" style="display:none"/><div class="slot-ph"><div class="slot-icon">📊</div><div class="slot-label">Infloww Chatters</div></div></div>
+                <div class="upload-slot" id="slot-3" onclick="triggerUpload(3)"><input type="file" id="file-3" accept="image/*" onchange="handleFile(event,3)" style="display:none"/><div class="slot-ph"><div class="slot-icon">📊</div><div class="slot-label">Chatters (suite)</div></div></div>
+                <div class="upload-slot" id="slot-4" onclick="triggerUpload(4)"><input type="file" id="file-4" accept="image/*" onchange="handleFile(event,4)" style="display:none"/><div class="slot-ph"><div class="slot-icon">🤖</div><div class="slot-label">OnlyChat AI</div></div></div>
+                <div class="upload-slot" id="slot-5" onclick="triggerUpload(5)"><input type="file" id="file-5" accept="image/*" onchange="handleFile(event,5)" style="display:none"/><div class="slot-ph"><div class="slot-icon">🔗</div><div class="slot-label">GetMySocial</div></div></div>
               </div>
               <div style="display:flex;gap:8px;">
                 <button class="btn" id="analyse-btn" onclick="analyseAll()" disabled style="flex:1;">Analyser avec IA</button>
@@ -476,15 +477,30 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
               <div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span style="color:var(--text3);font-size:13px;margin-left:6px;">Claude analyse tes screens...</span></div>
             </div>
             <div id="analyse-sections" style="display:none;">
+              <!-- Score global -->
               <div class="card" id="section-score" style="display:none;text-align:center;margin-bottom:12px;">
                 <div class="score-big" id="score-val">—</div>
                 <div style="font-size:11px;color:var(--text3);">Score semaine / 10</div>
               </div>
-              <div class="card" id="section-revenus" style="display:none;margin-bottom:12px;"><div class="card-title" style="color:var(--green);">Revenus</div><div id="content-revenus" class="analyse-result"></div></div>
-              <div class="card" id="section-chatting" style="display:none;margin-bottom:12px;"><div class="card-title" style="color:var(--purple);">Chatting</div><div id="content-chatting" class="analyse-result"></div></div>
-              <div class="card" id="section-ia" style="display:none;margin-bottom:12px;"><div class="card-title" style="color:var(--orange);">Performance IA</div><div id="content-ia" class="analyse-result"></div></div>
+              <!-- KPIs extraits -->
+              <div class="card" id="section-kpis" style="display:none;margin-bottom:12px;">
+                <div class="card-title" style="color:var(--green);">📊 Chiffres clés extraits</div>
+                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px;" id="kpis-grid"></div>
+              </div>
+              <!-- Revenus -->
+              <div class="card" id="section-revenus" style="display:none;margin-bottom:12px;"><div class="card-title" style="color:var(--green);">💰 Revenus Infloww</div><div id="content-revenus" class="analyse-result"></div></div>
+              <!-- Chatting Théo vs Axel -->
+              <div class="card" id="section-chatting" style="display:none;margin-bottom:12px;">
+                <div class="card-title" style="color:var(--purple);">💬 Chatting — Théo vs Axel</div>
+                <div id="content-chatting" class="analyse-result"></div>
+              </div>
+              <!-- IA -->
+              <div class="card" id="section-ia" style="display:none;margin-bottom:12px;"><div class="card-title" style="color:var(--orange);">🤖 OnlyChat AI</div><div id="content-ia" class="analyse-result"></div></div>
+              <!-- Trafic -->
+              <div class="card" id="section-trafic" style="display:none;margin-bottom:12px;"><div class="card-title" style="color:var(--blue,#3b82f6);">🔗 Trafic GetMySocial</div><div id="content-trafic" class="analyse-result"></div></div>
+              <!-- Actions -->
               <div class="card" id="section-actions" style="display:none;">
-                <div class="card-title" style="color:var(--red);">Actions prioritaires</div>
+                <div class="card-title" style="color:var(--red);">🎯 Actions prioritaires</div>
                 <div id="content-actions" class="analyse-result"></div>
                 <button class="btn btn-green btn-sm" id="import-tasks-btn" onclick="importActionsToTasks()" style="margin-top:10px;width:100%;">+ Importer en tâches</button>
               </div>
@@ -1138,25 +1154,64 @@ async function analyseAll(){
   document.getElementById('analyse-sections').style.display='none';
   var msgContent=[];
   keys.forEach(function(k){msgContent.push({type:'image',source:{type:'base64',media_type:'image/png',data:uploadedImages[k]}});});
-  msgContent.push({type:'text',text:'Tu es expert OFM et analyste business pour une agence sur le marché français. Analyse tous ces screens de statistiques.'+getKBContext()+'Retourne JSON avec: "score" (nombre /10), "revenus" (analyse chiffrée), "chatting" (performance), "ia" (performance IA), "actions" (4-5 actions concrètes et spécifiques à ce business). UNIQUEMENT JSON valide.'});
+  var prompt='Tu es expert OFM et analyste business pour une agence marche francais. Ces screens viennent de: Infloww (revenus, abonnes, chatters), OnlyChat AI (performance bot), GetMySocial (trafic/clics).'+getKBContext()+
+  'Extrais TOUS les chiffres visibles et retourne UNIQUEMENT ce JSON valide (pas de markdown):'+
+  '{"score":8,'+
+  '"kpis":{"revenus_net":"$4474","revenus_brut":"$5593","tips":"$116","messages_revenus":"$4262","publications":"$96","abonnes":495,"unlock_rate_global":"40.24%","theo_sales":"$2733","theo_ppv":"$2728","theo_fans_chatte":523,"theo_unlock":"38.72%","theo_earnings_par_fan":"$53.58","axel_sales":"$2151","axel_ppv":"$2151","axel_fans_chatte":343,"axel_unlock":"42.77%","axel_earnings_par_fan":"$71.70","ai_unlock_rate":"28.8%","ai_revenue":"$402","ai_sales":21,"meilleur_script":"Netflix Lingerie","total_clics_getmysocial":711,"top_lien":"meli_nanaxo","top_lien_clics":269},'+
+  '"revenus":"analyse des revenus en 2-3 phrases avec les chiffres exacts vus",'+
+  '"chatting":"comparaison Theo vs Axel avec chiffres exacts",'+
+  '"ia":"performance OnlyChat AI avec chiffres",'+
+  '"trafic":"analyse GetMySocial avec chiffres clics par compte",'+
+  '"actions":["action 1 concrete","action 2","action 3","action 4"]}';
+  msgContent.push({type:'text',text:prompt});
   try{
-    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:msgContent}]})});
+    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3000,messages:[{role:'user',content:msgContent}]})});
     var data=await res.json();
     var text=data.content&&data.content[0]?data.content[0].text:'{}';
     var result=JSON.parse(text.replace(/```json|```/g,'').trim());
     lastAnalysisActions=result.actions||null;
-    document.getElementById('score-val').textContent=result.score||'—';
-    document.getElementById('content-revenus').textContent=result.revenus||'';
-    document.getElementById('content-chatting').textContent=result.chatting||'';
-    document.getElementById('content-ia').textContent=result.ia||'';
-    document.getElementById('content-actions').textContent=result.actions||'';
-    ['score','revenus','chatting','ia','actions'].forEach(function(s){document.getElementById('section-'+s).style.display=result[s]?'block':'none';});
+    // Score
+    document.getElementById('score-val').textContent=result.score||'--';
+    document.getElementById('section-score').style.display=result.score?'block':'none';
+    // KPIs grid
+    if(result.kpis){
+      var kpis=result.kpis;
+      var kpiLabels={
+        revenus_net:'Revenus net',revenus_brut:'Revenus brut',tips:'Tips',messages_revenus:'Revenus messages',
+        abonnes:'Abonnés',unlock_rate_global:'Unlock rate global',
+        theo_sales:'Ventes Théo',theo_unlock:'Unlock Théo',theo_earnings_par_fan:'$/fan Théo',theo_fans_chatte:'Fans chattés Théo',
+        axel_sales:'Ventes Axel',axel_unlock:'Unlock Axel',axel_earnings_par_fan:'$/fan Axel',axel_fans_chatte:'Fans chattés Axel',
+        ai_unlock_rate:'Unlock IA',ai_revenue:'Revenue IA',ai_sales:'Ventes IA',meilleur_script:'Meilleur script',
+        total_clics_getmysocial:'Total clics',top_lien:'Top lien',top_lien_clics:'Clics top lien'
+      };
+      var kpiColors={revenus_net:'var(--green)',revenus_brut:'var(--green)',theo_sales:'var(--purple)',axel_sales:'var(--purple)',ai_revenue:'var(--orange)',total_clics_getmysocial:'var(--blue,#3b82f6)'};
+      var grid=document.getElementById('kpis-grid');
+      grid.innerHTML=Object.keys(kpis).filter(function(k){return kpis[k]&&kpis[k]!='';}).map(function(k){
+        var color=kpiColors[k]||'var(--text)';
+        return '<div style="background:var(--bg3);border-radius:6px;padding:8px;"><div style="font-size:10px;color:var(--text3);margin-bottom:2px;">'+( kpiLabels[k]||k)+'</div><div style="font-size:14px;font-weight:600;color:'+color+';">'+kpis[k]+'</div></div>';
+      }).join('');
+      document.getElementById('section-kpis').style.display='block';
+    }
+    // Textes
+    var sections=['revenus','chatting','ia','trafic','actions'];
+    sections.forEach(function(s){
+      var el=document.getElementById('content-'+s);
+      var sec=document.getElementById('section-'+s);
+      if(!el||!sec)return;
+      var val=result[s];
+      if(Array.isArray(val)){
+        el.innerHTML=val.map(function(a,i){return '<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:13px;"><span style="color:var(--text3);margin-right:6px;">'+(i+1)+'.</span>'+a+'</div>';}).join('');
+      } else {
+        el.textContent=val||'';
+      }
+      sec.style.display=val?'block':'none';
+    });
     document.getElementById('analyse-sections').style.display='block';
     saveAnalyse(result);renderHistory();
     updateStatsFromAnalysis(result);
     checkRevenueAlert();
   }catch(e){
-    document.getElementById('content-actions').textContent='Erreur: '+e.message;
+    document.getElementById('content-actions').innerHTML='<div style="color:var(--red);">Erreur: '+e.message+'</div>';
     document.getElementById('section-actions').style.display='block';
     document.getElementById('analyse-sections').style.display='block';
   }
