@@ -1,321 +1,456 @@
 {
-  "date": "2026-04-11T08:17:13.897215",
-  "total": 79,
-  "recommandes": 21,
+  "date": "2026-04-12T08:15:28.324657",
+  "total": 78,
+  "recommandes": 30,
   "reels": [
     {
       "username": "joellperry",
-      "url": "https://www.instagram.com/p/DW5P0xxDdkj/",
-      "views": 37151,
-      "duration": 6.338,
-      "caption": "Sun’s out, so am I! ☀️ \n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n",
-      "thumbnail": "https://scontent-lax7-1.cdninstagram.com/v/t51.71878-15/670162048_952739447127085_2403667588459998831_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lax7-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gEYRkmlPo692yjwK9CKsZSvVA9WS7VGElLfjWM84af5_flRBbOTOF_ZDPz70eddzxQ&_nc_ohc=C9b9rrUV5SEQ7kNvwFFoG7w&_nc_gid=XBbpARmPrQa4Qeyl1H-yTw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2Z6-kYZ6dzx45BfXKrzEB8huULPMERt1YZLSI4yqJBFg&oe=69DFC9CB&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "lifestyle",
-        "raison": "Durée parfaite (6.3s), contenu lifestyle ensoleillé avec bon potentiel viral, mouvement simple reproductible",
-        "conseil_kling": "Utiliser motion control pour transition douce d'intérieur vers extérieur, focus sur expression faciale positive et regard caméra, mouvement naturel de sortie"
-      }
-    },
-    {
-      "username": "joellperry",
       "url": "https://www.instagram.com/p/DW2iyKnE6w_/",
-      "views": 57542,
+      "views": 68277,
       "duration": 4.248,
       "caption": "let’s swim! 🌊 \n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.",
-      "thumbnail": "https://scontent-lax7-1.cdninstagram.com/v/t51.71878-15/657615087_1676278423549469_912689054181924051_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lax7-1.cdninstagram.com&_nc_cat=105&_nc_oc=Q6cZ2gGNAkf4Rs1AgLLreLEbVUMLZ8Rz2v4OVT_SKlviY5lfmJbZRRMXAFNcZZydHK6yc18&_nc_ohc=oGvVzmie06cQ7kNvwEyB3eA&_nc_gid=PkiSotUhXr_fy2PrUP9oqw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0hja2BLxuLUNu1CBNyTFQyaBPtA4grbq6BLWkMaaIaog&oe=69DFC0C9&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/657615087_1676278423549469_912689054181924051_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=105&_nc_oc=Q6cZ2gExl7ilvy2ftPgh3pqHY4mfIuCZ0_sQ7qNto-1ha-Lqjd2kWxYJTnNv8Wba8gqw198&_nc_ohc=o84s_rAcP-AQ7kNvwHxlBTe&_nc_gid=Cdgf6hUWf-rJmZ_TERumtw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2Pg5rU_sZYdIaiuMYsMvDaYOkS6305KTVfINERLmtDVA&oe=69E11249&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "sport",
-        "raison": "Durée parfaite (4.2s), mouvement simple de plongeon, bon engagement (57k vues), style sport/lifestyle approprié, pas de dialogue",
-        "conseil_kling": "Créer une séquence de plongeon avec motion control : position initiale debout au bord, mouvement fluide vers l'avant et plongée dans l'eau, camera fixe pour capturer l'action complète"
+        "raison": "Excellent contenu sport aquatique, durée parfaite 4.2s, mouvement simple de plongeon, hook visuel fort avec l'action dynamique, style lifestyle sport très adapté au marché français",
+        "conseil_kling": "Créer une séquence de plongeon avec motion control simple : personnage au bord d'une piscine qui effectue un mouvement de plongée vers l'eau, camera fixe, mouvement fluide et naturel du corps"
+      }
+    },
+    {
+      "username": "joellperry",
+      "url": "https://www.instagram.com/p/DW5P0xxDdkj/",
+      "views": 45575,
+      "duration": 6.338,
+      "caption": "Sun’s out, so am I! ☀️ \n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/670162048_952739447127085_2403667588459998831_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gEK5X4thvsZ0-9VOmnRxlPDMOdHwX-vmbxakB6vnLOA2stlW-2be_zlT17Sf68MCPQ&_nc_ohc=dsDZ2lSgVxAQ7kNvwEswodj&_nc_gid=D10W1QytfkLdUTUP_BHBjQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2kXMUSQ4rg6Lpnirvz18E-KKYwWsqZwoz2tjtSThmm8A&oe=69E11B4B&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Courte durée parfaite (6.3s), style lifestyle ensoleillé avec bon potentiel viral grâce au hook 'Sun's out, so am I', mouvement simple reproductible",
+        "conseil_kling": "Générer une personne souriante en extérieur ensoleillé, mouvement léger vers la caméra avec regard direct, transition douce du visage vers un sourire radieux, éclairage naturel doré"
+      }
+    },
+    {
+      "username": "joellperry",
+      "url": "https://www.instagram.com/p/DWpfHakE6M-/",
+      "views": 85043,
+      "duration": 10.239,
+      "caption": "alright, u can stare 🙈\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.",
+      "thumbnail": "https://scontent-mia5-1.cdninstagram.com/v/t51.71878-15/657928641_26043666641983117_9136738585433864944_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-mia5-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gFOUsydaa5Z20cCOKA4k9PmW-ETgxTFZ-NtyomMF8g5ZDWlxufmVFG4eJzkwUzCcyc&_nc_ohc=wwAWgdzf_bEQ7kNvwFTHzB6&_nc_gid=plh51C_H3fyKP4wvEMw8vA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2XqIV9cMdx8U4Xyagm5ebyOZiWTY_2W67i56AX2Gy0eg&oe=69E13E8F&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "sport",
+        "raison": "Durée parfaite, mouvement simple de fitness, regard caméra engageant, hook visuel fort avec la pose sportive",
+        "conseil_kling": "Filmer une femme en tenue de sport faisant un mouvement de fitness simple (squat ou pose), camera fixe, focus sur le regard caméra confiant"
+      }
+    },
+    {
+      "username": "joellperry",
+      "url": "https://www.instagram.com/p/DW-AOFPTYIj/",
+      "views": 17774,
+      "duration": 9.147,
+      "caption": "let me win 🥹\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.",
+      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/670773813_17943431211171961_1498506420895164006_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gEuaNIGWch62siPDPkqMTYbU1DkpIj3LK1KN5wHEVHvRqwvFjBPJGzNXgTQCniSTSY&_nc_ohc=4nkBTXQbuVIQ7kNvwFyu-I9&_nc_gid=X9k0NvF983GOmr674ICbjQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2nYPOCXqf3C99IElapRREwQrvZhGknINL4Wh2Mr5PX6g&oe=69E12CA1&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Durée parfaite, expression émotionnelle forte avec regard caméra, mouvement simple et naturel, caption engageante qui crée de l'empathie",
+        "conseil_kling": "Utiliser motion control pour créer une légère inclinaison de tête avec expression suppliante, regard direct caméra, mouvement subtil des yeux et micro-expressions faciales"
       }
     },
     {
       "username": "joellperry",
       "url": "https://www.instagram.com/p/DWeWn_WAGbc/",
-      "views": 34279,
+      "views": 35080,
       "duration": 9.966,
       "caption": "Happy Sunday🥰\n#explorepage",
-      "thumbnail": "https://scontent-hou1-1.cdninstagram.com/v/t51.71878-15/656903498_1723781075669504_5530192170125674558_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-hou1-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gGPEepdZIRJ6z-DMdngbQoepo9Y-G4qR6bNK3qZYongMa5jbTopfOBe28HMabc-mo8&_nc_ohc=-IoCiqLyZGQQ7kNvwG2faMb&_nc_gid=ox6naO_fOiP1vUMcKV7rXA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1yYO_y3NFGEfJsI7m8DsMP9fL7T8lhCDDCEDLOYzQRcA&oe=69DFD45A&_nc_sid=10d13b",
+      "thumbnail": "https://instagram.fagc1-2.fna.fbcdn.net/v/t51.71878-15/656903498_1723781075669504_5530192170125674558_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.fagc1-2.fna.fbcdn.net&_nc_cat=108&_nc_oc=Q6cZ2gFB7TNUQ0hoBIGtbxcJ0o9ioPdYikV6Fy5-DTZdAjqnIMLPg-ER36TREPzhZhth4Nk&_nc_ohc=-IoCiqLyZGQQ7kNvwFXkSqI&_nc_gid=eOQ7UvoUNszy2zU0OyrexQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af27PCYxjoZ7Dauut9ehvCY3WCyeoHs78FGNqT_kkXf2JQ&oe=69E125DA&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Excellent potentiel viral avec regard caméra direct, sourire authentique, durée parfaite et ambiance chill dominicale très engageante",
-        "conseil_kling": "Générer un portrait femme souriante regardant directement la caméra, mouvement subtil de cheveux et expression faciale chaleureuse, éclairage naturel doux"
+        "raison": "Excellent contenu lifestyle avec regard caméra engageant, durée parfaite, mouvement simple et ambiance chill dominicale très relatable",
+        "conseil_kling": "Générer un plan fixe d'une femme souriante regardant la caméra avec léger mouvement de cheveux et expression faciale naturelle, éclairage doux naturel"
+      }
+    },
+    {
+      "username": "joellperry",
+      "url": "https://www.instagram.com/p/DWll-AFgCyg/",
+      "views": 55547,
+      "duration": 13.118,
+      "caption": "What color are my eyes? 😍\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n",
+      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/657240168_2370619796750260_4362249638507103133_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gFK6BBppbUGk4212wSJUDUYN7ZEM1xiVpg3cz-J_2lI-lNGdYACYL2WlkDRf-Gicyw&_nc_ohc=a1qz4Trjve0Q7kNvwF5YRnt&_nc_gid=pX006BD7wY4PZBRhk8rMAA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0O_LnaZ6I-126T2S-JJl6z0fIq0XeSsWSpQjqLUP8lug&oe=69E121AB&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Reel simple avec gros plan sur les yeux, regard caméra direct, hook visuel fort avec question engageante. Durée parfaite et mouvement minimal reproductible.",
+        "conseil_kling": "Créer un gros plan visage avec léger zoom progressif sur les yeux, ajouter un mouvement subtil de tête et clignement naturel des yeux pour l'engagement"
+      }
+    },
+    {
+      "username": "dahyn1xoficial",
+      "url": "https://www.instagram.com/p/DWwpIp-DshL/",
+      "views": 153977,
+      "duration": 11.61,
+      "caption": "Taking energy from the sun… ☀️✨\n\n.\n\n.\n\n.\n#reels #cutegirl #eeuu #usa #bellydance",
+      "thumbnail": "https://instagram.flas1-2.fna.fbcdn.net/v/t51.71878-15/660461588_1658588795282581_839611970221190027_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.flas1-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2gGjTWp3pzFvgUdRYT6cPi7sAROrBSOW_Cuh4hjp8K-zt2Usl8wUVKbjZRvxW_ef58Y&_nc_ohc=6X_h3g3QxF0Q7kNvwGG29f_&_nc_gid=WvzuIUzM_LPxYqO-Lgv8kQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3v-yiD6ikIHCTVrNYCksOBCEKF7q0nnAi2GSa1Z65s1g&oe=69E13BF7&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "danse",
+        "raison": "Belly dance lifestyle avec bons mouvements fluides, durée parfaite, regard caméra engageant, concept 'energy from the sun' accrocheur",
+        "conseil_kling": "Créer une séquence de mouvements de danse orientale fluides avec rotation des hanches et bras gracieux, éclairage doré simulant la lumière du soleil, camera fixe avec leger zoom"
+      }
+    },
+    {
+      "username": "dahyn1xoficial",
+      "url": "https://www.instagram.com/p/DWSg1xRDlkC/",
+      "views": 327972,
+      "duration": 10.966,
+      "caption": "Just a transition… and everything turns red ❤️✨\n\n.\n\n.\n\n.\n\n.\n\n#reels #cutegirl #eeuu #cute #usa",
+      "thumbnail": "https://scontent-bos5-1.cdninstagram.com/v/t51.71878-15/658650059_2205274550311206_4687958551220965394_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-bos5-1.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2gFZGzN2syIFLr2LoLjTHvT2rR_ebrW4ZeH5G8gqKh6BYmmlH-mQGxym5mwIsuKuI8Q&_nc_ohc=OaZgj9bryDAQ7kNvwGl544S&_nc_gid=YVQoIQUvFDeWIOMLvy14Uw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1pRj50bCelRVG9SmrwHzGJa62qlCj6jXYAzGLU8lHkWA&oe=69E10AA9&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Transition visuelle simple et efficace avec changement de couleur rouge, durée parfaite, mouvement basique reproductible",
+        "conseil_kling": "Utiliser motion control pour transition fluide entre deux looks, focus sur changement chromatique rouge, mouvement de pose statique vers pose finale"
       }
     },
     {
       "username": "dahyn1xoficial",
       "url": "https://www.instagram.com/p/DWHGh-yjqLD/",
-      "views": 53445,
+      "views": 53812,
       "duration": 12.9,
       "caption": "Abs don’t just appear on their own… 😮‍🔥\n\n.\n\n.\n\n.\n\n.\n#reels #viral #florida #girl #usa",
-      "thumbnail": "https://scontent-sjc6-1.cdninstagram.com/v/t51.71878-15/655155903_717023028164257_2471845235487709718_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2gGLqTCu5f7WGwNcmFimjgm2gMfoYR569DDf4f29nqk0mHC91DbcZlgQXlzFq17acOM&_nc_ohc=c6kBm80ejT8Q7kNvwG4_jFo&_nc_gid=iOtc95hR644Qm_R6Gh7f3g&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3ZvDz8Nkdl-GdDs4WC0Y1WWCbJZyUpmyDYRPG0vRdIPQ&oe=69DFCD10&_nc_sid=10d13b",
+      "thumbnail": "https://instagram.fhio2-2.fna.fbcdn.net/v/t51.71878-15/655155903_717023028164257_2471845235487709718_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.fhio2-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2gFdsfozmZch2aOOjJAU5I3zxO0Gc6Wxesd0WjoiKUeILnTFnpqwq21DxUNogUfqOyU&_nc_ohc=c6kBm80ejT8Q7kNvwEYSlJ7&_nc_gid=bWoJzx-oc7hSEgWUuAlVUQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1S8Hmwfa3i1kDRrqkyKmj0GNhTLjCZSFUDb67rokmEHA&oe=69E11E90&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "sport",
-        "raison": "Contenu fitness avec mouvement simple d'exercices abdominaux, durée parfaite, hook visuel fort avec le message motivationnel sur les abdos",
-        "conseil_kling": "Filmer en plan fixe une séquence d'exercices abdominaux simples (crunchs, planche) avec transition fluide, focus sur les mouvements répétitifs et contrôlés"
+        "raison": "Contenu fitness avec mouvements d'abdos simples, durée parfaite, hook visuel fort avec regard caméra et transformation physique motivante",
+        "conseil_kling": "Filmer une séquence d'exercices abdominaux simples avec transitions fluides, focus sur les expressions faciales déterminées et le regard caméra, utiliser un éclairage naturel et des mouvements répétitifs faciles à reproduire"
       }
     },
     {
-      "username": "dahyn1xoficial",
-      "url": "https://www.instagram.com/p/DWH7XQGDpCF/",
-      "views": 53098,
-      "duration": 15.51,
-      "caption": "The sun came out… I guess it heard I was going for a walk ☀️😌\n\n.\n\n.\n\n.\n\n.\n#reels #eeuu #viral #latin",
-      "thumbnail": "https://scontent-phx1-1.cdninstagram.com/v/t51.71878-15/655677882_2053961141836155_229236640148515528_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-phx1-1.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gG6J3q9CdMGEBoxBmCsL7xFr6L0zscfzDRlU25Y5qAM7gAkLmjHGkcgh6tdnpMwEFk&_nc_ohc=2S1VkKi322MQ7kNvwF4Ywdk&_nc_gid=-M258gwerimMKwZ8IFTspA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3wjhRIl5HOIp7PVIsuOYMMnqSLad8l0vNMLZfzMcqOvA&oe=69DFE153&_nc_sid=10d13b",
+      "username": "karen.katc",
+      "url": "https://www.instagram.com/p/DWO6fawjaG0/",
+      "views": 60993,
+      "duration": 11.866,
+      "caption": "",
+      "thumbnail": "https://instagram.flnk2-1.fna.fbcdn.net/v/t51.71878-15/657293127_25915462978135589_1643885328125247349_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.flnk2-1.fna.fbcdn.net&_nc_cat=105&_nc_oc=Q6cZ2gGxfnWdx9ffMO6ZKtSIipFNg7k4bzDL4FjrPIZnNWKNjwRgrbnwbAnQLNGjp8v2GDU&_nc_ohc=d7yxrnNsd5AQ7kNvwHnh3cW&_nc_gid=Z3i85ODBhWL7efpi8n5E8A&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0Po3to-7rUjGb4K0r4JQ5Mk-jnwUZdde8ClS51lPemCw&oe=69E12903&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Contenu lifestyle avec soleil naturel, durée parfaite, mouvement simple de marche, potentiel viral avec good vibes et relatabilité",
-        "conseil_kling": "Prompts: 'jeune femme souriante marchant en extérieur, lumière dorée du soleil, mouvement naturel de marche, regard occasionnel caméra, cheveux bougent légèrement, tenue décontractée'. Utiliser motion control pour marche fluide et jeu de lumière solaire"
+        "raison": "Durée parfaite, mouvement simple de regard caméra avec expression faciale engageante, style lifestyle propre adapté au marché français",
+        "conseil_kling": "Générer un portrait femme regardant directement la caméra avec léger mouvement de tête et changement d'expression subtil, éclairage naturel, arrière-plan flou"
+      }
+    },
+    {
+      "username": "karen.katc",
+      "url": "https://www.instagram.com/p/DW9XpmYDYdq/",
+      "views": 42708,
+      "duration": 10.82,
+      "caption": "",
+      "thumbnail": "https://scontent-lax3-2.cdninstagram.com/v/t51.71878-15/670828640_1330496532474595_839633436719045833_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lax3-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gHFpsr27Zp6WH_plfvOaAsjew3G-MUWbXLh19i4c2E5_-76zYRPf9ksXG7yAJuUp64&_nc_ohc=p9XDvH807_gQ7kNvwEOcw9U&_nc_gid=37YpfgTFWsJxq7ciQIMqWw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0k71MLGExDnT5P6HDo8BqxGume0W1SLRMOATc9E1d2WA&oe=69E1153F&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Contenu lifestyle authentique avec bon potentiel viral, durée optimale et mouvement simple reproductible",
+        "conseil_kling": "Utiliser motion control pour mouvement de cheveux naturel et regard caméra direct, ajouter léger zoom progressif pour intensifier l'émotion"
       }
     },
     {
       "username": "karen.katc",
       "url": "https://www.instagram.com/p/DW7C4maAA1Y/",
-      "views": 35973,
+      "views": 50646,
       "duration": 14.066,
       "caption": "Santorini😍❤️",
-      "thumbnail": "https://scontent-atl3-3.cdninstagram.com/v/t51.71878-15/669025278_2400087977120241_5268162297355613461_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-atl3-3.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gHxQrAn7EcifFctON5s2Kahw_Xcznh-MkZIsYECk9WqPcgwFzeEV77K8w7GMGOC0eG2ml5H7ScY9kZO0okEyfmf&_nc_ohc=SV4wE3wF8SUQ7kNvwFF6sGH&_nc_gid=W3VP0AIslhzkY9hiFzsxBA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1KbdxPt4QY04303p7ip4xjNHFQkANBgZ9F3ZHUFESXHw&oe=69DFD0FA&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/669025278_2400087977120241_5268162297355613461_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gE6DibmcJXrrmkIPI4YMYFz6pX8q9mvrnxp5TujjTO4ux__NAjUcztBL-kR4v6IEV0&_nc_ohc=SV4wE3wF8SUQ7kNvwH3gBkl&_nc_gid=f-umAZzaY9YHbFRlltG6RA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0iDR424oT3IaVrB9lSNyrX7Rpd32e1dIzB59yO-b-XmA&oe=69E1227A&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Contenu lifestyle voyage avec décor iconique de Santorin, durée parfaite, mouvement simple reproductible, potentiel viral fort grâce au cadre paradisiaque",
-        "conseil_kling": "Générer une femme en robe fluide sur terrasse blanche avec vue mer bleue, mouvement lent de cheveux au vent, regard caméra avec sourire naturel, architecture grecque en arrière-plan"
-      }
-    },
-    {
-      "username": "karen.katc",
-      "url": "https://www.instagram.com/p/DV9gCMsAH2b/",
-      "views": 49553,
-      "duration": 12.446,
-      "caption": "",
-      "thumbnail": "https://scontent-lga3-1.cdninstagram.com/v/t51.71878-15/653937826_911781765095770_3483103401223215752_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2gG7FX3pDZaYLwMl7FIREChf7KG6AnnnMw_KZoHRHqRltmPcbyJGRsv1KlR-nreeEjs&_nc_ohc=dMgapBUdSPQQ7kNvwEWXmQ8&_nc_gid=H0Y1lBzI9MuSoLuh4SPD3Q&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3-bpDWkhLscxXBkJv1I-tnirVXHRjpT-whbtPvBoMzTw&oe=69DFC440&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "lifestyle",
-        "raison": "Excellent potentiel viral avec regard caméra direct, durée parfaite, mouvement simple de transition/reveal, style lifestyle épuré très tendance sur Instagram français",
-        "conseil_kling": "Utiliser motion control pour transition douce zoom-in ou reveal avec regard caméra fixe, mouvement subtil des cheveux/vêtements, éclairage naturel constant"
-      }
-    },
-    {
-      "username": "julia_delenes22",
-      "url": "https://www.instagram.com/p/DW6VNP6Ahwi/",
-      "views": 15044,
-      "duration": 7.8,
-      "caption": "Au moins j’ai essayer",
-      "thumbnail": "https://instagram.fagc1-1.fna.fbcdn.net/v/t51.71878-15/670311051_4493459820885194_3750692554388727736_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.fagc1-1.fna.fbcdn.net&_nc_cat=102&_nc_oc=Q6cZ2gEIZNqESNeExgi0cMjxjvNZMRmItlFTvwwKLmYEgfMZsvQ-0EotvpHMMs00U_77ECg&_nc_ohc=_gpSUjIRH44Q7kNvwF4EtRw&_nc_gid=VeDTcgNzL_303Ng2KxAz3w&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2tIiNq5exArexvkGSjYFZQfLhX1Eniqa2Uy0mpOO88-g&oe=69DFCF98&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "sport",
-        "raison": "Mouvement sportif simple et reproductible, durée parfaite, hook visuel fort avec l'échec qui crée de l'émotion et de l'engagement",
-        "conseil_kling": "Créer une séquence de tentative d'exercice ou trick sportif avec échec visible, mouvement linéaire simple, expression faciale de déception authentique, cadrage fixe centré sur l'action"
-      }
-    },
-    {
-      "username": "julia_delenes22",
-      "url": "https://www.instagram.com/p/DW4DpcrAl2h/",
-      "views": 27298,
-      "duration": 7.547,
-      "caption": "Quand tu vas dire bonjour au mec de ta petite sœur et qu’il bagaye dans son bonjour",
-      "thumbnail": "https://scontent-phl2-1.cdninstagram.com/v/t51.71878-15/658059695_1276724127154819_5901699686251578703_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-phl2-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gFpR7CxvTyx3sEPXQyZCvva3PdIadzLkzXZ_BXTDTyuIqxFwUJ4UqEqFY3OEudtpA0&_nc_ohc=912ckxlMtbsQ7kNvwELFPXJ&_nc_gid=tXOwVWOYQeBknE53YrJ-iQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1Ow_pGMAoALDt6TE8o6daAgDsqfjawaqlJvSlGp9RDjg&oe=69DFC6A1&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "chill",
-        "raison": "Concept viral avec situation relationnelle drôle, durée parfaite, regard caméra direct et expression faciale marquée qui génère de l'engagement",
-        "conseil_kling": "Créer une séquence simple : gros plan sur visage avec expression neutre puis transition vers sourire confiant/regard intense. Mouvement de tête léger et changement d'expression faciale graduel"
-      }
-    },
-    {
-      "username": "julia_delenes22",
-      "url": "https://www.instagram.com/p/DWt3KHugp-V/",
-      "views": 20124,
-      "duration": 5.083,
-      "caption": "Quand tu veux mettre tes cheveux en valeur après le coiffeur >>",
-      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/659342463_958853280223296_8417389774236665261_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gEM2b_UF-JIuqMb9FJQSQnWEI2agXkn-F79eRpSydbGXgh4sP0qI4KkTyHro6RXZIA&_nc_ohc=xEar_YQ97uAQ7kNvwGveNka&_nc_gid=sIk2Vi7YPZG78ztk52kdZw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0oOUUZWN_RdztnrdUAvGGOO1__7pvp9_WZGcdnhepQmg&oe=69DFDA64&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "lifestyle",
-        "raison": "Contenu lifestyle parfait : courte durée, mouvement simple de cheveux, regard caméra, caption en français engageante sur la mise en valeur après coiffeur",
-        "conseil_kling": "Créer une séquence simple : femme face caméra qui bouge ses cheveux avec les mains, léger mouvement de tête, regard direct caméra avec sourire subtil"
-      }
-    },
-    {
-      "username": "julia_delenes22",
-      "url": "https://www.instagram.com/p/DW1lvzTgrjD/",
-      "views": 73181,
-      "duration": 6.152,
-      "caption": "L’après sport",
-      "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/661563524_2168886417277174_4817421101158853875_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2gEEfnckjGyjzzOpEZpXlagsLS9s-Bvs28wOPIgzP7OdKqf2Uxpbo6NuFd1nexj_8YY&_nc_ohc=g8RXe-KFrHkQ7kNvwERluO7&_nc_gid=qBbUqZmocx7NS7h4at-tKg&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af24c9LQWfNLbh2ZyW4-lWIQh8PDhVnOxESksk6eh-ji_A&oe=69DFD957&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "sport",
-        "raison": "Contenu post-workout lifestyle avec bon potentiel viral, durée parfaite et aesthetic sport trending",
-        "conseil_kling": "Filmer en plan fixe une femme en tenue de sport qui regarde la caméra avec expression satisfaite, léger mouvement de cheveux et transition douce d'éclairage"
-      }
-    },
-    {
-      "username": "julia_delenes22",
-      "url": "https://www.instagram.com/p/DWeUTK9go8t/",
-      "views": 40033,
-      "duration": 7.198,
-      "caption": "À la salle ça m’a regardé bizarre mais c’est pas grave on voit pas mon visage 👀",
-      "thumbnail": "https://scontent-mia3-3.cdninstagram.com/v/t51.71878-15/661689837_1655958348753165_7620665512559400024_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-mia3-3.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gEhNbFMSmDZsdDsCZKDmURq_C10MYfoT0ZW5doI9cRJuAs5GwfV8dMlY4jGJzx3arE&_nc_ohc=eHtM6lhP9ugQ7kNvwGkVE_A&_nc_gid=9RbHvfdySXvDpj70ytVo0A&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1AeC9r8KZHQQlz0JBppva9V8ZPndGUKXGEC3vPxRd4MQ&oe=69DFE168&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "sport",
-        "raison": "Contenu salle de sport avec hook humoristique fort, durée parfaite, style lifestyle fitness très populaire sur Instagram français",
-        "conseil_kling": "Créer mouvement simple de caméra suivant une silhouette en salle de sport, focus sur les équipements et l'ambiance gym, mouvement fluide de bas en haut ou panoramique"
+        "raison": "Contenu voyage lifestyle avec décor iconique de Santorin, durée parfaite, mouvement simple reproductible, fort potentiel viral grâce au cadre paradisiaque",
+        "conseil_kling": "Créer une séquence avec femme en robe fluide sur terrasse blanche avec vue mer bleue, mouvement de cheveux au vent et regard caméra, lumière dorée du coucher de soleil"
       }
     },
     {
       "username": "julia_delenes22",
       "url": "https://www.instagram.com/p/DWy99i6gs1P/",
-      "views": 17485,
+      "views": 18406,
       "duration": 8.382,
       "caption": "Moi et ma chienne",
-      "thumbnail": "https://scontent-mia3-2.cdninstagram.com/v/t51.71878-15/662307226_2771952639806839_2259953082264620240_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gGepgIyfbCWwoK30gAXtsjakDiO8RPEVZI3JC6sWPkqCv4EWhui0-Xg7z7ldT-qrjqJlfiN-qPFfn6gFbHg8Vm0&_nc_ohc=_2skDKRqdSkQ7kNvwE1iWWG&_nc_gid=e4jT8h72Bk3LoqCFFGT7Gg&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2yBow4hqPs0kae9P4_NFyeU4oZ7T65jt1bq1wTF0hBcw&oe=69DFC8F0&_nc_sid=10d13b",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/662307226_2771952639806839_2259953082264620240_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gHYiI6m1IlJOTfSAWx0RZESnjvrRfowXZG8bA8K48vMachngU88YnfyRhVdFlPU5wA&_nc_ohc=OhUBvv1h0oEQ7kNvwEX6Swp&_nc_gid=gATHV0tF_PjABPifVSIuqA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3-qopLAkkk8ZoJm3OAxsGsUcB4_iXHoWK2TpKZwp9fFA&oe=69E11A70&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Contenu lifestyle avec animal de compagnie, durée parfaite, concept simple et reproductible, potentiel viral fort grâce au lien émotionnel humain-animal",
-        "conseil_kling": "Créer une séquence simple avec personne et chien en interaction naturelle, utiliser motion control pour mouvement fluide de caméra et expressions faciales subtiles, focus sur la complicité regarder caméra"
+        "raison": "Contenu parfait pour lifestyle français - moment authentique avec animal, durée idéale, émotions naturelles et hook visuel fort",
+        "conseil_kling": "Créer scène simple femme + chien en intérieur, mouvement léger de caresse/interaction, focus sur expressions faciales et connexion émotionnelle"
+      }
+    },
+    {
+      "username": "julia_delenes22",
+      "url": "https://www.instagram.com/p/DW4DpcrAl2h/",
+      "views": 28805,
+      "duration": 7.547,
+      "caption": "Quand tu vas dire bonjour au mec de ta petite sœur et qu’il bagaye dans son bonjour",
+      "thumbnail": "https://scontent-hou1-1.cdninstagram.com/v/t51.71878-15/658059695_1276724127154819_5901699686251578703_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-hou1-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gHAuJH6w_Rvo3MoYM6Z2K0RwNJdc_85yXzasPNaaOjrlPGh38l2ry8ujl9dmMMr_To&_nc_ohc=Z37d7Ln-_McQ7kNvwGSZKMI&_nc_gid=W3Hp7zio_mV0JVfkbkhpgA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af24EFzJb5CyN4N5AvDF6b_f68VxyujNTSlKZNF0-JXQmA&oe=69E11821&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Durée parfaite, concept viral relatif aux relations familiales, regard caméra expressif, mouvement simple reproductible",
+        "conseil_kling": "Générer une jeune femme regardant la caméra avec expression confiante/amusée, léger mouvement de tête et changement d'expression subtil, fond neutre intérieur"
+      }
+    },
+    {
+      "username": "julia_delenes22",
+      "url": "https://www.instagram.com/p/DW_0u5-guye/",
+      "views": 9882,
+      "duration": 9.543,
+      "caption": "",
+      "thumbnail": "https://scontent-dfw6-1.cdninstagram.com/v/t51.71878-15/670987226_26296886893324346_8406527509909340_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-dfw6-1.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gFbhcLkHrxEWdxEcNuJKpdmoiPwD3EQc-ErQjOB1mtzs6z2-lUb-dIzcwVyuR6iU0Y&_nc_ohc=1EMOYt7yMuEQ7kNvwGTtOD2&_nc_gid=mxnhO5OjauCgSQNzfsAaXw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af06g7fVxI5qnQEXsd2Bi6iz1syFsI_nQeP3jR7JNeYQnw&oe=69E131C0&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Durée parfaite (9.5s), style lifestyle adapté au marché français, mouvement simple reproductible, bon potentiel d'engagement avec 9882 vues",
+        "conseil_kling": "Utiliser motion control pour mouvement de cheveux naturel, ajustement de posture subtil, regard caméra direct avec expression confiante, éclairage doux uniforme"
       }
     },
     {
       "username": "julia_delenes22",
       "url": "https://www.instagram.com/p/DWjhPs7gjRt/",
-      "views": 22721,
+      "views": 23186,
       "duration": 8.127,
       "caption": "Quand t’es 100% naturel sans maquillage juste toi et tes tache de roux sœurs",
-      "thumbnail": "https://instagram.fhio2-2.fna.fbcdn.net/v/t51.71878-15/658064190_1306638174724471_3209828892086429524_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.fhio2-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2gG9nj48QhX2nJNRGHKDitPKgY_k1qr6pKIgbUega7BoLegvJY8A32s19OK8tE_ybnM&_nc_ohc=oauByam8NTwQ7kNvwHIyNH-&_nc_gid=YLQB7FtI9FAcfdi0qMmFaQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3S4mVzjsuPcUBHAn6g_iwcmZ-QNP4A1ME-G2ljXot8tg&oe=69DFD2A4&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-lax3-2.cdninstagram.com/v/t51.71878-15/658064190_1306638174724471_3209828892086429524_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lax3-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gEIow3SLOWUibdYRNOHE0adjfWlB1K2vmgb5ulBUF5uu4bcHmBGCY8a03wSMQ9w42Q&_nc_ohc=w4CZfGXHBl4Q7kNvwH7qkYI&_nc_gid=SV0y1hjbY2eifuSW5B_Dyg&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1rFswTVCOoO7Vg9uv0nZN4_qlqJK-axjADZMG1b7iKJQ&oe=69E12424&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Contenu authentique et positif sur l'acceptation de soi, durée parfaite, regard caméra engageant, message inspirant en français",
-        "conseil_kling": "Portrait statique ou léger mouvement de tête, focus sur expressions faciales naturelles, éclairage doux, transition douce entre poses confiantes"
+        "raison": "Contenu naturel et authentique avec bon engagement, durée parfaite, message positif sur l'acceptation de soi sans maquillage",
+        "conseil_kling": "Portrait fixe d'une femme rousse regardant la caméra, légers mouvements de tête et sourire naturel, éclairage doux naturel, zoom progressif sur le visage"
       }
     },
     {
-      "username": "annatomaax",
-      "url": "https://www.instagram.com/p/DWyvYFnDOre/",
-      "views": 120019,
-      "duration": 4.133,
-      "caption": "Tu préfères quoi ? 🫶🏼\n.\n.\n.\n#blonde #humour #yeuxbleu",
-      "thumbnail": "https://scontent-dfw5-1.cdninstagram.com/v/t51.71878-15/660991897_1272230475056873_7819612920400836355_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=105&_nc_oc=Q6cZ2gHTvPt6kqsS9v95a2ogxzGHDCNtPydpWI8oYCbyeWiXCtjB21J2nLFsw6lIY6Wvi_U&_nc_ohc=W3pfgy4-zvMQ7kNvwHoOoS_&_nc_gid=aruMDnvJvfZjqBj4VM_ojQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0-6bld08DPj7ToaTDxTIPWNxmJFDtwaQhZ6si6myqZvg&oe=69DFC232&_nc_sid=10d13b",
+      "username": "julia_delenes22",
+      "url": "https://www.instagram.com/p/DWiyqAQgk7v/",
+      "views": 24260,
+      "duration": 6.3,
+      "caption": "Pov : ton beau père passe son temps à te regarder, le copain de ta sœur essaye d’ouvrir la salle de ",
+      "thumbnail": "https://scontent-hou1-1.cdninstagram.com/v/t51.71878-15/657456731_1483204520192512_3186227244829053597_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-hou1-1.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gGY4YcChihr9MYygPxhpt5c0aoOHi74ExX1HDG_YqEvrjUv_tLauIt2m16gxetpR3E&_nc_ohc=sj4GZOSYu4cQ7kNvwH5PCFI&_nc_gid=0a7u02FmeOntENAiB01Mzw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3_LH6ST4qkb7X2IC1cTQG3u5p359KxsdxNPR6DCJqoDA&oe=69E12C94&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Durée parfaite (4s), question engageante créant de l'interaction, regard caméra direct, mouvement simple de présentation, contenu lifestyle approprié",
-        "conseil_kling": "Créer un plan fixe avec léger zoom sur le visage, mouvement subtil de tête et expressions faciales changeantes, regard caméra constant, transition douce entre deux expressions/poses"
+        "raison": "Excellent concept POV avec regard caméra direct, durée parfaite 6.3s, situation relationnelle très relatable pour audience française, potentiel viral élevé",
+        "conseil_kling": "Plan fixe buste/visage, modèle regarde directement la caméra avec expression complice/gênée, légers mouvements de tête et expressions faciales subtiles, éclairage naturel"
+      }
+    },
+    {
+      "username": "julia_delenes22",
+      "url": "https://www.instagram.com/p/DW1lvzTgrjD/",
+      "views": 79487,
+      "duration": 6.152,
+      "caption": "L’après sport",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/661563524_2168886417277174_4817421101158853875_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2gEZzPEA-peA6LMUfYC_jCOJ_JbhdG-4OayRuvIZZVNKLGPg66map6NHEzhUD2ixnWQ&_nc_ohc=lAHxyfyU6R8Q7kNvwHVZBhU&_nc_gid=gjMED0ViejHLuLwQl1QBtg&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3-GKWS6ndxBhoHiGe4Yd9gY2Hq6x67WuOUMYC_MIyydw&oe=69E12AD7&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "sport",
+        "raison": "Contenu post-sport parfait pour lifestyle fitness, durée idéale, mouvement simple reproductible, concept viral 'après sport' très engageant",
+        "conseil_kling": "Utiliser motion control pour transition douce entre poses post-workout, focus sur expressions faciales naturelles et mouvements corporels détendus, éclairage naturel post-effort"
       }
     },
     {
       "username": "clari_cremaschi",
-      "url": "https://www.instagram.com/p/DWXB-1DOr40/",
-      "views": 684679,
-      "duration": 12.398,
-      "caption": "😼🤝",
-      "thumbnail": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/659024121_17883496770496550_2910241514086542348_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-sea5-1.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gGARIqyjbp4w_gUQLjmpf_moOHfNE6rcuWBc5j0ip-8HgfUzK4TcXJ0huBi3j91YHw&_nc_ohc=lpkND9PtUBkQ7kNvwEwHR-0&_nc_gid=-_jdeEWUTYO0_UXq00sqdQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af19g8ixYD3AjYd2_up8rbaYyAn_CHB2yf0gMzc0qjmDGw&oe=69DFDBB3&_nc_sid=10d13b",
+      "url": "https://www.instagram.com/p/DM-6qP6JiBw/",
+      "views": 1166566,
+      "duration": 6,
+      "caption": "seguime en @claricrefit para rutinas🫣",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/527453829_759167160028212_5430045713132295505_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gGJSQnEwY5FplxLTUQ0PacAQI86TzgolzTfOOFHEgirOtpU2WYAEd5aC0YKZ0tIlas&_nc_ohc=_txeEe2RlhIQ7kNvwFGqxjr&_nc_gid=QRBhilU9Rq96KjEchgMvSQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0D4v9rjxwUlvenzPSBZmHxrWm5wBfYsDC18RH6jlN-1g&oe=69E10A4C&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
-        "style": "lifestyle",
-        "raison": "Excellent potentiel viral avec regard caméra intense, mouvement simple de pose, durée parfaite et style lifestyle élégant",
-        "conseil_kling": "Créer un plan fixe avec léger zoom sur le visage, mouvement subtil de tête et regard direct caméra, lighting doux pour effet dramatique"
-      }
-    },
-    {
-      "username": "clari_cremaschi",
-      "url": "https://www.instagram.com/p/DVJvwoMDL3J/",
-      "views": 1065464,
-      "duration": 7.4,
-      "caption": "😭😭😔",
-      "thumbnail": "https://scontent-bos5-1.cdninstagram.com/v/t51.71878-15/641750033_1380036060594823_9118395934000959322_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-bos5-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gFdg3uZMvr38TfEwSDE5fyS7k3wibhu_IOkLY2Uec9udo876QjFafig97cFHnXpaAc&_nc_ohc=4tjYNcc7dEcQ7kNvwHLC3Bq&_nc_gid=V31wzVXjZyWgFExr2-UH4A&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1wZ3Qf-GuoxuBsyIQ9LgiKgYu3J_UiRtn-_DuZhc8tzw&oe=69DFDE31&_nc_sid=10d13b",
-      "analyse": {
-        "score": 8,
-        "recommande": true,
-        "style": "lifestyle",
-        "raison": "Excellent potentiel viral avec expression émotionnelle forte, durée parfaite 7.4s, regard caméra captivant et mouvement simple reproductible",
-        "conseil_kling": "Créer une séquence avec modèle regardant la caméra, expression faciale passant de neutre à déçue/triste, léger mouvement de tête et des épaules, éclairage naturel"
+        "style": "sport",
+        "raison": "Excellent contenu fitness avec mouvement simple d'exercice, durée parfaite de 6s, regard caméra engageant et potentiel viral élevé pour audience fitness française",
+        "conseil_kling": "Utiliser motion control pour mouvement de squat ou exercice simple, focus sur le regard caméra, transition fluide début-fin d'exercice, éclairage naturel en intérieur"
       }
     },
     {
       "username": "clari_cremaschi",
       "url": "https://www.instagram.com/p/DHWz7hHp0GD/",
-      "views": 3375823,
+      "views": 3376038,
       "duration": 11,
       "caption": "🤪",
-      "thumbnail": "https://scontent-hou1-1.cdninstagram.com/v/t51.71878-15/485094009_3953364508210204_2324379009432679197_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-hou1-1.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gEvHKyhkvWuNEHfU62apEZdEOSPST9u-1Y5I1l6kSOOtcmY2D-c5EF9-dIwGMhV1oc&_nc_ohc=uCNIymtCUdkQ7kNvwFaL4M7&_nc_gid=El6kMmcbRXHHGP04hM9kUg&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0N2So3i3oQizIvxLjXfuH3kQxC_D8TxJ7yeO4v4ytHPw&oe=69DFCC1E&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-phx1-1.cdninstagram.com/v/t51.71878-15/485094009_3953364508210204_2324379009432679197_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-phx1-1.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gGBOBaElwtEy5PP6_t7DgeiSN0Ll1dEvzD5bdb6goJQWo0B3J2xYTs5cnwNIAqZep4&_nc_ohc=Tdk-h1XPR9AQ7kNvwEO27V_&_nc_gid=oYfGbRDB1wyAsJlqLNuFWQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0qgzUgHshUt7Jxc78I_7U7mmhRAKEr2LeX6nzywHRw4g&oe=69E11D9E&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Excellent potentiel viral avec regard caméra direct, expression faciale engageante, durée parfaite et mouvement simple reproductible",
-        "conseil_kling": "Utiliser motion control pour zoom progressif sur le visage avec micro-expressions faciales, contrôler les mouvements de tête subtils et maintenir le contact visuel constant avec la caméra"
+        "raison": "Excellent potentiel viral avec regard caméra intense, expression faciale marquante, durée parfaite et mouvement simple reproductible",
+        "conseil_kling": "Générer un portrait femme regardant directement la caméra avec expression faciale changeante (sourire malicieux vers regard intense), léger mouvement de tête, éclairage naturel, cadrage serré visage/épaules"
       }
     },
     {
       "username": "clari_cremaschi",
-      "url": "https://www.instagram.com/p/DQS1KOpDOqX/",
-      "views": 3230649,
-      "duration": 5.466,
-      "caption": "PORQUEEE😭😏",
-      "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/572096765_1416037793463840_7616924854693611933_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gG26GWc2YqlBWC5Ld5Wcw79X6wZ24aOhH1VPSs8CP90YSlM7p5qPk6qVOxmbJIqGng&_nc_ohc=CA0qXTiLoQcQ7kNvwHK6yKz&_nc_gid=LQTKyT_qyhsh1ZvZmZbJGQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2z4niz-mxmDa_WjCATuSrPGpE6nkrqDDkiaz9qS9W0tw&oe=69DFBB98&_nc_sid=10d13b",
+      "url": "https://www.instagram.com/p/DOpLai8D1gH/",
+      "views": 1721889,
+      "duration": 14.033,
+      "caption": "ándate clara!",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/545467645_814463721115932_2471133462249622717_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gGLwi62JwdhScxxLmVuDTNWj9d86Zs7W7ARVhLRdUpS-_K09EYs2-0gcliTbRQEfbk&_nc_ohc=2yiDFJJDEyIQ7kNvwGscwtZ&_nc_gid=295DOxn5-MM5Qz38UzpAOQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af1FXrWnDzddVQoWbBer1nibU-srhjSr43UCRZyzfzSxYg&oe=69E10BBC&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Excellent potentiel viral avec regard caméra intense, émotion claire de frustration/séduction, durée parfaite et mouvement simple reproductible",
-        "conseil_kling": "Générer une jeune femme brune regardant intensément la caméra avec expression frustrée puis séductrice, léger mouvement de tête et changement d'expression, fond neutre, plan rapproché visage"
+        "raison": "Excellent potentiel viral avec regard caméra direct, mouvement simple de cheveux, durée parfaite et esthétique soignée. Style lifestyle élégant sans contenu explicite.",
+        "conseil_kling": "Utiliser motion control pour mouvement subtil des cheveux et léger balancement du corps. Focus sur l'expression du visage et le regard caméra. Éclairage doux et arrière-plan flou pour reproduire l'esthétique."
+      }
+    },
+    {
+      "username": "clari_cremaschi",
+      "url": "https://www.instagram.com/p/DLvjnsApRQr/",
+      "views": 5479084,
+      "duration": 7.166,
+      "caption": "😎🫵🏽",
+      "thumbnail": "https://instagram.fdet3-1.fna.fbcdn.net/v/t51.71878-15/504375244_1708065109897487_7045876959012831445_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.fdet3-1.fna.fbcdn.net&_nc_cat=111&_nc_oc=Q6cZ2gFLk3TWonJV42LokEPVnyw9apAW7QUpu6A3WXLZmwZaXcGuHUGnCtiKdlX15ZC7Yas&_nc_ohc=CcweTnXkqZ8Q7kNvwGYIeQB&_nc_gid=bH9Am3No19SSu_nF3zoBog&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2MkOV1WSap_mcLpaEoW2uk4PnAD6vPZ8IMlwYdnwh4bQ&oe=69E1247B&_nc_sid=10d13b",
+      "analyse": {
+        "score": 8,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Excellent potentiel viral avec regard caméra direct, durée parfaite, mouvement simple et reproductible. Style lifestyle chill avec lunettes de soleil, très engageant.",
+        "conseil_kling": "Créer un plan fixe avec modèle portant lunettes de soleil, regard caméra confiant, léger mouvement de tête ou geste de la main pointant vers la caméra, éclairage naturel"
       }
     },
     {
       "username": "martucardillo_",
-      "url": "https://www.instagram.com/p/DW-G-bmAO3y/",
-      "views": 173017,
-      "duration": 11.4,
+      "url": "https://www.instagram.com/p/DWw_6zSCfga/",
+      "views": 167225,
+      "duration": 6.942,
       "caption": "",
-      "thumbnail": "https://scontent-lax3-2.cdninstagram.com/v/t51.71878-15/670889278_2685314088515287_8359105461855283672_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lax3-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gFmJDNi9vwsBlouXvq6n-5bj5dhFBSc0xVmkEeDABaKTcEw-DVThIXJ_zYe42cuqJc&_nc_ohc=E5Jf2IgojT8Q7kNvwHFqYzX&_nc_gid=2fnneOiPAvG5Jk5JjW97jw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af2XA9yp_ibT3AOt-d4WLilWq1NSB5JWlPqRfaej1A62-w&oe=69DFEAC3&_nc_sid=10d13b",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/660305118_1459361065688889_7953597273472856791_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gF8SNT0njw857ifuT-a3xhZyqi1hbVHKyK2TJV0LNYyggTTNTcM6MhNsULyO8ZPX8o&_nc_ohc=-nqZTypNJ3EQ7kNvwER3-hX&_nc_gid=8MsAIMjAiOih3AiNRIKA5A&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3DsB_FbUOSOhtz-C1vUNLH4owqJ16bKAyNyvsMMbt4Pw&oe=69E13500&_nc_sid=10d13b",
       "analyse": {
         "score": 8,
         "recommande": true,
         "style": "lifestyle",
-        "raison": "Vidéo courte avec modèle regardant la caméra, mouvement simple de cheveux, style lifestyle épuré, très reproductible",
-        "conseil_kling": "Portrait femme brune cheveux longs, regard direct caméra, léger mouvement de cheveux au vent, lumière naturelle douce, arrière-plan flou neutre"
+        "raison": "Excellente durée de 6.9s, mouvement simple et fluide, regard caméra engageant, style lifestyle épuré avec bon potentiel viral",
+        "conseil_kling": "Utiliser motion control pour un mouvement de tête doux vers la caméra, cheveux qui bougent naturellement, expression faciale qui passe de neutre à sourire subtil"
+      }
+    },
+    {
+      "username": "joellperry",
+      "url": "https://www.instagram.com/p/DWg5Qc6D2Fe/",
+      "views": 42759,
+      "duration": 10.944,
+      "caption": "Oh no it’s Monday🙈🙈\n#fyp #explorepage #usa",
+      "thumbnail": "https://scontent-bos5-1.cdninstagram.com/v/t51.71878-15/657671590_1274584494608973_2816427396024582226_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-bos5-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2gG-LetvwxKBrIppKmlNG7Mq-djg1PTekXYF7m6F1bLjV-9goNC9W5i-BNkUTGVkbmQ&_nc_ohc=h3m2ENCvrRUQ7kNvwEjS_fw&_nc_gid=Vf7e0DwmQX6OJZh68W3tOw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3HjHNknaB4_XTbQ65_gEAj1DVsxt9HvyXu7WT-SO-a2g&oe=69E11EAC&_nc_sid=10d13b",
+      "analyse": {
+        "score": 7,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Durée parfaite, expression faciale claire 'Monday blues', mouvement simple reproductible, bon potentiel viral avec thème universel",
+        "conseil_kling": "Filmer en gros plan une personne faisant une expression de dépit/fatigue face caméra, léger mouvement de tête ou geste de la main, transition d'expression neutre vers déçue"
+      }
+    },
+    {
+      "username": "karen.katc",
+      "url": "https://www.instagram.com/p/DV9gCMsAH2b/",
+      "views": 49743,
+      "duration": 12.446,
+      "caption": "",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/653937826_911781765095770_3483103401223215752_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2gE-l8xeXLzzcqUPBJ6_zo2CMsP9S13Id671ClaDRTr8E70B6bVz4UAh5keiIiKI31I&_nc_ohc=dMgapBUdSPQQ7kNvwGd6sfP&_nc_gid=bijf41vDoY8LD4Z9NddEnQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af19ez46vHEViM1N2ym0rX59nnNEcL-pUixMeYBqnUbaow&oe=69E115C0&_nc_sid=10d13b",
+      "analyse": {
+        "score": 7,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Durée parfaite, bon engagement, style lifestyle adapté au marché français, mouvement simple reproductible",
+        "conseil_kling": "Utiliser motion control pour mouvement de cheveux naturel et regard caméra direct, mise au point sur l'expression faciale avec transition douce"
+      }
+    },
+    {
+      "username": "karen.katc",
+      "url": "https://www.instagram.com/p/DSyfl41DRJV/",
+      "views": 224966,
+      "duration": 14.1,
+      "caption": "",
+      "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/606662662_875578851530555_1902839661961874532_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gEALevuaPr2cXfY9fIhV4dHfD_1lPV_OUzXWOpjZytWHCw6yS_ASr2pEvGrO0qP3Z4&_nc_ohc=UWZ8ArtykeUQ7kNvwEoVOf2&_nc_gid=Qo1t-_iTQ3ULOfpP9Sfd9g&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3DeUWd20W-GOxaWx9vdBIFmP5MMe3eayQUW8UQ5MqciQ&oe=69E11763&_nc_sid=10d13b",
+      "analyse": {
+        "score": 7,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Contenu lifestyle simple avec bon potentiel viral, durée appropriée et mouvement reproductible",
+        "conseil_kling": "Générer une séquence avec personne regardant la caméra, mouvement de cheveux ou gestes simples, éclairage naturel, expression confiante et engageante"
+      }
+    },
+    {
+      "username": "julia_delenes22",
+      "url": "https://www.instagram.com/p/DWt3KHugp-V/",
+      "views": 20918,
+      "duration": 5.083,
+      "caption": "Quand tu veux mettre tes cheveux en valeur après le coiffeur >>",
+      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/659342463_958853280223296_8417389774236665261_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gHpNDNlLE9Fj6hUCccGvMutSTvU3GL_51AFbfKWr4nNwvObVe2nr5F5oqDwyc4dyQY&_nc_ohc=2aafF1Zg_DIQ7kNvwG_A1uB&_nc_gid=NNHxrbGzPrNUzjawFhasBg&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3mqOPw0Hs9ry93XB73mB_-vMPLeLpcU8NOB4A5vtKquw&oe=69E12BE4&_nc_sid=10d13b",
+      "analyse": {
+        "score": 7,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Contenu lifestyle cheveux/beauté avec bonne durée, caption française engageante, mouvement simple de mise en valeur capillaire",
+        "conseil_kling": "Créer une séquence simple de mouvement de cheveux avec regard caméra, transition fluide de position statique vers mouvement capillaire gracieux"
+      }
+    },
+    {
+      "username": "julia_delenes22",
+      "url": "https://www.instagram.com/p/DW6VNP6Ahwi/",
+      "views": 16573,
+      "duration": 7.8,
+      "caption": "Au moins j’ai essayer",
+      "thumbnail": "https://scontent.cdninstagram.com/v/t51.71878-15/670311051_4493459820885194_3750692554388727736_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gEW9HC3ytarqafm9jYBMqSE00y39EpKD61XfqCw3RigdUDeFWiqFp1xtXFIsUDuTYA&_nc_ohc=DpMPcacXpukQ7kNvwHFLPOS&_nc_gid=exSFkbxFC33BA0qbjmLHnA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0bhHbjgzQLadDj_RFOhvI3LUNmntt8Yr4ixDtp6Z6tGQ&oe=69E12118&_nc_sid=10d13b",
+      "analyse": {
+        "score": 7,
+        "recommande": true,
+        "style": "sport",
+        "raison": "Séquence sport simple et authentique avec bonne durée, regard caméra et émotion claire d'effort/détermination",
+        "conseil_kling": "Créer une séquence motion control d'une personne en tenue de sport regardant la caméra puis effectuant un mouvement sportif simple avec expression de concentration puis de satisfaction"
+      }
+    },
+    {
+      "username": "annatomaax",
+      "url": "https://www.instagram.com/p/DWyvYFnDOre/",
+      "views": 121577,
+      "duration": 4.133,
+      "caption": "Tu préfères quoi ? 🫶🏼\n.\n.\n.\n#blonde #humour #yeuxbleu",
+      "thumbnail": "https://instagram.frkh1-1.fna.fbcdn.net/v/t51.71878-15/660991897_1272230475056873_7819612920400836355_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.frkh1-1.fna.fbcdn.net&_nc_cat=105&_nc_oc=Q6cZ2gH_ucOG0auPJKcgtjSnt-iwKaq7FZECOeb8HRsthQTbJAqV4yJkd53agZnX6Yi8Qvw&_nc_ohc=W3pfgy4-zvMQ7kNvwEOHorp&_nc_gid=J1DKW3COzIn-cF_aZw7EUQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3zGgLu8Swp9uYW0aQMxKspy7OVNY--KI3tjLQ-S5RQ9A&oe=69E113B2&_nc_sid=10d13b",
+      "analyse": {
+        "score": 7,
+        "recommande": true,
+        "style": "lifestyle",
+        "raison": "Courte durée idéale, regard caméra engageant, question interactive qui génère de l'engagement, style lifestyle approprié",
+        "conseil_kling": "Créer un plan fixe ou légèrement mobile sur le visage, avec transition douce entre deux expressions/poses pour illustrer les deux choix de la question, maintenir le contact visuel avec la caméra"
       }
     },
     {
       "username": "annatomaax",
       "url": "https://www.instagram.com/p/DW86QnejA6B/",
-      "views": 13389,
+      "views": 18485,
       "duration": 9.1,
       "caption": "Laisse moi deviner 👀\n.\n.\n.\n#blonde #humour #cuisine #platdujour",
-      "thumbnail": "https://scontent-mia3-1.cdninstagram.com/v/t51.71878-15/671165529_1554627666377231_2127708558098560269_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-mia3-1.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gGmVlQDR5WJU5Vl9hW4gUAUk569UbkLXxcGAVPEGID1BfNXwDXcrWt9kSB4TSpWCKI&_nc_ohc=ctqgHmBEm3UQ7kNvwGd0ib4&_nc_gid=x0TFAjWbEQ5qykwrRHnomA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af3xXDsE9uYuD5_zOnqSeTvsmkE6GpCRwP5jB46V16uWUA&oe=69DFD51F&_nc_sid=10d13b",
+      "thumbnail": "https://scontent-lga3-1.cdninstagram.com/v/t51.71878-15/671165529_1554627666377231_2127708558098560269_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gH9MoUMpsULPXIEhZOLv38jXZR4YvtR3IX9asYU8PH2k4gMpl01tQDIdLNxZnWPbc8&_nc_ohc=CkwGaLFHAi0Q7kNvwE5QiER&_nc_gid=aj56Ntiw4V4XNpKVUKi9Hw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Af0_ueVNSs2-vevuitjUyHf14y_GsutpPQRV_dNd3FOmFg&oe=69E1269F&_nc_sid=10d13b",
       "analyse": {
         "score": 7,
         "recommande": true,
         "style": "cuisine",
-        "raison": "Contenu cuisine avec hook visuel 'Laisse moi deviner', durée parfaite 9.1s, style lifestyle adapté au marché français",
-        "conseil_kling": "Filmer en plan fixe une femme blonde en cuisine regardant la caméra avec expression malicieuse, mouvement simple de tête ou gestuelle main, transition vers plat cuisiné"
+        "raison": "Durée parfaite 9.1s, contenu cuisine lifestyle avec humour, regard caméra engageant, hook 'Laisse moi deviner' intriguant",
+        "conseil_kling": "Femme blonde en cuisine regardant la caméra avec expression malicieuse, léger mouvement de tête et sourire complice, éclairage naturel cuisine"
       }
     }
   ]
